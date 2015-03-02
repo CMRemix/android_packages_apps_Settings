@@ -188,6 +188,11 @@
             android:title="@string/status_bar_temperature_title"
             android:fragment="com.android.settings.cmremix.StatusBarWeather" />
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="force_expanded_notifications"
+            android:title="@string/force_expanded_notifications_title"
+            android:summary="@string/force_expanded_notifications_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
