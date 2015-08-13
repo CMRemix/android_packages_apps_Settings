@@ -901,4 +901,8 @@
     <!-- On-The-Go -->
     <string name="power_menu_onthego_title">On-The-Go Mode</string>
 
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Three finger gesture</string>
+    <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
+
 </resources>
