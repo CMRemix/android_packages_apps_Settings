@@ -3,6 +3,7 @@ package com.android.settings.cmremix;
 import android.os.Bundle;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -22,12 +23,16 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+    private static final String SCROLLINGCACHE_DEFAULT = "1";
 
     private Context mContext;
 
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+    private ListPreference mScrollingCachePref;
 
     @Override
     protected int getMetricsCategory() {
@@ -39,6 +44,7 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.screen_and_animations);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
         mContext = getActivity().getApplicationContext();
@@ -67,6 +73,12 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
+
+        // Scrolling cache
+        mScrollingCachePref = (ListPreference) prefSet.findPreference(SCROLLINGCACHE_PREF);
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -99,6 +111,12 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_INTERPOLATOR,
                     value);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+        }
+        if (preference == mScrollingCachePref) {
+            if (objValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)objValue);
+            return true;
+            }
         }
         return false;
     }
