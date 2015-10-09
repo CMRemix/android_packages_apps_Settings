@@ -46,6 +46,7 @@ import com.android.settingslib.bluetooth.LocalBluetoothManager;
 public final class BluetoothEnabler extends GenericSwitchToggle {
     private LocalBluetoothAdapter mLocalAdapter;
     private IntentFilter mIntentFilter;
+    private int mLastState;
 
     private static final String EVENT_DATA_IS_BT_ON = "is_bluetooth_on";
     private static final int EVENT_UPDATE_INDEX = 0;
@@ -130,6 +131,9 @@ public final class BluetoothEnabler extends GenericSwitchToggle {
     }
 
     void handleStateChanged(int state) {
+        if (mLastState == state)
+           return;
+        mLastState = state;
         switch (state) {
             case BluetoothAdapter.STATE_TURNING_ON:
                 setEnabled(false);
