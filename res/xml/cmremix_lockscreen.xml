@@ -37,9 +37,11 @@
 
         <PreferenceScreen
             android:key="cm_lockscreen_shortcuts"
-            android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
-            android:title="@string/cm_lockscreen_shortcuts_title"
-            android:summary="@string/cm_lockscreen_shortcuts_summary" />
+            android:title="@string/cm_lockscreen_shortcuts_title" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 
