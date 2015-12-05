@@ -1,5 +1,6 @@
 package com.android.settings.cmremix;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7,6 +8,8 @@ import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.widget.Toast;
 
@@ -44,8 +47,9 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.screen_and_animations);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        Activity activity = getActivity();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
         mContext = getActivity().getApplicationContext();
 
