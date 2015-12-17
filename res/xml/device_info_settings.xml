@@ -34,6 +34,16 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
 
+        <!-- CMRemix Updater -->
+        <PreferenceScreen android:key="cmremix_updates"
+                android:title="@string/cmremixupdate_settings_title"
+                android:icon="@drawable/ic_settings_cmremixupdater"
+                android:summary="@string/cmremixupdate_settings_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cmremix.updater"
+                    android:targetClass="com.cmremix.updater.UpdatesSettings" />
+        </PreferenceScreen>
+
         <!-- LineageOS Updates -->
         <cyanogenmod.preference.SelfRemovingPreference android:key="cm_updates"
                 android:title="@string/cmupdate_settings_title"

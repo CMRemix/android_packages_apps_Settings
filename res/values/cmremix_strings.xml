@@ -20,4 +20,9 @@
     <string name="cmremix_version">CMRemix version</string>
     <string name="cmremix_version_default">Unknown</string>
 
+    <!-- CMRemix Updater -->
+    <string name="cmremixupdate_settings_title">CMRemix updates</string>
+    <string name="cmremixupdate_settings_alternate_title">System updates</string>
+    <string name="cmremixupdate_settings_summary">Check for, view or install available updates</string>
+
 </resources>
