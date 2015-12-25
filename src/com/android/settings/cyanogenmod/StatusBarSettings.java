@@ -27,6 +27,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -73,7 +74,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
@@ -95,8 +95,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mColorPicker;
     private ListPreference mFontStyle;
     private ListPreference mStatusBarClockFontSize;
-    private SwitchPreference mCustomHeader;
-    private SwitchPreference mCustomHeaderDefault;
+    private ListPreference mCustomHeaderDefault;
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
@@ -110,6 +109,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     }
 
     private PreferenceScreen createCustomView() {
+
         mCheckPreferences = false;
         addPreferencesFromResource(R.xml.status_bar_settings);
 
@@ -212,17 +212,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 14)));
         mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntry());
 
-        // Status bar custom header
-        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
-        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
-        mCustomHeader.setOnPreferenceChangeListener(this);
-
         // Status bar custom header default
-        mCustomHeaderDefault = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeaderDefault.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0) == 1));
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
         mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+        int customHeaderDefault = Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
+        mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
@@ -365,21 +361,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.STATUSBAR_CLOCK_FONT_SIZE, val);
             mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntries()[index]);
             return true;
-        } else if (preference == mCustomHeader) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
         } else if (preference == mCustomHeaderDefault) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
-                    (Boolean) newValue ? 1 : 0);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    0);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    1);
+            int customHeaderDefault = Integer.valueOf((String) newValue);
+            int index = mCustomHeaderDefault.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(), 
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, customHeaderDefault);
+            mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
+            createCustomView();
             return true;
         }
         return false;
