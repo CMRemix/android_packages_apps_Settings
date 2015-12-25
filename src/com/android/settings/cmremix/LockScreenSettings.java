@@ -24,7 +24,7 @@ import android.preference.PreferenceScreen;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.Helpers;
+import com.android.settings.cmremix.utils.Helpers;
 
 import com.android.internal.logging.MetricsLogger;
 
