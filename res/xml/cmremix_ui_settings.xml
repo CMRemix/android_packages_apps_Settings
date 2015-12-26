@@ -47,7 +47,8 @@
         <PreferenceScreen
                 android:key="lockscreen_cmremix"
                 android:fragment="com.android.settings.cmremix.LockScreenSettings"
-                android:title="@string/cmremix_lockscreen_title">
+                android:title="@string/cmremix_lockscreen_title"
+                android:icon="@drawable/ic_cmremix_lockscreen">
         </PreferenceScreen>
 
         <!-- Buttons -->
