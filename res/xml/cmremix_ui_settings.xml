@@ -24,32 +24,30 @@
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_extdesk_hidenavbar"
-                />
+                android:icon="@drawable/ic_settings_extdesk_hidenavbar">
+        </PreferenceScreen>
 
         <!-- Display & lights -->
         <PreferenceScreen
                 android:id="@+id/display_and_lights_settings"
                 android:title="@string/display_and_lights"
                 android:fragment="com.android.settings.DisplaySettings"
-                android:icon="@drawable/ic_settings_display"
-                />
+                android:icon="@drawable/ic_settings_display">
+        </PreferenceScreen>
 
         <!-- Notification manager -->
         <PreferenceScreen
                 android:id="@+id/notification_manager"
                 android:title="@string/notification_manager"
                 android:fragment="com.android.settings.notification.NotificationManagerSettings"
-                android:icon="@drawable/ic_settings_notifications"
-                />
+                android:icon="@drawable/ic_settings_notifications">
+        </PreferenceScreen>
 
-        <!-- Lock screen -->
+        <!--CMRemix Lockscreen shortcuts -->
         <PreferenceScreen
-                android:id="@+id/lockscreen_settings"
-                android:title="@string/lockscreen_settings"
-                android:fragment="com.android.settings.SecuritySettings"
-                android:icon="@drawable/ic_settings_security">
-                <extra android:name="filter_type" android:value="0" />
+                android:key="lockscreen_cmremix"
+                android:fragment="com.android.settings.cmremix.LockScreenSettings"
+                android:title="@string/cmremix_lockscreen_title">
         </PreferenceScreen>
 
         <!-- Buttons -->
@@ -57,21 +55,22 @@
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
                 android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_settings_buttons"
-                />
+                android:icon="@drawable/ic_settings_buttons">
+        </PreferenceScreen>
 
         <!-- CMRemix Tweaks -->
         <PreferenceScreen
                 android:key="cmremix_tweaks"
                 android:title="@string/cmremix_tweaks_title"
                 android:fragment="com.android.settings.cmremix.CMRemixTweaks"
-                android:icon="@drawable/ic_cmremix_tweaks"
-                />
+                android:icon="@drawable/ic_cmremix_tweaks">
+        </PreferenceScreen>
 
         <!-- CMRemix Change Log -->
        <PreferenceScreen android:key="changelog"
                android:title="@string/changelog_title"
                android:icon="@drawable/ic_settings_about"
-               android:fragment="com.android.settings.cmremix.ChangeLog" />
+               android:fragment="com.android.settings.cmremix.ChangeLog">
+        </PreferenceScreen>
 
 </PreferenceScreen>
