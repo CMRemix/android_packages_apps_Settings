@@ -497,4 +497,9 @@
     <string name="recents_show_searchbar">Show Search Bar in Recents</string>
     <string name="recents_show_searchbar_summary">Enable or disable the Google search bar in the recents menu</string>
 
+    <!-- Recents Fullscreen -->
+    <string name="recents_show_fullscreen">Recents in fullscreen</string>
+    <string name="recents_fullscreen_summary_enabled">Recents in fullscreen is enabled</string>
+    <string name="recents_fullscreen_summary_disabled">Recents in fullscreen is disabled</string>
+
 </resources>
