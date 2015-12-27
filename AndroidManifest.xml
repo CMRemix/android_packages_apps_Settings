@@ -2679,6 +2679,9 @@
                        android:resource="@id/wireless_settings" />
         </activity>
 
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
         <activity android:name=".Settings$LockScreenSettingsActivity"
                   android:label="@string/lockscreen_settings"
                   android:taskAffinity="">
