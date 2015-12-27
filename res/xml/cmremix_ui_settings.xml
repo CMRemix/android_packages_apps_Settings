@@ -59,20 +59,20 @@
                 android:icon="@drawable/ic_settings_buttons">
         </PreferenceScreen>
 
+        <!-- Recent panel settings -->
+       <PreferenceScreen
+                android:key="recents_panel"
+                android:fragment="com.android.settings.cmremix.RecentsPanelSettings"
+                android:title="@string/recents_panel_title"
+                android:icon="@drawable/ic_recents">
+        </PreferenceScreen>
+
         <!-- CMRemix Tweaks -->
         <PreferenceScreen
                 android:key="cmremix_tweaks"
                 android:title="@string/cmremix_tweaks_title"
                 android:fragment="com.android.settings.cmremix.CMRemixTweaks"
                 android:icon="@drawable/ic_cmremix_tweaks">
-        </PreferenceScreen>
-
-        <!-- Recent panel settings -->
-       <PreferenceScreen
-                android:key="recents_panel"
-                android:fragment="com.android.settings.cmremix.RecentsPanelSettings"
-                android:title="@string/recents_panel_title"
-                 android:icon="@drawable/ic_recents">
         </PreferenceScreen>
 
         <!-- CMRemix Change Log -->
