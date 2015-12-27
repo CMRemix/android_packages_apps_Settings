@@ -19,6 +19,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/cmremix_lockscreen_title">
 
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_options_title" >
+
         <PreferenceScreen
             android:key="lockscreen_wallpaper"
             android:title="@string/lockscreen_wallpaper_title"
@@ -26,6 +30,14 @@
             android:persistent="false"
             android:fragment="com.android.settings.cmremix.LockscreenWallpaper">
         </PreferenceScreen>
+
+    <!-- Clock widget -->
+    <PreferenceScreen
+         android:key="lock_clock"
+         android:fragment="com.android.settings.cmremix.LockClock"
+         android:title="@string/lock_clock_title" />
+
+    </PreferenceCategory>
 
         <!-- Weather -->
         <PreferenceCategory
