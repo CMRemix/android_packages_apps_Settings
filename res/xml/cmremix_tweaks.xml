@@ -19,6 +19,14 @@
     android:title="@string/cmremix_tweaks_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Screen and animations -->
+    <PreferenceScreen
+         android:key="screen_and_animations"
+         android:fragment="com.android.settings.cmremix.ScreenAndAnimations"
+         android:title="@string/screen_and_animations_title"
+         android:icon="@drawable/ic_settings_animations">
+   </PreferenceScreen>
+
     <!-- Gesture anywhere -->
     <PreferenceScreen
          android:key="gesture_anywhere"
