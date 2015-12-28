@@ -44,6 +44,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import com.android.settings.cmremix.utils.SeekBarPreference;
 import com.android.internal.logging.MetricsLogger;
 
 public class CarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
@@ -53,14 +54,15 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private static final String SHOW_CARRIER_LABEL = "status_bar_show_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
+    private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
     private PreferenceScreen mCustomCarrierLabel;
-
     private ListPreference mShowCarrierLabel;
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
+    private SeekBarPreference mStatusBarCarrierSize;
 
     @Override
     protected int getMetricsCategory() {
@@ -97,6 +99,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
 
+        mStatusBarCarrierSize = (SeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
+        mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 14));
+        mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
+
     }
 
     private void updateCustomLabelTextSummary() {
@@ -126,6 +133,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putIntForUser(resolver, Settings.System.
                 STATUS_BAR_SHOW_CARRIER, showCarrierLabel, UserHandle.USER_CURRENT);
             mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntries()[index]);
+            return true;
+         } else if (preference == mStatusBarCarrierSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
             return true;
          }
          return false;
