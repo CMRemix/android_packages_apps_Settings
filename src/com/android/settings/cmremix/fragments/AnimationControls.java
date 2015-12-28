@@ -170,7 +170,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mTaskOpenBehind.setEntryValues(mAnimationsNum);
 
         int defaultDuration = Settings.System.getInt(mContentRes,
-                Settings.System.ANIMATION_CONTROLS_DURATION, 25);
+                Settings.System.ANIMATION_CONTROLS_DURATION, 10);
         mAnimationDuration = (SlimSeekBarPreference) findPreference(ANIMATION_DURATION);
         mAnimationDuration.setInitValue((int) (defaultDuration));
         mAnimationDuration.setOnPreferenceChangeListener(this);
