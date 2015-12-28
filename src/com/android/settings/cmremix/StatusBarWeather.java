@@ -47,11 +47,13 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final String STATUS_BAR_TEMPERATURE_STYLE = "status_bar_temperature_style";
     private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
+    private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
 
     private ListPreference mStatusBarTemperature;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
     private SeekBarPreference mStatusBarTemperatureSize;
+    private ListPreference mStatusBarTemperatureFontStyle;
 
     @Override
     protected int getMetricsCategory() {
@@ -95,6 +97,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_WEATHER_SIZE, 14));
         mStatusBarTemperatureSize.setOnPreferenceChangeListener(this);
 
+        mStatusBarTemperatureFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_WEATHER_FONT_STYLE);
+        mStatusBarTemperatureFontStyle.setOnPreferenceChangeListener(this);
+        mStatusBarTemperatureFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
+        mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
+
         updateWeatherOptions();
     }
 
@@ -133,6 +141,13 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_WEATHER_SIZE, width);
             return true;
+        } else if (preference == mStatusBarTemperatureFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mStatusBarTemperatureFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
+            mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -143,10 +158,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             mStatusBarTemperatureStyle.setEnabled(false);
             mStatusBarTemperatureColor.setEnabled(false);
             mStatusBarTemperatureSize.setEnabled(false);
+            mStatusBarTemperatureFontStyle.setEnabled(false);
         } else {
             mStatusBarTemperatureStyle.setEnabled(true);
             mStatusBarTemperatureColor.setEnabled(true);
             mStatusBarTemperatureSize.setEnabled(true);
+            mStatusBarTemperatureFontStyle.setEnabled(true);
         }
     }
 
