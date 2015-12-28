@@ -29,7 +29,9 @@ import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cmremix.utils.SeekBarPreference;
 import com.android.settings.Utils;
+
 import com.android.internal.logging.MetricsLogger;
 
 import java.util.ArrayList;
@@ -44,10 +46,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final String STATUS_BAR_TEMPERATURE = "status_bar_temperature";
     private static final String STATUS_BAR_TEMPERATURE_STYLE = "status_bar_temperature_style";
     private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
+    private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
 
     private ListPreference mStatusBarTemperature;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
+    private SeekBarPreference mStatusBarTemperatureSize;
 
     @Override
     protected int getMetricsCategory() {
@@ -86,6 +90,11 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             mStatusBarTemperatureColor.setSummary(hexColor);
             mStatusBarTemperatureColor.setNewPreviewColor(intColor);
 
+        mStatusBarTemperatureSize = (SeekBarPreference) findPreference(PREF_STATUS_BAR_WEATHER_SIZE);
+        mStatusBarTemperatureSize.setValue(Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_WEATHER_SIZE, 14));
+        mStatusBarTemperatureSize.setOnPreferenceChangeListener(this);
+
         updateWeatherOptions();
     }
 
@@ -119,6 +128,11 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_WEATHER_COLOR, intHex);
             return true;
+        } else if (preference == mStatusBarTemperatureSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_WEATHER_SIZE, width);
+            return true;
         }
         return false;
     }
@@ -128,9 +142,11 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0) == 0) {
             mStatusBarTemperatureStyle.setEnabled(false);
             mStatusBarTemperatureColor.setEnabled(false);
+            mStatusBarTemperatureSize.setEnabled(false);
         } else {
             mStatusBarTemperatureStyle.setEnabled(true);
             mStatusBarTemperatureColor.setEnabled(true);
+            mStatusBarTemperatureSize.setEnabled(true);
         }
     }
 

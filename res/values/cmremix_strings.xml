@@ -536,6 +536,7 @@
     <string name="status_bar_temperature_location_right">Show on right</string>
     <string name="status_bar_temperature_location_left">Show on left</string>
     <string name="status_bar_weather_color_title">Temperature color</string>
+    <string name="status_bar_weather_size_title">Font size</string>
 
     <!-- Weather in status bar -->
     <string name="status_bar_show_weather_title">Show weather</string>
