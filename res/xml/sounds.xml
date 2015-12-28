@@ -83,6 +83,12 @@
                 android:icon="@drawable/ring_notif_increasing"
                 android:dependency="increasing_ring"/>
 
+        <!-- Volume Steps -->
+        <PreferenceScreen
+                android:key="volume_steps"
+                android:title="@string/volume_steps_title"
+                android:fragment="com.android.settings.cmremix.VolumeSteps" />
+
         <!-- Other sounds -->
         <Preference
                 android:key="other_sounds"
