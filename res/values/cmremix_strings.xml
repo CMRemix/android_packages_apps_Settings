@@ -1045,4 +1045,8 @@
     <string name="device_policy_override_title">Device policy override</string>
     <string name="device_policy_override_summary">Allow apps to force secure lock screen and override profile settings</string>
 
+    <!-- Hold back to kill timeout -->
+    <string name="hold_back_to_kill_timeout_title">Kill app back button timeout</string>
+    <string name="default_string">Default</string>
+
 </resources>

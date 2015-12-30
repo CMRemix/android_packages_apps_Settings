@@ -83,6 +83,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
+import com.android.settings.cmremix.utils.SeekBarPreference;
 import com.android.settings.util.Helpers;
 import cyanogenmod.providers.CMSettings;
 
@@ -193,6 +194,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String SHOW_ALL_ANRS_KEY = "show_all_anrs";
 
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+    private static final String HOLD_BACK_TO_KILL_TIMEOUT = "hold_back_to_kill_timeout";
 
     private static final String KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
 
@@ -294,6 +296,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private SwitchPreference mShowAllANRs;
     private SwitchPreference mKillAppLongpressBack;
     private ListPreference mKillAppLongpressTimeout;
+    private SeekBarPreference mHoldBackToKillTimeout;
 
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
@@ -475,6 +478,12 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mResetSwitchPrefs.add(mShowAllANRs);
 
         mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
+        mHoldBackToKillTimeout =
+                    (SeekBarPreference) findPreference(HOLD_BACK_TO_KILL_TIMEOUT);
+        int holdBackToKillTimeout = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HOLD_BACK_TO_KILL_TIMEOUT, 750);
+        mHoldBackToKillTimeout.setValue(holdBackToKillTimeout / 1);
+        mHoldBackToKillTimeout.setOnPreferenceChangeListener(this);
 
         // Back long press timeout
         mKillAppLongpressTimeout = addListPreference(KILL_APP_LONGPRESS_TIMEOUT);
@@ -2175,6 +2184,11 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mKillAppLongpressTimeout) {
             writeKillAppLongpressTimeoutOptions(newValue);
+            return true;
+        } else if (preference == mHoldBackToKillTimeout) {
+            int killTimeout = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HOLD_BACK_TO_KILL_TIMEOUT, killTimeout * 1);
             return true;
         }
         return false;
