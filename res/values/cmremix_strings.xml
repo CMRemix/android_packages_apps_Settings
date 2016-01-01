@@ -70,6 +70,7 @@
     <string name="help">Help</string>
     <string name="dialog_restart">Restart</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="default_string">Default</string>
     <string name="general_category">General</string>
     <string name="general_options_title">General</string>
     <string name="reset_default_message">Reset default</string>
@@ -125,11 +126,6 @@
     <!-- Battery saver color -->
     <string name="battery_saver_color_title">Warning color</string>
     <string name="battery_saver_color_summary">Enable orange status and navigation bars when battery saver is activated</string>
-
-    <!-- RAM bar -->
-    <string name="recents_show_membar_title">RAM memory bar</string>
-    <string name="recents_show_membar_summary_on">Available RAM memory bar will be displayed on recents view</string>
-    <string name="recents_show_membar_summary_off">Toggle to display available RAM memory bar on recents view</string>
 
     <!-- Toast Icons -->
     <string name="toast_icon_title">Toast icon</string>
@@ -566,17 +562,10 @@
     <string name="doze_brightness_title">Doze brightness level</string>
     <string name="doze_brightness_summary">Brightness level of doze pulse screen (% of max allowed brightness)</string>
 
-    <!-- OmniSwitch -->
-    <string name="omniswitch_settings_title">OmniSwitch</string>
-    <string name="recents_use_omniswitch_title">Use for recents</string>
-    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
-    <string name="omniswitch_start_settings_title">Settings</string>
-    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
-    <string name="omniswitch_first_time_title">Information</string>
-    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
-
     <!-- Recents panel settings -->
     <string name="recents_panel_title">Recents panel</string>
+    <string name="recents_settings_title">Recents</string>
+    <string name="recents_panel_category">AOSP Recents</string>
     <string name="recents_panel_settings">Recents panel settings</string>
     <string name="recents_panel_settings">Recents panel settings</string>
     <string name="show_clear_all_recents_button_title">Clear all recents button</string>
@@ -590,9 +579,50 @@
     <string name="recents_clear_all_location_bottom_center">Bottom center</string>
     <string name="recents_clear_all_dismiss_all_title">Clear all tasks</string>
     <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
-    <!-- Search Bar Switcher -->
+    <string name="recents_searchbar_title">Search bar</string>
+    <string name="recents_searchbar_summary">Show Google search bar in the recents screen</string>
+    <string name="recents_full_screen_title">Full screen</string>
+    <string name="recents_full_screen_summary">Makes the recents screen go into immersive mode</string>
+
+    <!-- Recents Search Bar Switcher -->
     <string name="recents_show_searchbar">Show Search Bar in Recents</string>
     <string name="recents_show_searchbar_summary">Enable or disable the Google search bar in the recents menu</string>
+    <!-- Recents RAM bar -->
+    <string name="recents_show_membar_title">RAM memory bar</string>
+    <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
+    <string name="recents_show_membar_summary_on">Available RAM memory bar will be displayed on recents view</string>
+    <string name="recents_show_membar_summary_off">Toggle to display available RAM memory bar on recents view</string>
+
+    <!-- Slim Recents -->
+    <string name="slim_recents_panel">Slim Recents</string>
+    <string name="use_slim_recents_title">Slim recents</string>
+    <string name="show_running_tasks_title">Only show running apps</string>
+    <string name="recents_max_apps_title">Max allowed apps</string>
+    <string name="recent_panel_scale_title">Size</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+    <string name="recent_panel_show_topmost_title">Show topmost task</string>
+    <string name="recent_panel_show_topmost_summary">Don\'t exclude the topmost task in recents view</string>
+    <string name="recent_panel_bg_color_title">Panel background color</string>
+    <string name="recent_card_bg_color_title">Card background color</string>
+    <string name="recent_card_text_color_title">Card text color</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <!-- OmniSwitch -->
+    <string name="other_recents_category">OmniSwitch</string>
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
+    <string name="omniswitch_start_settings_title">Settings</string>
+    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+    <string name="omniswitch_first_time_title">Information</string>
+    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
     <!-- Recents Fullscreen -->
     <string name="recents_show_fullscreen">Recents in fullscreen</string>

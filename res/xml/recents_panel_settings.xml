@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2014 crDroid Android
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 The CMRemix Rom Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,11 +17,29 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/recents_panel_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">    
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="recent_panel"
-        android:title="@string/recents_panel_settings" >
+        android:key="aosp_recents_panel"
+        android:title="@string/recents_panel_category" >
+
+         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_search_bar"
+            android:title="@string/recents_searchbar_title"
+            android:summary="@string/recents_searchbar_summary"
+            android:defaultValue="true" />
+
+         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="systemui_recents_mem_display"
+            android:title="@string/recents_show_membar_title"
+            android:summary="@string/recents_show_membar_summary"
+            android:defaultValue="false" />
+
+         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_full_screen"
+            android:title="@string/recents_full_screen_title"
+            android:summary="@string/recents_full_screen_summary"
+            android:defaultValue="false" />
 
         <SwitchPreference
             android:key="show_clear_all_recents"
@@ -29,15 +47,7 @@
             android:summary="@string/show_clear_all_recents_button_summary"
             android:defaultValue="true" />
 
-       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-	        android:key="recents_full_screen"
-                android:title="@string/recents_show_fullscreen"
-                android:summaryOn="@string/recents_fullscreen_summary_enabled"
-                android:summaryOff="@string/recents_fullscreen_summary_disabled"
-                android:defaultValue="false"
-                android:dependency="show_clear_all_recents" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_clear_all_dismiss_all"
             android:title="@string/recents_clear_all_dismiss_all_title"
             android:summary="@string/recents_clear_all_dismiss_all_summary"
@@ -49,21 +59,93 @@
             android:title="@string/recents_clear_all_location_title"
             android:entries="@array/recents_clear_all_location_entries"
             android:entryValues="@array/recents_clear_all_location_values"
-            android:defaultValue="0"
+            android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="recents_show_hide_search_bar"
-            android:title="@string/recents_show_searchbar"
-            android:summary="@string/recents_show_searchbar_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 
-    <!-- OmniSwitch -->
+    <PreferenceCategory
+        android:key="slim_recents_panel"
+        android:title="@string/slim_recents_panel" >
+
+        <SwitchPreference
+            android:key="use_slim_recents"
+            android:title="@string/use_slim_recents_title"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="only_show_running_tasks"
+            android:title="@string/show_running_tasks_title"
+            android:dependency="use_slim_recents"
+            android:defaultValue="false" />
+
+        <SlimSeekBarPreference
+            android:key="max_apps"
+            android:title="@string/recents_max_apps_title" 
+            android:dependency="use_slim_recents" />
+
+        <ListPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_panel_expanded_mode"
+            android:entries="@array/recent_panel_expanded_mode_entries"
+            android:entryValues="@array/recent_panel_expanded_mode_values"
+            android:title="@string/recent_panel_expanded_mode_title"
+            android:summary="@string/recent_panel_expanded_mode_summary"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_panel_lefty_mode"
+            android:title="@string/recent_panel_lefty_mode_title"
+            android:summary="@string/recent_panel_lefty_mode_summary"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_panel_show_topmost"
+            android:title="@string/recent_panel_show_topmost_title"
+            android:summary="@string/recent_panel_show_topmost_summary"
+            android:persistent="false" />
+
+        <SlimSeekBarPreference
+            android:key="recent_panel_scale"
+            android:title="@string/recent_panel_scale_title" 
+            android:dependency="use_slim_recents" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_panel_bg_color"
+            android:title="@string/recent_panel_bg_color_title"
+            android:defaultValue="0x00ffffff"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_card_bg_color"
+            android:title="@string/recent_card_bg_color_title"
+            android:defaultValue="0x00ffffff"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:dependency="use_slim_recents"
+            android:key="recent_card_text_color"
+            android:title="@string/recent_card_text_color_title"
+            android:defaultValue="0x00ffffff"
+            alphaSlider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="other_recents_panel"
+        android:title="@string/other_recents_category" >
+
+        <!-- OmniSwitch -->
         <PreferenceScreen
+            android:key="omniswitch"
             android:id="@+id/omniswitch"
             android:title="@string/omniswitch_settings_title"
             android:fragment="com.android.settings.cmremix.OmniSwitch" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
