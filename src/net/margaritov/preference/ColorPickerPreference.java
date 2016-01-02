@@ -47,7 +47,7 @@ public class ColorPickerPreference extends Preference implements
     LinearLayout widgetFrameView;
     private int mValue = Color.BLACK;
     private float mDensity = 0;
-    private boolean mAlphaSliderEnabled = true;
+    private boolean mAlphaSliderEnabled = false;
 
     private EditText mEditText;
 
