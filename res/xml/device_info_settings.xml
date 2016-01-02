@@ -57,6 +57,15 @@
                 android:summary="@string/sm_flags_default"
                 android:selectable="false" />
 
+        <!-- CMRemix Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/cmremix_extrainfo"
+                android:summary="@string/cmremix_extrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.cmremix.extrainfo.MainActivity" />
+        </PreferenceScreen>
+
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title"

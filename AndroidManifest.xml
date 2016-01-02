@@ -2591,6 +2591,15 @@
             </intent-filter>
         </activity>
 
+        <!-- CMRemix Extra info -->
+        <activity android:name="com.android.settings.cmremix.extrainfo.MainActivity"
+                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+
         <!-- Kernel Adiutor -->
         <activity android:name="com.grarak.kerneladiutor.MainActivity"/>
 
