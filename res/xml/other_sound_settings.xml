@@ -31,6 +31,13 @@
             android:title="@string/screen_locking_sounds_title"
             android:persistent="false" />
 
+    <!-- Screenshot tone -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+           android:key="screenshot_sound"
+           android:title="@string/screenshot_sound_title"
+           android:summary="@string/screenshot_sound_summary"
+           android:defaultValue="true" />
+
     <!-- Charging sounds -->
     <SwitchPreference
             android:key="charging_sounds"
@@ -67,14 +74,6 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
-    <ListPreference
-            android:key="less_notification_sounds"
-            android:title="@string/less_notification_sounds_title"
-            android:summary="@string/less_notification_sounds_summary"
-            android:entries="@array/less_notification_sounds_entries"
-            android:entryValues="@array/less_notification_sounds_values"
-            android:persistent="false" />
-
     <PreferenceCategory
             android:title="@string/power_notifications_category_title">
 
@@ -97,6 +96,14 @@
                 android:title="@string/power_notifications_ringtone_title"
                 android:dependency="power_notifications"
                 android:persistent="false" />
+
+        <ListPreference
+               android:key="less_notification_sounds"
+               android:title="@string/less_notification_sounds_title"
+               android:summary="@string/less_notification_sounds_summary"
+               android:entries="@array/less_notification_sounds_entries"
+               android:entryValues="@array/less_notification_sounds_values"
+               android:persistent="false" />
 
     </PreferenceCategory>
 </PreferenceScreen>
