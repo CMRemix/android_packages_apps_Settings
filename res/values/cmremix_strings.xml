@@ -1141,4 +1141,9 @@
     <string name="notifications_no_keyguard">Hidden when locked</string>
     <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
 
+    <!-- Option to Disable Brightness Icon In Brightness Slider -->
+    <string name="qs_brightness_slider_title">Show brightness slider</string>
+    <string name="brightness_icon_title">Brightness icon </string>
+    <string name="brightness_icon_summary">Enable brightness icon at brightness slider</string>
+
 </resources>
