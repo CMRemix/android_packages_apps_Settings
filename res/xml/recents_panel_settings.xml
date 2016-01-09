@@ -35,11 +35,28 @@
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="false" />
 
-         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_full_screen"
-            android:title="@string/recents_full_screen_title"
-            android:summary="@string/recents_full_screen_summary"
-            android:defaultValue="false" />
+            android:title="@string/recents_show_fullscreen"
+            android:summaryOn="@string/recents_fullscreen_summary_enabled"
+            android:summaryOff="@string/recents_fullscreen_summary_disabled"
+            android:defaultValue="false"
+            android:dependency="show_clear_all_recents" />
+
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_full_screen_clock"
+            android:title="@string/recents_full_screen_clock_title"
+            android:summary="@string/recents_full_screen_clock_summary"
+            android:defaultValue="false"
+            android:dependency="recents_full_screen" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_full_screen_date"
+            android:title="@string/recents_full_screen_date_title"
+            android:summary="@string/recents_full_screen_date_summary"
+            android:defaultValue="false"
+            android:dependency="recents_full_screen" />
 
         <SwitchPreference
             android:key="show_clear_all_recents"
