@@ -60,7 +60,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "RecentPanelSettings";
 
-    private static final String SHOW_RECENTS_SEARCHBAR = "recents_search_bar";
+    private static final String SHOW_RECENTS_SEARCHBAR = "recents_show_search_bar";
     private static final String SHOW_MEMBAR_RECENTS = "systemui_recents_mem_display";
     private static final String SHOW_FULLSCREEN_RECENTS = "recents_full_screen";
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
@@ -164,7 +164,11 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mRecentsClearAllLocation) {
+        if (preference == mRecentsClearAll) {
+            Settings.System.putInt(getContentResolver(), Settings.System.SHOW_CLEAR_ALL_RECENTS,
+                    ((Boolean) newValue) ? 1 : 0);
+            return true;
+        } else if (preference == mRecentsClearAllLocation) {
             int location = Integer.valueOf((String) newValue);
             int index = mRecentsClearAllLocation.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(getActivity().getContentResolver(),
@@ -257,7 +261,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_action_reset)
+                .setIcon(R.drawable.ic_settings_reset)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
