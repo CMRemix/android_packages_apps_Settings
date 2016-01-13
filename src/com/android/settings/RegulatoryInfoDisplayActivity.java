@@ -25,9 +25,12 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.settings.deviceinfo.Status;
 
 /**
  * {@link Activity} that displays regulatory information for the "Regulatory information"
@@ -56,41 +59,48 @@ public class RegulatoryInfoDisplayActivity extends Activity implements
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle(R.string.regulatory_information)
+                .setTitle(R.string.regulatory_information_dialog_title)
                 .setOnDismissListener(this);
+
+        View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
 
         boolean regulatoryInfoDrawableExists = false;
         int resId = getResourceId();
         if (resId != 0) {
             try {
                 Drawable d = getDrawable(resId);
-                // set to false if the width or height is <= 2
-                // (missing PNG can return an empty 2x2 pixel Drawable)
-                regulatoryInfoDrawableExists = (d.getIntrinsicWidth() > 2
-                        && d.getIntrinsicHeight() > 2);
+                // set to false if the width or height is <= 32
+                // (default PNG is a 1x1 pixel image scaled to the display density)
+                regulatoryInfoDrawableExists = (d.getIntrinsicWidth() > 32
+                        && d.getIntrinsicHeight() > 32);
             } catch (Resources.NotFoundException ignored) {
                 regulatoryInfoDrawableExists = false;
             }
         }
 
-        CharSequence regulatoryText = resources.getText(R.string.regulatory_info_text);
-
         if (regulatoryInfoDrawableExists) {
-            View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
             ImageView image = (ImageView) view.findViewById(R.id.regulatoryInfo);
+            image.setVisibility(View.VISIBLE);
             image.setImageResource(resId);
-            builder.setView(view);
-            builder.show();
-        } else if (regulatoryText.length() > 0) {
-            builder.setMessage(regulatoryText);
-            AlertDialog dialog = builder.show();
-            // we have to show the dialog first, or the setGravity() call will throw a NPE
-            TextView messageText = (TextView) dialog.findViewById(android.R.id.message);
-            messageText.setGravity(Gravity.CENTER);
-        } else {
-            // neither drawable nor text resource exists, finish activity
-            finish();
         }
+
+        String sarValues = Status.getSarValues(getResources());
+        TextView sarText = (TextView) view.findViewById(R.id.sarValues);
+        if (!TextUtils.isEmpty(sarValues)) {
+            sarText.setVisibility(resources.getBoolean(R.bool.config_show_sar_enable)
+                    ? View.VISIBLE : View.GONE);
+            sarText.setText(sarValues);
+        }
+
+        String icCodes = Status.getIcCodes(getResources());
+        TextView icCode = (TextView) view.findViewById(R.id.icCodes);
+        if (!TextUtils.isEmpty(icCodes)) {
+            icCode.setVisibility(resources.getBoolean(R.bool.config_show_ic_enable)
+                    ? View.VISIBLE : View.GONE);
+            icCode.setText(icCodes);
+        }
+        builder.setView(view);
+        builder.show();
     }
 
     private int getResourceId() {

@@ -908,6 +908,7 @@
     <string name="voice_wakeup_retrain_title">Retrain your voice</string>
     <string name="voice_wakeup_activity_title">Activity to launch</string>
     <string name="voice_wakeup_default_activity">Google Now</string>
+    <string name="voice_wakeup_needs_dial_permission_warning">Voice Wakeup needs to have phone call permissions to select a Direct Dial contact.</string>
 
     <string name="picker_activities">Activities</string>
     <string name="select_custom_app_title">Select custom app</string>
@@ -997,7 +998,7 @@
     <string name="title_general">General</string>
     <string name="advanced">Advanced</string>
     <string name="link_volume_option_title">Link ringtone &amp; notification volumes</string>
-    <string name="lcd_density_prompt_message">Some apps may not function at non-standard dpi.\n\nThis will restart your phone.</string>
+    <string name="lcd_density_prompt_message">Some apps may not function at non-standard DPI.\n\nThis will restart your device.</string>
 
     <!-- Edit access point labels: PPP number -->
     <string name="apn_ppp_number">APN PPP phone number</string>
@@ -1038,4 +1039,17 @@
     <string name="zen_mode_summary_selected_callers">selected callers</string>
     <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
     <string name="zen_mode_summary_selected_messages">selected messages</string>
+
+    <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+    <string name="regulatory_information_dialog_title" translatable="false">@string/regulatory_information</string>
+
+    <!-- SAR information -->
+    <string name="maximum_head_level">Head: %1$s W/kg</string>
+    <string name="maximum_body_level">Body: %1$s W/kg</string>
+
+    <!-- IC Codes -->
+    <string name="ic_code_model">Model: %1$s</string>
+    <string name="ic_code_full">IC: %1$s</string>
+
+    <string name="sim_ringtone_title">SIM %d ringtone</string>
 </resources>
