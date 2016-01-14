@@ -532,6 +532,10 @@
     <string name="network_traffic_color_style">Color style</string>
     <string name="network_traffic_color_reset">Reset color</string>
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
+    <string name="show_statusbar_network_traffic">Placement</string>
+    <string name="show_network_traffic_statusbar">Show in status bar</string>
+    <string name="show_network_traffic_header">Show in header</string>
+    <string name="show_network_traffic">Show in status bar and header</string>
 
     <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper_title">Wallpaper</string>

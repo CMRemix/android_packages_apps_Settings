@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.net.TrafficStats;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -58,6 +59,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     private static final String TAG = "NetworkTraffic";
 
     private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+    private static final String SHOW_NETWORK_TRAFFIC = "show_statusbar_network_traffic";
     private static final String NETWORK_TRAFFIC_UNIT = "network_traffic_unit";
     private static final String PREF_COLOR_PICKER = "clock_color";	
     private static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
@@ -75,6 +77,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     private int MASK_PERIOD;
 
     private ListPreference mNetTrafficState;
+    private ListPreference mShowNetTraffic;
     private ListPreference mNetTrafficUnit;
     private ListPreference mNetTrafficPeriod;
     private SwitchPreference mNetTrafficAutohide;
@@ -109,6 +112,13 @@ public class NetworkTraffic extends SettingsPreferenceFragment
         mNetTrafficState = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_STATE);
         mNetTrafficUnit = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_UNIT);
         mNetTrafficPeriod = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_PERIOD);
+
+        mShowNetTraffic = (ListPreference) prefSet.findPreference(SHOW_NETWORK_TRAFFIC);
+        int showNetTraffic = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_STATUS_BAR_NETWORK_TRAFFIC, 0, UserHandle.USER_CURRENT);
+        mShowNetTraffic.setValue(String.valueOf(showNetTraffic));
+        mShowNetTraffic.setSummary(mShowNetTraffic.getEntry());
+        mShowNetTraffic.setOnPreferenceChangeListener(this);
 
         mNetTrafficAutohide =
             (SwitchPreference) prefSet.findPreference(NETWORK_TRAFFIC_AUTOHIDE);
@@ -159,6 +169,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
             mNetTrafficPeriod.setOnPreferenceChangeListener(this);
         } else {
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_STATE));
+            prefSet.removePreference(findPreference(SHOW_NETWORK_TRAFFIC));
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_UNIT));
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_PERIOD));
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_AUTOHIDE));
@@ -173,12 +184,14 @@ public class NetworkTraffic extends SettingsPreferenceFragment
 
     private void updateNetworkTrafficState(int mIndex) {
         if (mIndex <= 0) {
+            mShowNetTraffic.setEnabled(false);
             mNetTrafficUnit.setEnabled(false);
             mNetTrafficPeriod.setEnabled(false);
             mNetTrafficAutohide.setEnabled(false);
 	    mNetTrafficColor.setEnabled(false);	
             mNetTrafficAutohideThreshold.setEnabled(false);
         } else {
+            mShowNetTraffic.setEnabled(true);
             mNetTrafficUnit.setEnabled(true);
             mNetTrafficPeriod.setEnabled(true);
             mNetTrafficAutohide.setEnabled(true);
@@ -198,6 +211,14 @@ public class NetworkTraffic extends SettingsPreferenceFragment
             int index = mNetTrafficState.findIndexOfValue((String) newValue);
             mNetTrafficState.setSummary(mNetTrafficState.getEntries()[index]);
             updateNetworkTrafficState(index);
+            return true;
+        } else if (preference == mShowNetTraffic) {
+            int showNetTraffic = Integer.valueOf((String) newValue);
+            int index = mShowNetTraffic.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.SHOW_STATUS_BAR_NETWORK_TRAFFIC, showNetTraffic,
+                UserHandle.USER_CURRENT);
+            mShowNetTraffic.setSummary(mShowNetTraffic.getEntries()[index]);
             return true;
         } else if (preference == mNetTrafficUnit) {
             mNetTrafficVal = setBit(mNetTrafficVal, MASK_UNIT, ((String)newValue).equals("1"));

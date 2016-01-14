@@ -18,6 +18,13 @@
                 android:defaultValue="0xffffffff" />
 
         <ListPreference
+                android:key="show_statusbar_network_traffic"
+                android:title="@string/show_statusbar_network_traffic"
+                android:entries="@array/show_network_traffic_entries"
+                android:entryValues="@array/show_network_traffic_values"
+                android:persistent="false" />
+
+        <ListPreference
                 android:key="network_traffic_unit"
                 android:title="@string/show_network_traffic_unit"
                 android:entries="@array/show_network_traffic_unit_entries"

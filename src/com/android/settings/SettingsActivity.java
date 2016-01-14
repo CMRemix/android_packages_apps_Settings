@@ -95,6 +95,7 @@ import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.livedisplay.LiveDisplay;
+import com.android.settings.cmremix.NetworkTraffic;
 import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
 import com.android.settings.notification.SoundSettings;
@@ -374,7 +375,8 @@ public class SettingsActivity extends Activity
             BlacklistSettings.class.getName(),
             ProfilesSettings.class.getName(),
             ContributorsCloudFragment.class.getName(),
-            NotificationManagerSettings.class.getName()
+            NotificationManagerSettings.class.getName(),
+            NetworkTraffic.class.getName()
     };
 
 
