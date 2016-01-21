@@ -97,6 +97,13 @@
                 android:fragment="com.android.settings.notification.OtherSoundSettings" />
     </PreferenceCategory>
 
+        <!-- Advanced options -->
+        <PreferenceScreen
+                android:key="advanced_sound_settings"
+                android:title="@string/advanced_sound_title"
+                android:persistent="false"
+                android:fragment="com.android.settings.slim.SoundSettings" />
+
     <PreferenceCategory
             android:key="vibrate"
             android:title="@string/category_vibrate">
