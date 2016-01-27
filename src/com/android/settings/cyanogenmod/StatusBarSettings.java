@@ -81,6 +81,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
+    private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
@@ -112,6 +113,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mBlockOnSecureKeyguard;
 
     private SeekBarPreference mQSShadeAlpha;
+    private SeekBarPreference mQSHeaderAlpha;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -265,6 +267,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.QS_TRANSPARENT_SHADE, 255);
         mQSShadeAlpha.setValue(qSShadeAlpha / 1);
         mQSShadeAlpha.setOnPreferenceChangeListener(this);
+
+        // QS header alpha
+        mQSHeaderAlpha =
+                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_HEADER);
+        int qSHeaderAlpha = Settings.System.getInt(resolver,
+                Settings.System.QS_TRANSPARENT_HEADER, 255);
+        mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
+        mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
@@ -424,6 +434,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int alpha = (Integer) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
+            return true;
+        } else if (preference == mQSHeaderAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
             return true;
         } else if (preference == mQuickPulldown) {
             int quickPulldown = Integer.valueOf((String) newValue);

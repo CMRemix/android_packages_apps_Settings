@@ -1186,6 +1186,9 @@
     <!-- QS shade transparency -->
     <string name="qs_transparent_shade">QS shade transparency</string>
 
+    <!-- QS header transparency -->
+    <string name="qs_transparent_header">QS header transparency</string>
+
     <!-- Sound settings -->
     <string name="advanced_sound_title">Advanced options</string>
     <string name="sound_title">Sound</string>
