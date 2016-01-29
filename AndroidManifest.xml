@@ -1204,21 +1204,6 @@
                 android:value="true" />
         </activity>
 
-
-        <!-- PA Pie settings activity. -->
-        <activity android:name="Settings$PieControlSettingsActivity"
-                android:label="@string/pa_pie_control_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cmremix.PieControl" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/button_settings" />
-        </activity>
-
         <activity android:name="MonitoringCertInfoActivity"
                 android:label="@string/ssl_ca_cert_dialog_title"
                 android:theme="@style/Transparent"
@@ -2167,6 +2152,57 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <!-- CMRemix activities Start -->
+
+        <!-- CMRemix Extra info -->
+        <activity android:name="com.android.settings.cmremix.extrainfo.MainActivity"
+                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
+        <!-- Kernel Adiutor -->
+        <activity android:name="com.grarak.kerneladiutor.MainActivity"/>
+
+        <!-- Network traffic settings activity. -->
+        <activity android:name="Settings$NetworkTraffiActivity"
+                android:label="@string/network_traffic_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.NetworkTraffic" />
+        </activity>
+
+        <!-- PA Pie settings activity. -->
+        <activity android:name="Settings$PieControlSettingsActivity"
+                android:label="@string/pa_pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.PieControl" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/button_settings" />
+        </activity>
+
+        <!-- Selinux Switcher -->
+        <receiver android:name="com.android.settings.cmremix.utils.OnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+ <!-- CMRemix activities End -->
+
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$ProfilesSettingsActivity"
                 android:label="@string/profile_settings"
@@ -2301,18 +2337,6 @@
         </activity>
 
         <!-- CyanogenMod activities End -->
-
-        <!-- Network traffic settings activity. -->
-        <activity android:name="Settings$NetworkTraffiActivity"
-                android:label="@string/network_traffic_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cmremix.NetworkTraffic" />
-        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -2646,18 +2670,6 @@
             </intent-filter>
         </activity>
 
-        <!-- CMRemix Extra info -->
-        <activity android:name="com.android.settings.cmremix.extrainfo.MainActivity"
-                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-
-        <!-- Kernel Adiutor -->
-        <activity android:name="com.grarak.kerneladiutor.MainActivity"/>
-
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
                 android:exported="false"
@@ -2757,9 +2769,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                        android:resource="@id/wireless_settings" />
         </activity>
-
-        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
-        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
 
         <activity android:name=".Settings$LockScreenSettingsActivity"
                   android:label="@string/lockscreen_settings"
