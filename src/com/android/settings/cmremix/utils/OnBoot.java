@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.settings.R;
 import com.android.settings.cmremix.utils.CMDProcessor;
 
 import java.io.IOException;
@@ -33,19 +34,30 @@ public class OnBoot extends BroadcastReceiver {
             if(procInfos.get(i).processName.equals("com.google.android.setupwizard")) {
                 mSetupRunning = true;
             }
+            if(procInfos.get(i).processName.equals("com.cyanogenmod.setupwizard")) {
+                mSetupRunning = true;
+            }
         }
         if(!mSetupRunning) {
-             try {
-                 settingsContext = context.createPackageContext("com.android.settings", 0);
-             } catch (Exception e) {
-                 Log.e(TAG, "Package not found", e);
-             }
-             SharedPreferences sharedpreferences = settingsContext.getSharedPreferences("com.android.settings_preferences", Context.MODE_PRIVATE);
-             if(sharedpreferences.getBoolean("selinux", true)) {
-                 CMDProcessor.runSuCommand("setenforce 1");
-             } else if (!sharedpreferences.getBoolean("selinux", true)) {
-                 CMDProcessor.runSuCommand("setenforce 0");
-             }
+            try {
+                settingsContext = context.createPackageContext("com.android.settings", 0);
+            } catch (Exception e) {
+                Log.e(TAG, "Package not found", e);
+            }
+            SharedPreferences sharedpreferences = settingsContext.getSharedPreferences("com.android.settings_preferences",
+                    Context.MODE_PRIVATE);
+            if(sharedpreferences.getBoolean("selinux", true)) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                // showToast("setenforce 1", context);
+            } else if (!sharedpreferences.getBoolean("selinux", true)) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                showToast(context.getString(R.string.selinux_permissive_toast_title), context);
+            }
         }
+    }
+
+    private void showToast(String toastString, Context context) {
+        Toast.makeText(context, toastString, Toast.LENGTH_SHORT)
+                .show();
     }
 }
