@@ -37,21 +37,12 @@
             android:entryValues="@array/lock_after_timeout_values"
             android:persistent="false"/>
 
-        <SwitchPreference
-            android:key="power_button_instantly_locks"
-            android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="general_category"
         android:title="@string/title_general">
 
-        <com.android.settings.SingleLineSummaryPreference
-            android:key="owner_info_settings"
-            android:enabled="false"
-            android:title="@string/owner_info_settings_title"
-            android:summary="@string/owner_info_settings_summary"/>
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="lockscreen_media_metadata"
