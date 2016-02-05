@@ -46,6 +46,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.util.cmremix.CMRemixUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -83,6 +84,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String SHOW_FOURG = "show_fourg";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
@@ -111,6 +113,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mBlockOnSecureKeyguard;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
+    private SwitchPreference mShowFourG;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -278,6 +281,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         } else {
             prefSet.removePreference(mMissedCallBreath);
             prefSet.removePreference(mVoicemailBreath);
+        }
+
+        // Show 4G
+        mShowFourG = (SwitchPreference) findPreference(SHOW_FOURG);
+        if (CMRemixUtils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mShowFourG);
+        } else {
+           mShowFourG.setChecked((Settings.System.getInt(resolver,
+           Settings.System.SHOW_FOURG, 0) == 1));
         }
 
         setHasOptionsMenu(true);
@@ -455,10 +467,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-       if  (preference == mEnableTaskManager) {
+        if  (preference == mEnableTaskManager) {
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);
+        } else if (preference == mShowFourG) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_FOURG, checked ? 1:0);
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
