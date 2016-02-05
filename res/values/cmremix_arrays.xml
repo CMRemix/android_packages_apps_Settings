@@ -832,6 +832,17 @@
         <item>3</item>
     </string-array>
 
+    <!-- Carrier Label Position -->
+    <string-array name="status_bar_logo_position_entries">
+        <item>@string/status_bar_logo_position_left</item>
+        <item>@string/status_bar_logo_position_right</item>
+    </string-array>
+
+    <string-array name="status_bar_logo_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <!-- LS Weather -->
     <string-array name="weather_condition_icon_entries">
         <item>@string/weather_condition_icon_monochrome_title</item>

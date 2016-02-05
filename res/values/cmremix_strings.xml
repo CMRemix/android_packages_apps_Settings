@@ -740,6 +740,9 @@
     <string name="show_carrier_keyguard">Keyguard carrier</string>
     <string name="show_carrier_statusbar">Status bar carrier</string>
     <string name="show_carrier_enabled">Enabled</string>
+    <string name="status_bar_carrier_position">Status bar location</string>
+    <string name="status_bar_logo_position_left">Left</string>
+    <string name="status_bar_logo_position_right">Right</string>
 
     <!-- Lockscreen weather -->
     <string name="status_bar_show_weather_category">Weather</string>
