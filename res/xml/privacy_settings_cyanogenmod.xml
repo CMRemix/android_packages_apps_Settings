@@ -39,4 +39,12 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.applications.ProtectedAppsActivity" />
         </Preference>
+
+        <!-- SlimSizer -->
+        <PreferenceScreen
+            android:key="system_app_remover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/systemappremover_summary"
+            android:fragment="com.android.settings.cmremix.fragments.SystemappRemover" />
+
 </PreferenceScreen>
