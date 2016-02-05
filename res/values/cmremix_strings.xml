@@ -1206,6 +1206,15 @@
     <!-- QS header transparency -->
     <string name="qs_transparent_header">QS header transparency</string>
 
+     <!-- QS header transparency -->
+    <string name="qs_transparent_header">QS header transparency</string>
+
+ <!-- Volume dialog transparency -->
+   <string name="volume_dialog_transparency">Volume dialog transparency</string>
+
+    <!-- Power menu and dialogs transparency -->
+    <string name="power_menu_transparency">Power/reboot menu transparency</string>
+
     <!-- Sound settings -->
     <string name="advanced_sound_title">Advanced options</string>
     <string name="sound_title">Sound</string>

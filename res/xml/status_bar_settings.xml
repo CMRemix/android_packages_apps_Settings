@@ -217,24 +217,6 @@
             android:persistent="false"
             android:defaultValue="true"/>
 
-        <com.android.settings.cmremix.utils.SeekBarPreference
-            android:key="qs_transparent_shade"
-            android:title="@string/qs_transparent_shade"
-            android:max="255"
-            settings:minimum="0"
-            settings:unitsLeft=""
-            settings:unitsRight=""
-            android:persistent="false" />
-
-        <com.android.settings.cmremix.utils.SeekBarPreference
-            android:key="qs_transparent_header"
-            android:title="@string/qs_transparent_header"
-            android:max="255"
-            settings:minimum="0"
-            settings:unitsLeft=""
-            settings:unitsRight=""
-            android:persistent="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
