@@ -743,6 +743,7 @@
     <string name="status_bar_carrier_position">Status bar location</string>
     <string name="status_bar_logo_position_left">Left</string>
     <string name="status_bar_logo_position_right">Right</string>
+    <string name="status_bar_carrier_font_style_title">Font style</string>
 
     <!-- Lockscreen weather -->
     <string name="status_bar_show_weather_category">Weather</string>
