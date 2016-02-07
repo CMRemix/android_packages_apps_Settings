@@ -1311,4 +1311,12 @@
     <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G. Reboot is required to take effect.</string>
     <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
 
+    <!-- Omni Weather -->
+    <string name="weather_title">Weather</string>
+    <string name="weather_config_title">Service settings</string>
+    <string name="weather_config_summary"></string>
+    <string name="header_weather_title">Header view weather</string>
+    <string name="header_weather_summary">Enable notification panel header weather display</string>
+    <string name="weather_icon_pack_title">Condition icon pack</string>
+
 </resources>

@@ -16,13 +16,29 @@
 
 package com.android.settings.notification;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SwitchPreference;
+
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.util.Log;
+import com.android.internal.util.omni.PackageUtils;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
@@ -37,22 +53,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationManagerSettings extends SettingsPreferenceFragment
-        implements Indexable {
+        implements Indexable, Preference.OnPreferenceChangeListener {
 
     private static final String TAG = NotificationManagerSettings.class.getSimpleName();
 
     private static final String KEY_LOCK_SCREEN_NOTIFICATIONS = "lock_screen_notifications";
+    private static final String CATEGORY_WEATHER = "weather_category";
+    private static final String WEATHER_ICON_PACK = "weather_icon_pack";
+    private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
+    private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
+    private static final String LOCK_CLOCK_PACKAGE="com.cyanogenmod.lockclock";
+
+    private PreferenceCategory mWeatherCategory;
+    private ListPreference mWeatherIconPack;
 
     private boolean mSecure;
     private int mLockscreenSelectedValue;
     private DropDownPreference mLockscreen;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_manager_settings);
         mSecure = new LockPatternUtils(getActivity()).isSecure(UserHandle.myUserId());
         initLockscreenNotifications();
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        mWeatherCategory = (PreferenceCategory) prefSet.findPreference(CATEGORY_WEATHER);
+        if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
+            prefSet.removePreference(mWeatherCategory);
+        } else {
+            String settingHeaderPackage = Settings.System.getString(getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_ICON_PACK);
+            if (settingHeaderPackage == null) {
+                settingHeaderPackage = DEFAULT_WEATHER_ICON_PACKAGE;
+            }
+            mWeatherIconPack = (ListPreference) findPreference(WEATHER_ICON_PACK);
+            mWeatherIconPack.setEntries(getAvailableWeatherIconPacksEntries());
+            mWeatherIconPack.setEntryValues(getAvailableWeatherIconPacksValues());
+
+            int valueIndex = mWeatherIconPack.findIndexOfValue(settingHeaderPackage);
+            if (valueIndex == -1) {
+                // no longer found
+                settingHeaderPackage = DEFAULT_WEATHER_ICON_PACKAGE;
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.STATUS_BAR_WEATHER_ICON_PACK, settingHeaderPackage);
+                valueIndex = mWeatherIconPack.findIndexOfValue(settingHeaderPackage);
+            }
+            mWeatherIconPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+            mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
+            mWeatherIconPack.setOnPreferenceChangeListener(this);
+        }
     }
 
     // === Lockscreen (public / private) notifications ===
@@ -133,5 +185,72 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     @Override
     protected int getMetricsCategory() {
         return CMMetricsLogger.NOTIFICATION_MANAGER_SETTINGS;
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getContentResolver();
+        if (preference == mWeatherIconPack) {
+            String value = (String) newValue;
+            Settings.System.putString(getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_ICON_PACK, value);
+            int valueIndex = mWeatherIconPack.findIndexOfValue(value);
+            mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
+        }
+        return false;
+    }
+
+    private boolean isOmniJawsServiceInstalled() {
+        return PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getActivity());
+    }
+
+    private boolean isLockClockInstalled() {
+        return PackageUtils.isAvailableApp(LOCK_CLOCK_PACKAGE, getActivity());
+    }
+
+    private String[] getAvailableWeatherIconPacksValues() {
+        List<String> headerPacks = new ArrayList<String>();
+        Intent i = new Intent();
+        PackageManager packageManager = getPackageManager();
+        i.setAction("org.omnirom.WeatherIconPack");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            if (packageName.equals(DEFAULT_WEATHER_ICON_PACKAGE)) {
+                headerPacks.add(0, r.activityInfo.name);
+            } else {
+                headerPacks.add(r.activityInfo.name);
+            }
+        }
+        if (isLockClockInstalled()) {
+            headerPacks.add(LOCK_CLOCK_PACKAGE + ".weather");
+            headerPacks.add(LOCK_CLOCK_PACKAGE + ".weather_color");
+            headerPacks.add(LOCK_CLOCK_PACKAGE + ".weather_vclouds");
+        }
+        return headerPacks.toArray(new String[headerPacks.size()]);
+    }
+
+    private String[] getAvailableWeatherIconPacksEntries() {
+        List<String> headerPacks = new ArrayList<String>();
+        Intent i = new Intent();
+        PackageManager packageManager = getPackageManager();
+        i.setAction("org.omnirom.WeatherIconPack");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = r.activityInfo.packageName;
+            }
+            if (packageName.equals(DEFAULT_WEATHER_ICON_PACKAGE)) {
+                headerPacks.add(0, label);
+            } else {
+                headerPacks.add(label);
+            }
+        }
+        if (isLockClockInstalled()) {
+            headerPacks.add("LockClock (white)");
+            headerPacks.add("LockClock (color)");
+            headerPacks.add("LockClock (vclouds)");
+        }
+        return headerPacks.toArray(new String[headerPacks.size()]);
     }
 }
