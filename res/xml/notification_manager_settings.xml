@@ -65,6 +65,12 @@
             android:title="@string/cat_colors_title"
             android:fragment="com.android.settings.cmremix.NotificationColorSettings" />
 
+    <!-- Notification Panel -->
+    <PreferenceScreen
+            android:id="@+id/notification_customizations"
+            android:title="@string/notification_customizations"
+            android:fragment="com.android.settings.cmremix.NotificationPanel" />
+
      <PreferenceCategory
         android:key="weather_category"
         android:title="@string/weather_title" >
