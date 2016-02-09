@@ -189,7 +189,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/contextual_title" >
+        android:title="@string/status_bar_header_title" >
+
+        <ListPreference
+            android:key="status_bar_header_font_style"
+            android:entries="@array/status_bar_weather_font_style_entries"
+            android:entryValues="@array/status_bar_weather_font_style_values"
+            android:title="@string/status_bar_header_font_style_title" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"

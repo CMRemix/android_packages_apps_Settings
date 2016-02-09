@@ -509,8 +509,9 @@
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
 
-    <!-- Time-context headers in notification header -->
-    <string name="contextual_title">Contextual headers</string>
+    <!-- Status bar header -->
+    <string name="status_bar_header_title">Status bar header</string>
+    <string name="status_bar_header_font_style_title">Header font style</string>
     <string name="status_bar_custom_header_title">Custom header image</string>
     <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
     <string name="status_bar_custom_header_default_title">Select your images</string>
