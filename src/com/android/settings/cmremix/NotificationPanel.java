@@ -138,7 +138,7 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.NOTIFICATION_DRAWER_SETTINGS;
+        return MetricsLogger.APPLICATION;
     }
 
     @Override
