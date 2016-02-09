@@ -92,6 +92,23 @@
 
     </PreferenceCategory>
 
+    <!-- Hide Lockscreen clock & date -->
+    <PreferenceCategory
+        android:key="hide_lockscreen_items_category"
+        android:title="@string/hide_lockscreen_items_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_clock"
+            android:title="@string/hide_lockscreen_clock_title"
+            android:defaultValue="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_date"
+            android:title="@string/hide_lockscreen_date_title"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
         <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
             android:key="lockscreen_visualizer"
             android:title="@string/lockscreen_visualizer_title"
