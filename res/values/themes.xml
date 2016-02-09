@@ -128,6 +128,9 @@
         <item name="@*android:regularColor">@color/lock_pattern_view_regular_color</item>
         <item name="@*android:successColor">@color/lock_pattern_view_success_color</item>
         <item name="@*android:errorColor">@color/lock_pattern_view_error_color</item>
+
+        <!-- Divider lines -->
+        <item name="android:colorForeground">@*android:color/transparent</item>
     </style>
 
     <style name="Theme.SubSettings" parent="Theme.Settings">
