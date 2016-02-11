@@ -65,6 +65,12 @@
             android:title="@string/cat_colors_title"
             android:fragment="com.android.settings.cmremix.NotificationColorSettings" />
 
+    <PreferenceScreen
+        android:key="status_bar_notification_icons_settings"
+        android:title="@string/status_bar_notification_icons_settings_title"
+        android:summary="@string/status_bar_notification_icons_settings_summary"
+        android:fragment="com.android.settings.cmremix.StatusBarNotificationIconsSettings" />
+
     <!-- Notification Panel -->
     <PreferenceScreen
             android:id="@+id/notification_customizations"
