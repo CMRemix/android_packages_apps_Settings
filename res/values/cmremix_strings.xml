@@ -96,9 +96,7 @@
     <string name="reset_message">Reset all entries to default?</string>
     <string name="reset_option_message">Reset values to\nAndroid or CMRemix default?</string>
     <string name="category_general_title">General options</string>
-    <string name="dlg_dslv_reset_message">Reset all entries to default?</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid or CMRemix default?</string>
-    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or CMRemix default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_cmremix">CMRemix</string>
     <string name="dlg_reset_dark">Dark</string>
@@ -113,9 +111,6 @@
     <string name="colorize_ripple_dialog_title">Choose how to colorize the ripple effect</string>
     <string name="screen_and_animations_title">Screen and animations</string>
     <string name="statusbar_notifications_title">Notifications</string>
-    <string name="color_dark_mode_title">Color (light status bar)</string>
-    <string name="icon_color_dark_mode_title">Icon (light status bar)</string>
-    <string name="text_color_dark_mode_title">Text (light status bar)</string>
 
     <!-- Color picker -->
     <string name="dialog_color_picker_title">Color Picker</string>
@@ -1408,10 +1403,6 @@
     <string name="header_colors_switch">Header Color Switch</string>	
     <string name="header_colors_switch_sum_on">Custom Colors On . Overriding Theme Colors</string>	
     <string name="header_colors_switch_sum_off">Custom Colors off.Reboot Required or Restart SystemUI</string>	
-
-    <!-- Status bar Notification Icon color settings -->
-    <string name="status_bar_notification_icons_settings_title">Notification icons</string>
-    <string name="status_bar_notification_icons_settings_summary">Customize the notification icons</string>
 
     <!-- Lockscreen Colors -->
     <string name="lockscreen_colors">Lockscreen Colors</string>
