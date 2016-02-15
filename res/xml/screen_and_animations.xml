@@ -17,6 +17,11 @@
             android:entryValues="@array/toast_animation_values"
             android:persistent="false" />
 
+    <PreferenceScreen
+        android:key="ime_animations"
+        android:fragment="com.android.settings.cmremix.KeyboardAnimationInterfaceSettings"
+        android:title="@string/ime_animation_title" />
+
         <!-- List view animation -->
         <ListPreference
             android:key="listview_animation"
