@@ -78,15 +78,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
-    private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String SHOW_FOURG = "show_fourg";
-    private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
@@ -109,17 +106,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mFontStyle;
     private ListPreference mStatusBarClockFontSize;
     private ListPreference mClockDatePosition;
-    private ListPreference mCustomHeaderDefault;
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
-    private SwitchPreference mEnableTaskManager;
     private SwitchPreference mBlockOnSecureKeyguard;
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
     private SwitchPreference mShowFourG;
-    private ListPreference mStatusBarHeaderFontStyle;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -251,19 +245,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 14)));
         mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntry());
 
-        // Status bar custom header default
-        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
-        int customHeaderDefault = Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
-        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
-        mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
-
-        // Task manager
-        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
-        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
-
         // Block QS on secure LockScreen
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure(MY_USER_ID)) {
@@ -303,13 +284,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
            mShowFourG.setChecked((Settings.System.getInt(resolver,
            Settings.System.SHOW_FOURG, 0) == 1));
         }
-
-        // Status bar header font style
-        mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
-        mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
-        mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_HEADER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
-        mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntry());
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -469,14 +443,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.STATUSBAR_CLOCK_FONT_SIZE, val);
             mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntries()[index]);
             return true;
-        } else if (preference == mCustomHeaderDefault) {
-            int customHeaderDefault = Integer.valueOf((String) newValue);
-            int index = mCustomHeaderDefault.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(), 
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, customHeaderDefault);
-            mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
-            createCustomView();
-            return true;
         } else if (preference == mBlockOnSecureKeyguard) {
             Settings.Secure.putInt(resolver,
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
@@ -496,13 +462,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver, Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
             return true;
-        } else if (preference == mStatusBarHeaderFontStyle) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
-            Settings.System.putIntForUser(resolver,
-                    Settings.System.STATUS_BAR_HEADER_FONT_STYLE, val, UserHandle.USER_CURRENT);
-            mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntries()[index]);
-            return true;
         } else if (preference == mSmartPulldown) {
             int smartPulldown = Integer.valueOf((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
@@ -514,11 +473,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if  (preference == mEnableTaskManager) {
-            boolean enabled = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);
-        } else if (preference == mShowFourG) {
+        if (preference == mShowFourG) {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_FOURG, checked ? 1:0);
