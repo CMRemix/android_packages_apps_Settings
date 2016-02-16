@@ -56,8 +56,6 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
  private static final String PREF_STATUS_BAR_DETAIL_FONT_STYLE = "header_detail_font_style";
  private static final String PREF_STATUS_BAR_DATE_FONT_STYLE = "header_date_font_style";	
  private static final String PREF_STATUS_BAR_ALARM_FONT_STYLE = "header_alarm_font_style";	
- private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
- private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
  private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
 
  private static final String HEADER_CLOCK_COLOR = "header_clock_color";
@@ -74,8 +72,6 @@ private static final String PREF_MASTER_SWITCH = "header_color_switch";
 	
     private ListPreference mStatusBarClockFontStyle;	
     private ListPreference mStatusBarWeatherFontStyle;
-    private SwitchPreference mCustomHeader;	
-    private ListPreference mCustomHeaderDefault;
     private SwitchPreference mEnableTaskManager;
     private SwitchPreference mEnableColors;
     private ListPreference mStatusBarHeaderFontStyle;	
@@ -99,20 +95,6 @@ private static final String PREF_MASTER_SWITCH = "header_color_switch";
 
    	int intColor;
         String hexColor;
-
- 
-        // Status bar custom header
-        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
-        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
-        mCustomHeader.setOnPreferenceChangeListener(this);
-
-         // Status bar custom header hd
-        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
-           int customHeaderDefault = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
-        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
 
  	// Status bar header Clock font style
             mStatusBarClockFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_STYLE);
@@ -248,23 +230,6 @@ private static final String PREF_MASTER_SWITCH = "header_color_switch";
                         Settings.System.HEADER_WEATHER_FONT_STYLE, val, UserHandle.USER_CURRENT);
                 mStatusBarWeatherFontStyle.setSummary(mStatusBarWeatherFontStyle.getEntries()[index]);
                 return true;
-	} else  if (preference == mCustomHeader) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mCustomHeaderDefault) {
-           int customHeaderDefault = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(getContentResolver(), 
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
-                    customHeaderDefault, UserHandle.USER_CURRENT);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    0);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    1);
-            return true;
 	} else if (preference == mStatusBarHeaderFontStyle) {
                 int val = Integer.parseInt((String) newValue);
                 int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
