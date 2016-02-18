@@ -111,6 +111,7 @@
     <string name="colorize_ripple_dialog_title">Choose how to colorize the ripple effect</string>
     <string name="screen_and_animations_title">Screen and animations</string>
     <string name="statusbar_notifications_title">Notifications</string>
+    <string name="quicksettings_title">Quicksettings</string>
 
     <!-- Color picker -->
     <string name="dialog_color_picker_title">Color Picker</string>
@@ -1448,5 +1449,9 @@
     <string name="ime_interpolator_title">Interpolator</string>
     <string name="ime_duration_title">IME duration</string>
     <string name="animation_duration_summary">Set duration</string>
+
+    <!-- QS Tiles Columns -->
+    <string name="qs_num_columns_title">Number of QS tiles per row</string>
+    <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
 
 </resources>
