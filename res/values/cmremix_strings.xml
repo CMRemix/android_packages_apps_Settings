@@ -1460,7 +1460,11 @@
 
     <!-- QS Tiles Columns -->
     <string name="qs_num_columns_title">Number of QS tiles per row</string>
-    <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
+    <string name="qs_num_columns_showing">%1$s tiles per row are shown</string>
+
+    <!-- QS Tiles Rows -->
+    <string name="qs_num_rows_title">Number of QS rows</string>
+    <string name="qs_num_rows_showing">%1$s rows are shown</string>
 
     <!-- Battery light settings -->
     <string name="battery_light_full_color_title">Charged (90%)</string>
