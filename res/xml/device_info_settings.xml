@@ -57,6 +57,12 @@
                 android:summary="@string/sm_flags_default"
                 android:selectable="false" />
 
+        <Preference android:key="dtc_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/dtc_version"
+                android:summary="@string/dtc_version_default"
+                android:selectable="false" />
+
         <!-- CMRemix Extra Info -->
         <PreferenceScreen android:key="extrainfo"
                 android:title="@string/cmremix_extrainfo"
