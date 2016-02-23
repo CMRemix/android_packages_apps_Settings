@@ -1470,4 +1470,8 @@
     <string name="battery_light_full_color_title">Charged (90%)</string>
     <string name="battery_light_really_full_color_title">Charged (100%)</string>
 
+    <!-- Quick settings quick pull down -->
+    <string name="quick_pulldown_summary_always">Always show Quick Settings on status bar pulldown</string>	
+    <string name="quick_pulldown_always">Always</string>
+
 </resources>
