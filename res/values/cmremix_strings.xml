@@ -1230,7 +1230,7 @@
      <!-- QS header transparency -->
     <string name="qs_transparent_header">QS header transparency</string>
 
- <!-- Volume dialog transparency -->
+   <!-- Volume dialog transparency -->
    <string name="volume_dialog_transparency">Volume dialog transparency</string>
 
     <!-- Power menu and dialogs transparency -->
@@ -1505,5 +1505,19 @@
     <string name="ls_bouncer_all">No dismissable or persistent</string>
     <string name="lockscreen_alpha">Lockscreen alpha</string>
     <string name="lockscreen_security_alpha">Lockscreen bouncer alpha</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate">QS Vibrations</string>	
+    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
+    <string name="quick_settings_vibrate_summary">Vibrate when touching tiles</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="cmremix_qs_title">QuickSettings Panel </string>
+    <string name="quick_settings_icon_vibrate_title">Vibrate Settings Icon </string>
+    <string name="quick_settings_icon_vibrate_summary">Vibrate when touching Settings Icon</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_sp_vibrate_title">Vibrate on Single Press </string>
+    <string name="quick_settings_sp_vibrate_summary">Vibrate when touching SinglePressing Tiles</string>
 
 </resources>

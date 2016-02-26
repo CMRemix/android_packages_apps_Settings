@@ -179,6 +179,12 @@
     <PreferenceCategory
         android:title="@string/notifications_misc" >
 
+    <!-- Qs Vibrate Panel -->
+    <PreferenceScreen
+            android:id="@+id/qs_vib_customizations"
+            android:title="@string/quick_settings_vibrate"
+            android:fragment="com.android.settings.cmremix.QsVibrate" />
+
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_alarm"
