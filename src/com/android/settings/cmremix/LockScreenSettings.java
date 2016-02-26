@@ -142,6 +142,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
             Settings.System.putFloat(resolver,
                     Settings.System.LOCKSCREEN_SECURITY_ALPHA, alpha2 / 100.0f);
             return true;
+         } else if (preference == mLsBouncer) {
+            int lockbouncer = Integer.valueOf((String) newValue);
+            Settings.Secure.putInt(resolver, Settings.Secure.LOCKSCREEN_BOUNCER, lockbouncer);
+            updateBouncerSummary(lockbouncer);
+            return true;
         }
         return false;
     }
