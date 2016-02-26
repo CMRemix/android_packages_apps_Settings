@@ -181,9 +181,16 @@
 
     <!-- Qs Vibrate Panel -->
     <PreferenceScreen
-            android:id="@+id/qs_vib_customizations"
-            android:title="@string/quick_settings_vibrate"
-            android:fragment="com.android.settings.cmremix.QsVibrate" />
+        android:id="@+id/qs_vib_customizations"
+        android:title="@string/quick_settings_vibrate"
+        android:fragment="com.android.settings.cmremix.QsVibrate" />
+
+    <!-- Qs Colors -->
+    <PreferenceScreen
+        android:id="@+id/qs_colors"
+        android:title="@string/quick_settings_colors"
+	    android:summary="@string/qs_colors_summary"	
+        android:fragment="com.android.settings.cmremix.QsColors" />
 
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
