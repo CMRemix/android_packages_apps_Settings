@@ -121,4 +121,31 @@
             android:summary="@string/keyguard_torch_summary"
             android:defaultValue="false" />
 
+       <ListPreference
+            android:key="lockscreen_bouncer"
+            android:title="@string/ls_bouncer_title"
+            android:entries="@array/ls_bouncer_entries"
+            android:entryValues="@array/ls_bouncer_values"
+            android:persistent="false" />
+
+      <com.android.settings.cmremix.utils.SeekBarPreference
+            android:key="lockscreen_alpha"
+            android:title="@string/lockscreen_alpha"
+            android:max="100"
+            settings:minimum="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:persistent="false" />
+
+       <com.android.settings.cmremix.utils.SeekBarPreference
+            android:key="lockscreen_security_alpha"
+            android:title="@string/lockscreen_security_alpha"
+            android:max="100"
+            settings:minimum="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:persistent="false" />
+
 </PreferenceScreen>
