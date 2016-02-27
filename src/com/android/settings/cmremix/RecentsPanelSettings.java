@@ -65,7 +65,6 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_DISMISS_ALL = "recents_clear_all_dismiss_all";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
-    private static final String RECENTS_STYLE = "clear_recents_style";
     private static final String IMMERSIVE_RECENTS = "immersive_recents";
 
     // Preferences
@@ -103,7 +102,6 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mRecentPanelBgColor;
     private ColorPickerPreference mRecentCardBgColor;
     private ColorPickerPreference mRecentCardTextColor;
-    private ListPreference mClearStyle;
     private ListPreference mImmersiveRecents;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -137,11 +135,8 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                 Settings.System.USE_SLIM_RECENTS, 0) == 1);
         mUseSlimRecents.setOnPreferenceChangeListener(this);
 
-        mClearStyle = (ListPreference) prefSet.findPreference(RECENTS_STYLE);
-        mClearStyle.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.CLEAR_RECENTS_STYLE, 0)));
-        mClearStyle.setSummary(mClearStyle.getEntry());
-        mClearStyle.setOnPreferenceChangeListener(this);
+        int intColor;
+        String hexColor;
 
         mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
         mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
@@ -260,12 +255,6 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                 Settings.System.RECENTS_MAX_APPS, value);
-            return true;
-        } else if (preference == mClearStyle) {
-            Settings.System.putInt(getContentResolver(), Settings.System.CLEAR_RECENTS_STYLE,
-                    Integer.valueOf((String) newValue));
-            mClearStyle.setValue(String.valueOf(newValue));
-            mClearStyle.setSummary(mClearStyle.getEntry());    
             return true;
         } else if (preference == mImmersiveRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
