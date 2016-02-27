@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -51,6 +52,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
     private ListPreference mLsBouncer;
     private SeekBarPreference mLsSecurityAlpha;
     private SeekBarPreference mLsAlpha;
+    private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintVib;
 
     @Override
     protected int getMetricsCategory() {
@@ -61,8 +64,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.cmremix_lockscreen);
-
         ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
         mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
@@ -88,6 +91,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
                 Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
         mLsSecurityAlpha.setValue((int)(100 * alpha2));
         mLsSecurityAlpha.setOnPreferenceChangeListener(this);
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SwitchPreference) prefScreen.findPreference("fingerprint_success_vib");
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFingerprintVib);
+        }
     }
 
     private void updateBouncerSummary(int value) {
