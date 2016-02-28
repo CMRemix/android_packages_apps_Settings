@@ -134,6 +134,15 @@
                 android:summary="@string/dashboard_tileview_dividers_summary"
                 android:defaultValue="false" />
 
+ 	 <ListPreference
+                android:key="dashboard_switches"
+                android:title="@string/dashboard_switches_title"
+                android:dialogTitle="@string/dashboard_switches_dialog_title"
+                android:entries="@array/dashboard_switches_entries"
+                android:entryValues="@array/dashboard_switches_values"
+                android:summary="@string/dashboard_switches_summary"
+                android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -192,13 +201,6 @@
                 android:summary="@string/summary_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
-        <!-- RAM Memory bar -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                android:key="systemui_recents_mem_display"
-                android:title="@string/recents_show_membar_title"
-                android:summaryOn="@string/recents_show_membar_summary_on"
-                android:summaryOff="@string/recents_show_membar_summary_off"
-                android:defaultValue="false" />
 
        <!-- Toast Icons -->
        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
