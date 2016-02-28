@@ -116,6 +116,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE = "doze";
     private static final String KEY_ADVANCED_DOZE_OPTIONS = "advanced_doze_options";
 
+    private static final String ROTATION_LOCKSCREEN = "Lockscreen";
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String DASHBOARD_SWITCHES = "dashboard_switches";
 
@@ -213,7 +214,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
-                interfacePrefs.removePreference(mLcdDensityPreference);
+                getPreferenceScreen().removePreference(mLcdDensityPreference);
             } else {
                 int defaultDensity = getDefaultDensity();
                 int currentDensity = getCurrentDensity();
@@ -374,7 +375,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             // The preference was removed, do nothing
             return;
         }
-
+        boolean configEnableLockRotation = getResources().
+                        getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation);
+        boolean lockScreenRotationEnabled = Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_ROTATION, configEnableLockRotation ? 1 : 0) != 0;
         // We have a preference, lets update the summary
         boolean rotationEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
@@ -392,7 +396,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 | DisplayRotation.ROTATION_270_MODE);
         ArrayList<String> rotationList = new ArrayList<String>();
         String delim = "";
-
+	   if (lockScreenRotationEnabled) {
+                rotationList.add(ROTATION_LOCKSCREEN);
+        }
         if ((mode & DisplayRotation.ROTATION_0_MODE) != 0) {
             rotationList.add("0");
         }
@@ -594,6 +600,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+
     private void writeLcdDensityPreference(final Context context, final int density) {
         final IActivityManager am = ActivityManagerNative.asInterface(
                 ServiceManager.checkService("activity"));
@@ -651,6 +658,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(parent);
         }
     }
+
     /**
      * Reads the current font size and sets the value in the summary text
      */
@@ -731,6 +739,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
         }
+        if (preference == mDashboardColumns) {
+            Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_COLUMNS,
+                    Integer.valueOf((String) objValue));
+            mDashboardColumns.setValue(String.valueOf(objValue));
+            mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+            return true;
+        }
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
@@ -745,20 +760,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
-        }
-        if (preference == mDashboardColumns) {
-            Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_COLUMNS,
-                    Integer.valueOf((String) objValue));
-            mDashboardColumns.setValue(String.valueOf(objValue));
-            mDashboardColumns.setSummary(mDashboardColumns.getEntry());
-            return true;
-        }
-        if (preference == mDashboardSwitches) {
+        } if (preference == mDashboardSwitches) {
             Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_SWITCHES,
                     Integer.valueOf((String) objValue));
             mDashboardSwitches.setValue(String.valueOf(objValue));
             mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
             return true;
+        }
         return true;
     }
 
