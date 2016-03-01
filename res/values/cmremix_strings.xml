@@ -1375,14 +1375,6 @@
      <string name="dashboard_switches_summary">Change the position of the dashboard switches</string>
      <string name="dashboard_switches_dialog_title">Select switch state</string>
 
-    <!-- Breathing Notifications -->
-    <string name="breathing_notifications_category">Breathing Notifications</string>
-    <string name="breathing_notifications_title">Breathing notifications</string>
-    <string name="missed_call_breath_title">Breathing Missed Call</string>
-    <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
-    <string name="voicemail_breath_title">Breathing Voicemail</string>
-    <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
-
     <!-- Selinux Switch -->
     <string name="selinux_switch_title">Selinux Switch options</string>
     <string name="selinux_switch_summary">SELinux is a set of kernel modifications and user-space tools. Changing modes can cause unwanted effects. Use at your own risk.</string>

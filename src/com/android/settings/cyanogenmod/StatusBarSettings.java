@@ -81,8 +81,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
-    private static final String MISSED_CALL_BREATH = "missed_call_breath";
-    private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String SHOW_FOURG = "show_fourg";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
 
@@ -111,8 +109,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private SwitchPreference mBlockOnSecureKeyguard;
-    private SwitchPreference mMissedCallBreath;
-    private SwitchPreference mVoicemailBreath;
     private SwitchPreference mShowFourG;
     private ListPreference mNumColumns;
     private ListPreference mNumRows;
@@ -255,27 +251,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
         } else if (mBlockOnSecureKeyguard != null) {
             prefSet.removePreference(mBlockOnSecureKeyguard);
-        }
-
-        // Breathing Notifications
-        mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
-        mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
-
-        ConnectivityManager cm = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
-
-            mMissedCallBreath.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.KEY_MISSED_CALL_BREATH, 0) == 1);
-            mMissedCallBreath.setOnPreferenceChangeListener(this);
-
-            mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
-            mVoicemailBreath.setOnPreferenceChangeListener(this);
-        } else {
-            prefSet.removePreference(mMissedCallBreath);
-            prefSet.removePreference(mVoicemailBreath);
         }
 
         // Show 4G
@@ -473,14 +448,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             CMSettings.System.putInt(
                     resolver, CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, quickPulldown);
             updatePulldownSummary(quickPulldown);
-            return true;
-        } else if (preference == mMissedCallBreath) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.KEY_MISSED_CALL_BREATH, value ? 1 : 0);
-            return true;
-        } else if (preference == mVoicemailBreath) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
             return true;
         } else if (preference == mSmartPulldown) {
             int smartPulldown = Integer.valueOf((String) newValue);
