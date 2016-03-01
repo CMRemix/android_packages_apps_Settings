@@ -263,6 +263,12 @@
             android:persistent="false"
             android:defaultValue="true"/>
 
+       <PreferenceScreen
+           android:key="breathing_notifications"
+           android:fragment="com.android.settings.cmremix.BreathingNotifications"
+           android:title="@string/breathing_notifications_title" 
+           android:summary="@string/breathing_notifications_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
