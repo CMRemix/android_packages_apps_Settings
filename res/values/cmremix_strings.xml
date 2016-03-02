@@ -145,6 +145,14 @@
     <!-- Toast Icons -->
     <string name="toast_icon_title">Toast icon</string>
 
+    <!--Notification Drawer-->
+    <string name="notification_cat">Notification Header</string>
+    <string name="notification_drawer_title">Notification Drawer</string>
+    <string name="cmremix_qs_cat">Quick Settings PullDown</string>
+    <string name="cmremix_qs">Quick Settings</string>
+    <string name="cmremix_brightness_cat">Brightness Slider</string>
+    <string name="cmremix_qs_title">QuickSettings Panel </string>
+
     <!--Status bar date -->
     <string name="status_bar_date_title">Date</string>
     <string name="status_bar_date_none">Hidden (default)</string>
@@ -1282,6 +1290,10 @@
     <string name="qs_brightness_slider_title">Show brightness slider</string>
     <string name="brightness_icon_title">Brightness icon </string>
     <string name="brightness_icon_summary">Enable brightness icon at brightness slider</string>
+
+    <!-- Quick settings brightness slider -->
+    <string name="qs_brightness_slider_title">Brightness Slider</string>
+    <string name="qs_brightness_slider_summary">Enable/Disable the brightness slider in Quick Settings</string>
 
     <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>

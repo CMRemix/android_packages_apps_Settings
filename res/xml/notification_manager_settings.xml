@@ -17,6 +17,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+
+    <PreferenceCategory
+        android:key="notification_header"
+        android:title="@string/notification_cat" >
+
     <!-- Heads up -->
     <Preference
             android:key="heads_up_notifications"
@@ -71,6 +76,20 @@
             android:title="@string/notification_customizations"
             android:fragment="com.android.settings.cmremix.NotificationPanel" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/cmremix_qs" >
+
+    <!-- Notification Panel -->
+    <PreferenceScreen
+            android:id="@+id/Qs_customizations"
+            android:title="@string/cmremix_qs_title"
+            android:fragment="com.android.settings.cmremix.QsPanel" />
+
+
+     </PreferenceCategory>
+     
      <PreferenceCategory
         android:key="weather_category"
         android:title="@string/weather_title" >
