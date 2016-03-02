@@ -23,6 +23,19 @@
         android:key="notification_qs"
         android:title="@string/cmremix_qs_cat" >
 
+    <!-- Qs Vibrate Panel -->
+    <PreferenceScreen
+        android:id="@+id/qs_vib_customizations"
+        android:title="@string/quick_settings_vibrate"
+        android:fragment="com.android.settings.cmremix.QsVibrate" />
+
+    <!-- Qs Colors -->
+    <PreferenceScreen
+        android:id="@+id/qs_colors"
+        android:title="@string/quick_settings_colors"
+	    android:summary="@string/qs_colors_summary"	
+        android:fragment="com.android.settings.cmremix.QsColors" />
+
 
     <ListPreference
         android:key="sysui_qs_num_columns"
