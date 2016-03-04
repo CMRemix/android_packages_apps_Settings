@@ -52,6 +52,8 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     private static final String LOCKSCREEN_ALARM_COLOR = "lockscreen_alarm_color";	
 
     static final int DEFAULT = 0xffffffff;
+    static final int TRANSPARENT = 0x99FFFFFF;
+
     private static final int MENU_RESET = Menu.FIRST;
 
     private ColorPickerPreference mLockscreenPhoneColorPicker;
@@ -78,8 +80,8 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenPhoneColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_PHONE_ICON_COLOR);
         mLockscreenPhoneColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
         mLockscreenPhoneColorPicker.setSummary(hexColor);
         mLockscreenPhoneColorPicker.setNewPreviewColor(intColor);
 
@@ -94,8 +96,8 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenCameraColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CAMERA_ICON_COLOR);
         mLockscreenCameraColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
         mLockscreenCameraColorPicker.setSummary(hexColor);
         mLockscreenCameraColorPicker.setNewPreviewColor(intColor);
 
