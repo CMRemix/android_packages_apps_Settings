@@ -36,6 +36,7 @@ import android.provider.Settings;
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.util.cmremix.CMRemixUtils;
 import com.android.internal.util.cm.PowerMenuConstants;
 
 import cyanogenmod.providers.CMSettings;
@@ -62,6 +63,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment
     private SwitchPreference mSettingsPref;
     private SwitchPreference mLockdownPref;
     private SwitchPreference mBugReportPref;
+    private SwitchPreference mPowermenuTorch;
     private SwitchPreference mSilentPref;
     private SwitchPreference mVoiceAssistPref;
     private SwitchPreference mAssistPref;
@@ -124,6 +126,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment
                 mLockdownPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_LOCKDOWN);
             } else if (action.equals(GLOBAL_ACTION_KEY_BUGREPORT)) {
                 mBugReportPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_BUGREPORT);
+            } else if (action.equals(GLOBAL_ACTION_KEY_TORCH)) {
+                mPowermenuTorch = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_TORCH);
             } else if (action.equals(GLOBAL_ACTION_KEY_SILENT)) {
                 mSilentPref = (SwitchPreference) findPreference(GLOBAL_ACTION_KEY_SILENT);
             } else if (action.equals(GLOBAL_ACTION_KEY_VOICEASSIST)) {
@@ -203,6 +207,14 @@ public class PowerMenuActions extends SettingsPreferenceFragment
             mBugReportPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_BUGREPORT));
         }
 
+        if (mPowermenuTorch != null) {
+            if (!CMRemixUtils.deviceSupportsFlashLight(getActivity())) {
+                getPreferenceScreen().removePreference(mPowermenuTorch);
+            } else {
+                mPowermenuTorch.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_TORCH));
+            }
+        }
+
         if (mSilentPref != null) {
             mSilentPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SILENT));
         }
@@ -263,6 +275,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment
         } else if (preference == mBugReportPref) {
             value = mBugReportPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_BUGREPORT);
+
+        } else if (preference == mPowermenuTorch) {
+            value = mPowermenuTorch.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_TORCH);
 
         } else if (preference == mSilentPref) {
             value = mSilentPref.isChecked();

@@ -1696,4 +1696,7 @@
     <string name="logo13">Pugmark</string>	
     <string name="logo14">Owl</string>	
 
+    <!-- Power menu torch -->
+    <string name="power_menu_torch_title">Torch</string>
+
 </resources>
