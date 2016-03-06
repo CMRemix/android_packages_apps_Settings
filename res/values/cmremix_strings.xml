@@ -1721,4 +1721,7 @@
     <!-- Power menu torch -->
     <string name="power_menu_torch_title">Torch</string>
 
+    <!-- Development settings -->
+    <string name="dexopt_lazy">Lazy dexopt</string>
+
 </resources>

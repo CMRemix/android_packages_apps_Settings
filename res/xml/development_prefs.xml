@@ -452,6 +452,11 @@
             settings:unitsRight="ms"
             android:dependency="kill_app_longpress_back" />
 
+        <SwitchPreference
+            android:key="dexopt_lazy"
+            android:title="@string/dexopt_lazy"
+            android:persistent="false" />
+
      </PreferenceCategory>
 
     <!-- SELinux -->
