@@ -109,6 +109,17 @@
 
     <!-- Kernel Adiutor -->
         <dashboard-tile
+        android:id="@+id/device_control"
+        android:title="@string/device_control_title"
+        android:icon="@drawable/ic_settings_devicecontrol">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.namelessrom.devicecontrol"
+                android:targetClass="org.namelessrom.devicecontrol.MainActivity" />
+        </dashboard-tile>
+
+    <!-- Kernel Adiutor -->
+        <dashboard-tile
         android:id="@+id/kernel_adiutor"
         android:title="@string/kernel_adiutor_title"
         android:icon="@drawable/ic_settings_performance">

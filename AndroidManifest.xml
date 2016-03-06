@@ -2189,6 +2189,9 @@
         <!-- Kernel Adiutor -->
         <activity android:name="com.grarak.kerneladiutor.MainActivity"/>
 
+        <!-- DeviceControl -->
+        <activity android:name="org.namelessrom.devicecontrol.MainActivity"/>
+
         <!-- Network traffic settings activity. -->
         <activity android:name="Settings$NetworkTraffiActivity"
                 android:label="@string/network_traffic_title"

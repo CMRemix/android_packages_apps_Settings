@@ -295,6 +295,9 @@
     <!-- Kernel Adiutor -->
     <string name="kernel_adiutor_title">Kernel Adiutor</string>
 
+    <!-- DeviceControl -->
+    <string name="device_control_title">Device Control</string>
+
     <!-- Slim DSLV -->
     <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_longpress">Longpress:</string>
