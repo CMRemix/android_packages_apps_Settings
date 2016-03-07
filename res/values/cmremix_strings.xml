@@ -285,12 +285,10 @@
     <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
 
     <!--Embedded AudioFX-->
-    <string name="audiofx_settings_title">Equalizer</string>
-    <string name="audiofx_summary">AudioFX Access</string>
+    <string name="audiofx_settings_title">AudioFX</string>
 
     <!--Embedded Viper4Android-->
-    <string name="viper_settings_title">Equalizer</string>
-    <string name="viper_summary">Viper4Android Access</string>
+    <string name="viper_settings_title">Viper</string>
 
     <!-- Kernel Adiutor -->
     <string name="kernel_adiutor_title">Kernel Adiutor</string>

@@ -64,7 +64,7 @@
                 android:key="recents_panel"
                 android:fragment="com.android.settings.cmremix.RecentsPanelSettings"
                 android:title="@string/recents_panel_title"
-                android:icon="@drawable/ic_recents">
+                android:icon="@drawable/ic_cmremix_recents">
         </PreferenceScreen>
 
         <!-- CMRemix Tweaks -->
@@ -78,7 +78,7 @@
         <!-- CMRemix Change Log -->
        <PreferenceScreen android:key="changelog"
                android:title="@string/changelog_title"
-               android:icon="@drawable/ic_settings_about"
+               android:icon="@drawable/ic_cmremix_changelog"
                android:fragment="com.android.settings.cmremix.ChangeLog">
         </PreferenceScreen>
 

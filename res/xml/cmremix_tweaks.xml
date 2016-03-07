@@ -24,7 +24,7 @@
          android:key="screen_and_animations"
          android:fragment="com.android.settings.cmremix.ScreenAndAnimations"
          android:title="@string/screen_and_animations_title"
-         android:icon="@drawable/ic_settings_animations">
+         android:icon="@drawable/ic_cmremix_animations">
    </PreferenceScreen>
 
     <!-- Gesture anywhere -->
@@ -40,7 +40,7 @@
          android:key="app_sidebar"
          android:fragment="com.android.settings.cmremix.AppSidebar"
          android:title="@string/app_sidebar_title"
-         android:icon="@drawable/ic_appsidebar">
+         android:icon="@drawable/ic_cmremix_appsidebar">
    </PreferenceScreen>
 
     <!-- App circle bar -->
@@ -48,7 +48,7 @@
          android:key="app_circle_bar"
          android:fragment="com.android.settings.cmremix.AppCircleBar"
          android:title="@string/app_circle_bar_title"
-         android:icon="@drawable/ic_settings_appcirclebar">
+         android:icon="@drawable/ic_cmremix_appcirclebar">
    </PreferenceScreen>
 
 </PreferenceScreen>
