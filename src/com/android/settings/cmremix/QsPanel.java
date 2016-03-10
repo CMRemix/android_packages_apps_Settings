@@ -122,7 +122,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     @Override

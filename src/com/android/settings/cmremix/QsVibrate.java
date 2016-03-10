@@ -45,8 +45,8 @@ public class QsVibrate extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.cmremix_qs_vibrate);
     }
 
-    protected int getMetricsCategory()
-    {
-	return MetricsLogger.APPLICATION;
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.MAIN_SETTINGS;
     }
 }

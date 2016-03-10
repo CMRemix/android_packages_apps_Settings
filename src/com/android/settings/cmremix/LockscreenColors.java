@@ -292,6 +292,6 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     }
 
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 }

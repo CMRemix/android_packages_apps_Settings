@@ -57,7 +57,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     @Override

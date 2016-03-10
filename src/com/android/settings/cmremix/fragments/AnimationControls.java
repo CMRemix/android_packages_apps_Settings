@@ -75,7 +75,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     @Override

@@ -79,7 +79,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     @Override

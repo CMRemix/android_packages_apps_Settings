@@ -85,6 +85,11 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
  
      private ContentResolver mResolver;
 
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.MAIN_SETTINGS;
+    }
+
      @Override
      public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -280,10 +285,6 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
         } 
 	return false;
 	}
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
-    }
 
 	private void showDialogInner(int id) {
         DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);

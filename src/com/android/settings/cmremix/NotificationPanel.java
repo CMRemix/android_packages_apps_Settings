@@ -203,7 +203,7 @@ private static final String PREF_MASTER_SWITCH = "header_color_switch";
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     @Override

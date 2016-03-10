@@ -55,7 +55,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     @Override
      protected int getMetricsCategory() {
-        return MetricsLogger.DEVELOPMENT;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
     private static final String TAG = "RecentPanelSettings";

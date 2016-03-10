@@ -87,7 +87,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
 
  @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DEVELOPMENT;
+        return MetricsLogger.MAIN_SETTINGS;
     }
 
  @Override
