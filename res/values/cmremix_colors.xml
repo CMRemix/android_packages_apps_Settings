@@ -32,4 +32,6 @@
 
     <color name="secondary_text_material_dark">#b3ffffff</color>
 
+     <color name="action_picker_fab_background">@color/theme_accent</color>
+
 </resources>

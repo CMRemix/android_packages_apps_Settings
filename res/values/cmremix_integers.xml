@@ -5,4 +5,11 @@
     <integer name="maskDown">0x00000002</integer>
     <integer name="maskUnit">0x00000004</integer>
     <integer name="maskPeriod">0xFFFF0000</integer>
+
+        <!-- navbar height -->
+    <integer name="navigation_bar_height_min_percent">65</integer>
+    <integer name="navigation_bar_height_max_percent">120</integer>
+    <integer name="navigation_bar_width_min_percent">65</integer>
+    <integer name="navigation_bar_width_max_percent">120</integer>
+
 </resources>

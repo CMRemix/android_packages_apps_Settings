@@ -7,4 +7,10 @@
     <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
 
+       <!-- Icon pack picker -->
+     <dimen name="alert_dialog_padding_material">20dp</dimen>
+
+        <!-- Shortcur picker -->
+    <dimen name="shortcut_picker_left_padding">40dip</dimen>
+
 </resources>
