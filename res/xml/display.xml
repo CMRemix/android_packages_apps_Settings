@@ -47,16 +47,14 @@
 
         <!-- Rotation modes -->
         <PreferenceScreen
+                android:key="doze_fragment"
+                android:title="@string/doze_title"
+                android:fragment="com.android.settings.cmremix.AmbientSettings" />
+
+        <PreferenceScreen
                 android:key="display_rotation"
                 android:title="@string/display_rotation_title"
                 android:fragment="com.android.settings.cyanogenmod.DisplayRotation"/>
-
-        <!-- Doze // Ambient display -->
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                android:persistent="false" />
 
         <!-- Lift to wake -->
         <SwitchPreference

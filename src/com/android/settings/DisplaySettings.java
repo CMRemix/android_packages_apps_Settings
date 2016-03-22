@@ -102,7 +102,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
-    private static final String KEY_DOZE = "doze";
+    private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
@@ -133,7 +133,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Preference mScreenSaverPreference;
     private SwitchPreference mAccelerometer;
     private SwitchPreference mLiftToWakePreference;
-    private SwitchPreference mDozePreference;
+    private PreferenceScreen mDozeFragement;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
@@ -270,13 +270,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
-        if (mDozePreference != null && Utils.isDozeAvailable(activity)) {
-            mDozePreference.setOnPreferenceChangeListener(this);
-        } else {
-            if (displayPrefs != null && mDozePreference != null) {
-                displayPrefs.removePreference(mDozePreference);
-            }
+        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
+        if (mDozeFragement != null && Utils.isDozeAvailable(activity)) {
+            getPreferenceScreen().removePreference(mDozeFragement);
+            mDozeFragement = null;
         }
 
         mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
@@ -532,6 +529,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         updateState();
         updateAccelerometerRotationSwitch();
+
+        boolean dozeEnabled = Settings.Secure.getInt(
+                getContentResolver(), Settings.Secure.DOZE_ENABLED, 1) != 0;
+        if (mDozeFragement != null) {
+            mDozeFragement.setSummary(dozeEnabled
+                    ? R.string.summary_doze_enabled : R.string.summary_doze_disabled);
+        }
     }
 
     @Override
@@ -574,12 +578,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mLiftToWakePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), WAKE_GESTURE_ENABLED, 0);
             mLiftToWakePreference.setChecked(value != 0);
-        }
-
-        // Update doze if it is available.
-        if (mDozePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOZE_ENABLED, 1);
-            mDozePreference.setChecked(value != 0);
         }
 
         // Update tap to wake if it is available.
@@ -733,10 +731,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), WAKE_GESTURE_ENABLED, value ? 1 : 0);
         }
-        if (preference == mDozePreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
-        }
         if (preference == mTapToWakePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
@@ -848,7 +842,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         result.add(KEY_LIFT_TO_WAKE);
                     }
                     if (!Utils.isDozeAvailable(context)) {
-                        result.add(KEY_DOZE);
+                        result.add(KEY_DOZE_FRAGMENT);
                     }
                     if (!isTapToWakeAvailable(context.getResources())) {
                         result.add(KEY_TAP_TO_WAKE);
