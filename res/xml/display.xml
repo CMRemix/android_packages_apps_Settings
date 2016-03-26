@@ -38,6 +38,18 @@
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
 
+        <!-- Kcal Control -->
+        <PreferenceScreen
+		        android:id="@+id/kcal_display"
+                android:title="@string/kcal_display"
+                android:key="kcal_control"
+                android:summary="@string/kcal_display_summary">
+              <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="re.codefi.savoca.kcal"
+                    android:targetClass="re.codefi.savoca.kcal.MainActivity" />
+        </PreferenceScreen>
+
         <!-- LiveDisplay -->
         <PreferenceScreen
                 android:key="live_display"

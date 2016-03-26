@@ -2193,6 +2193,9 @@
         <!-- DeviceControl -->
         <activity android:name="org.namelessrom.devicecontrol.MainActivity"/>
 
+        <!-- Color Control -->
+        <activity android:name="re.codefi.savoca.kcal.MainActivity"/>
+
         <!-- Network traffic settings activity. -->
         <activity android:name="Settings$NetworkTraffiActivity"
                 android:label="@string/network_traffic_title"

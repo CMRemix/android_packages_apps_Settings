@@ -2904,4 +2904,6 @@
     <string name="color_temperature" msgid="2070126836910615605">"Temperatura de colores fríos"</string>
     <string name="color_temperature_desc" msgid="4793729830226404052">"Utilizar colores de pantalla más fríos"</string>
     <string name="color_temperature_toast" msgid="4974218172133854827">"Para aplicar el cambio de color, apaga la pantalla"</string>
+    <string name="kcal_display">Color Control</string>
+    <string name="kcal_display_summary">Ajustes avanzados de los colores de la pantalla</string>
 </resources>

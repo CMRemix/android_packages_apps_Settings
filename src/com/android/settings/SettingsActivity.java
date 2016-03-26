@@ -1338,6 +1338,7 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.cmremix_center) {
+                    // Embedding CMRemix Center into Settings is supported
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("com.cmremix.ota", 0).versionCode > 0);
@@ -1347,7 +1348,7 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.audiofx_settings) {
-                    // Embedding into Settings is supported
+                    // Embedding AudioFX into Settings is supported
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("org.cyanogenmod.audiofx", 0).versionCode >= 1);
@@ -1357,7 +1358,7 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.viper_settings) {
-                    // Embedding into Settings is supported
+                    // Embedding Viper4Android into Settings is supported
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("com.vipercn.viper4android_v2", 0).versionCode >= 1);
@@ -1367,7 +1368,7 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.kernel_adiutor) {
-                    // Embedding into Settings is supported
+                    // Embedding Kernel Adiuter into Settings is supported
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode >= 1);
@@ -1386,6 +1387,16 @@ public class SettingsActivity extends Activity
                     if (!supported) {
                         removeTile = true;
                     }
+		         }else if (id == R.id.kcal_display) {
+                    // Embedding Savoca-Kcal into Settings is supported
+                    boolean supported = false;
+                    try {
+                        supported = (getPackageManager().getPackageInfo("re.codefi.savoca.kcal", 0).versionCode > 0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                    }
+                    if (!supported) {
+                        removeTile = true;
+                   }
                 } else if (id == R.id.button_settings) {
                     boolean hasDeviceKeys = getResources().getInteger(
                             com.android.internal.R.integer.config_deviceHardwareKeys) != 0;
