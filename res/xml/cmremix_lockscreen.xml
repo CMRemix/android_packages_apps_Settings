@@ -23,10 +23,17 @@
         android:key="general_category"
         android:title="@string/general_options_title" >
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="fingerprint_success_vib"
             android:title="@string/fprint_sucess_vib_title"
             android:summary="@string/fprint_sucess_vib_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="keyguard_show_charging_current"
+            android:title="@string/keyguard_show_charging_current"
+            android:summaryOn="@string/keyguard_show_charging_current_summary_on"
+            android:summaryOff="@string/keyguard_show_charging_current_summary_off"
             android:defaultValue="true" />
 
         <PreferenceScreen
