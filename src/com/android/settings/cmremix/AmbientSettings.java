@@ -72,7 +72,7 @@ public class AmbientSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
     }
 
     @Override
