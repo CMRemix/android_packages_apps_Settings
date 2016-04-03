@@ -8,13 +8,13 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.android.internal.logging.MetricsLogger;
+import com.android.settings.util.CMDProcessor;
 import com.android.settings.R;
 
-import com.android.settings.util.CMDProcessor;
+
 
 import java.io.IOException;
-
+import java.util.List;
 
 public class OnBoot extends BroadcastReceiver {
 
@@ -22,12 +22,9 @@ public class OnBoot extends BroadcastReceiver {
     private static final String TAG = "CMR_onboot";
     Boolean mSetupRunning = false;
 
-    protected int getMetricsCategory() {
-        return MetricsLogger.CMREMIX;
-    }
-
     @Override
     public void onReceive(Context context, Intent intent) {
+        Boolean mSelinuxCmdline = false;
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> procInfos = activityManager.getRunningAppProcesses();
         for(int i = 0; i < procInfos.size(); i++)
@@ -47,12 +44,21 @@ public class OnBoot extends BroadcastReceiver {
             }
             SharedPreferences sharedpreferences = settingsContext.getSharedPreferences("com.android.settings_preferences",
                     Context.MODE_PRIVATE);
+
+            if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
+                mSelinuxCmdline = true;
+                Log.d(TAG, "cmdline: selinux:Enforcing");
+            } else {
+                mSelinuxCmdline = false;
+                Log.d(TAG, "cmdline: selinux:Permissive");
+            }
+
             if(sharedpreferences.getBoolean("selinux", true)) {
-                if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Permissive")) {
+                if (mSelinuxCmdline == false) {
                     CMDProcessor.runShellCommand("setenforce 1");
                 }
             } else if (!sharedpreferences.getBoolean("selinux", true)) {
-                if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
+                if (mSelinuxCmdline == true) {
                     CMDProcessor.runShellCommand("setenforce 0");
                     showToast(context.getString(R.string.selinux_permissive_toast_title), context);
                 }
