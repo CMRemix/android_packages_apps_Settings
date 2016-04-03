@@ -710,6 +710,8 @@
     <string name="heads_up_snooze_title">Snooze</string>
     <string name="heads_up_snooze">Snooze</string>
     <string name="heads_up_timeout">Timeout</string>
+    <string name="force_headsup_title">Force heads up</string>
+    <string name="force_headsup_summary">Force heads up in all applications</string>
 
     <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
     <string name="bluetooth_accept_all_files">Accept all file types</string>

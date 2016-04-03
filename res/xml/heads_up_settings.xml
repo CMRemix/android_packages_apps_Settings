@@ -25,6 +25,13 @@
             android:summaryOff="@string/summary_heads_up_disabled"
             android:defaultValue="true" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="heads_up_force_all"
+        android:title="@string/force_headsup_title"
+        android:summary="@string/force_headsup_summary"
+        android:defaultValue="false"
+        android:disableDependentsState="true" />
+
     <PreferenceCategory
             android:title="@string/heads_up_dnd_title"
             android:key="dnd_applications_list"
@@ -53,7 +60,7 @@
     <PreferenceCategory
                android:title="@string/heads_up_whitelist_title"
                android:key="whitelist_applications"
-               android:dependency="heads_up_notifications_enabled" >
+               android:dependency="heads_up_force_all" >
 
         <Preference
                android:key="add_whitelist_packages"
