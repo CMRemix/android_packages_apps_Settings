@@ -1863,6 +1863,11 @@
     <string name="doze_notification_color_invert_summary_off">Notifications will not be inverted. Use for dark themes.</string>
     <string name="doze_notification_color_invert_summary_on">Notifications will be inverted. Use for light/stock theme.</string>
 
+    <!-- DoubleTap2Wake Doze -->
+    <string name="doze_wakeup_doubletap_title">Double-tap to wake on doze</string>
+    <string name="doze_wakeup_doubletap_summary_on">Require a double-tap to wake the device on a doze pulse screen</string>
+    <string name="doze_wakeup_doubletap_summary_off">Require a simple-tap to wake the device on a doze pulse screen (default)</string>
+
     <!-- Show charging current on lockscreen -->
     <string name="keyguard_show_charging_current">Show charging current</string>
     <string name="keyguard_show_charging_current_summary_on">Allow charging current to be shown on lockscreen when plugged in</string>
