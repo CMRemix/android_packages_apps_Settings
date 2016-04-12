@@ -13,10 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/headsup_options_header"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
             android:key="heads_up_notifications_enabled"
@@ -26,11 +23,11 @@
             android:defaultValue="true" />
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="heads_up_force_all"
-        android:title="@string/force_headsup_title"
-        android:summary="@string/force_headsup_summary"
-        android:defaultValue="false"
-        android:disableDependentsState="true" />
+            android:key="heads_up_force_all"
+            android:title="@string/force_headsup_title"
+            android:summary="@string/force_headsup_summary"
+            android:defaultValue="false"
+            android:disableDependentsState="true" />
 
     <PreferenceCategory
             android:title="@string/heads_up_dnd_title"
@@ -69,34 +66,4 @@
                android:summary="@string/add_heads_up_whitelist_summary" />
 
     </PreferenceCategory>
-
-
-    <PreferenceCategory
-            android:title="@string/heads_up_snooze_title"
-            android:key="heads_up_snooze"
-            android:dependency="heads_up_notifications_enabled" >
-
-        <com.android.settings.cmremix.utils.SeekBarPreference
-               android:key="heads_up_snooze_length_ms"
-               android:title="@string/heads_up_snooze"
-               android:max="120"
-               settings:min="0"
-               settings:unitsLeft=""
-               settings:unitsRight="min"
-               android:dependency="heads_up_notifications_enabled"
-               android:persistent="false" />
-
-        <com.android.settings.cmremix.utils.SeekBarPreference
-               android:key="heads_up_timeout"
-               android:title="@string/heads_up_timeout"
-               android:defaultValue="5"
-               android:max="15"
-               settings:min="1"
-               settings:unitsLeft=""
-               settings:unitsRight="sec"
-               android:dependency="heads_up_notifications_enabled"
-               android:persistent="false" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>
