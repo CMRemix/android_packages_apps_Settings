@@ -25,7 +25,7 @@
     <string name="mem_info">RAM</string>
 
     <!-- CM-Remix Custom Settings -->
-    <string name="cmremix_center_title">CMRemiX Center</string>
+    <string name="header_category_personalization">Personalization</string>
     <string name="cmremix_settings_title">CMRemix Settings</string>
     <string name="cmremix_tweaks_title">Tweaks</string>
 

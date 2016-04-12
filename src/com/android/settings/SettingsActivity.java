@@ -287,6 +287,7 @@ public class SettingsActivity extends Activity
             R.id.application_settings,
             R.id.battery_settings,
             R.id.personal_section,
+            R.id.personalization_section,
             R.id.location_settings,
             R.id.security_settings,
             R.id.language_settings,
@@ -1337,16 +1338,6 @@ public class SettingsActivity extends Activity
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
-                    } catch (PackageManager.NameNotFoundException e) {
-                    }
-                    if (!supported) {
-                        removeTile = true;
-                    }
-                } else if (id == R.id.cmremix_center) {
-                    // Embedding CMRemix Center into Settings is supported
-                    boolean supported = false;
-                    try {
-                        supported = (getPackageManager().getPackageInfo("com.cmremix.ota", 0).versionCode > 0);
                     } catch (PackageManager.NameNotFoundException e) {
                     }
                     if (!supported) {

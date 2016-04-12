@@ -95,16 +95,15 @@
 
     <!-- Personalization -->
     <dashboard-category
-            android:id="@+id/personal_section"
-            android:key="@string/category_key_personal"
-            android:title="@string/header_category_personal" >
+            android:id="@+id/personalization_section"
+            android:title="@string/header_category_personalization" >
 
-    <!-- CMRemix Settings -->
+    <!-- CMRemix UI Settings -->
     <dashboard-tile
             android:id="@+id/cmremix_settings"
             android:title="@string/cmremix_settings_title"
             android:fragment="com.android.settings.cmremix.CMRemixUiSettings"
-            android:icon="@drawable/ic_settings_interface"
+            android:icon="@drawable/ic_cmremix_settings"
             />
 
     <!-- Kernel Adiutor -->
@@ -128,17 +127,6 @@
 		        android:targetPackage="com.grarak.kerneladiutor"
                 android:targetClass="com.grarak.kerneladiutor.MainActivity" />
         </dashboard-tile>
-
-    <!-- cmRemiX Center -->
-    <dashboard-tile
-            android:id="@+id/cmremix_center"
-            android:title="@string/cmremix_center_title"
-            android:icon="@drawable/ic_settings_cmremixcenter">
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.cmremix.ota"
-                android:targetClass="com.cmremix.center.CMRemixCenter" />
-    </dashboard-tile>
 
     </dashboard-category>
 
