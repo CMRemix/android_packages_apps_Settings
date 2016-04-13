@@ -108,23 +108,12 @@
 
     <!-- Kernel Adiutor -->
         <dashboard-tile
-        android:id="@+id/device_control"
-        android:title="@string/device_control_title"
-        android:icon="@drawable/ic_settings_devicecontrol">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="org.namelessrom.devicecontrol"
-                android:targetClass="org.namelessrom.devicecontrol.MainActivity" />
-        </dashboard-tile>
-
-    <!-- Kernel Adiutor -->
-        <dashboard-tile
         android:id="@+id/kernel_adiutor"
         android:title="@string/kernel_adiutor_title"
         android:icon="@drawable/ic_settings_performance">
             <intent
                 android:action="android.intent.action.MAIN"
-		        android:targetPackage="com.grarak.kerneladiutor"
+                android:targetPackage="com.grarak.kerneladiutor"
                 android:targetClass="com.grarak.kerneladiutor.MainActivity" />
         </dashboard-tile>
 
@@ -344,6 +333,17 @@
                 android:fragment="com.android.settings.print.PrintSettingsFragment"
                 android:icon="@drawable/ic_settings_print"
                 />
+
+    <!-- Device Control -->
+        <dashboard-tile
+        android:id="@+id/device_control"
+        android:title="@string/device_control_title"
+        android:icon="@drawable/ic_settings_devicecontrol">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.namelessrom.devicecontrol"
+                android:targetClass="org.namelessrom.devicecontrol.MainActivity" />
+        </dashboard-tile>
 
         <!-- SuperSU -->
         <dashboard-tile
