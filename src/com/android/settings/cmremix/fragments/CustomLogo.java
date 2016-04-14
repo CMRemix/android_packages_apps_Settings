@@ -32,9 +32,10 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -50,7 +51,7 @@ public class CustomLogo extends SettingsPreferenceFragment implements OnPreferen
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.CUSTOM_LOGO;
     }
 
     @Override

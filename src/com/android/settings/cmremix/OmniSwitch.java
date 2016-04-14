@@ -37,7 +37,7 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class OmniSwitch extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -58,7 +58,7 @@ public class OmniSwitch extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.OMNI_SWITCH;
     }
 
     @Override

@@ -29,7 +29,8 @@ import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class BreathingNotifications extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -38,7 +39,7 @@ public class BreathingNotifications extends SettingsPreferenceFragment implement
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.BREATHING_NOTIFICATIONS;
     }
 
     @Override

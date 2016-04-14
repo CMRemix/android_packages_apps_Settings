@@ -30,7 +30,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cmremix.utils.SeekBarPreference;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class GestureAnywhereSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -53,7 +53,7 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.GESTURE_ANYWHERE_SETTINGS;
     }
 
     @Override

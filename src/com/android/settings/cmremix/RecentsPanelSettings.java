@@ -41,12 +41,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.DialogCreatable;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.slim.DeviceUtils;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -55,7 +56,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     @Override
      protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.RECENTS_PANEL_SETTINGS;
     }
 
     private static final String TAG = "RecentPanelSettings";

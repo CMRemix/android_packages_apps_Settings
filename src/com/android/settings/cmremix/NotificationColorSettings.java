@@ -35,7 +35,8 @@ import com.android.settings.cmremix.utils.SeekBarPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -97,7 +98,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.NOTIFICATION_COLOR_SETTINGS;
     }
 
     @Override

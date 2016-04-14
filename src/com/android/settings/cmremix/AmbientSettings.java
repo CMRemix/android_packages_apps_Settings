@@ -41,7 +41,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -74,7 +74,7 @@ public class AmbientSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
+        return CMMetricsLogger.AMBIENT_SETTINGS;
     }
 
     @Override

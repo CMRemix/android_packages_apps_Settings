@@ -31,7 +31,7 @@ import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -54,7 +54,7 @@ public class PieControl extends SettingsPreferenceFragment implements OnPreferen
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.PIE_CONTROL;
     }
 
     @Override

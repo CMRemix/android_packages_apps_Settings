@@ -33,7 +33,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -70,7 +70,7 @@ public class VolumeSteps extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.VOLUME_STEP;
     }
 
     @Override

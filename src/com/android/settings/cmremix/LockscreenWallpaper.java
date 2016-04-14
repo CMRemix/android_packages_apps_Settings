@@ -33,7 +33,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cmremix.utils.SeekBarPreference;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class LockscreenWallpaper extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     public static final int IMAGE_PICK = 1;
@@ -48,7 +48,7 @@ public class LockscreenWallpaper extends SettingsPreferenceFragment implements O
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.LOCKSCREEN_WALLPAPER;
     }
 
     @Override

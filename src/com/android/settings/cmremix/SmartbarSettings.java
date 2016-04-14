@@ -35,7 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.Config;
 import com.android.internal.utils.du.Config.ButtonConfig;
@@ -178,6 +178,6 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
+        return CMMetricsLogger.SMARTBAR_SETTINGS;
     }
 }

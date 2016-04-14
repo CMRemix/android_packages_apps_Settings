@@ -30,7 +30,8 @@ import com.android.settings.DialogCreatable;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.internal.logging.MetricsLogger;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class RecentAppSidebar extends SettingsPreferenceFragment implements DialogCreatable,
         Preference.OnPreferenceChangeListener {
@@ -53,7 +54,7 @@ public class RecentAppSidebar extends SettingsPreferenceFragment implements Dial
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return CMMetricsLogger.RECENT_APP_SIDE_BAR;
     }
 
     @Override

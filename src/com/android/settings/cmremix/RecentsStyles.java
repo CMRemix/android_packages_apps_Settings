@@ -44,12 +44,13 @@ import android.view.MenuItem;
 import android.view.MenuInflater;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.util.Helpers;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
 
  @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.RECENTS_STYLES;
     }
 
  @Override

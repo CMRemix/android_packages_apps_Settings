@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -90,6 +90,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
+        return CMMetricsLogger.PULSE_SETTINGS;
     }
 }

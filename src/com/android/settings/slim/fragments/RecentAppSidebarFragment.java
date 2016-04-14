@@ -22,15 +22,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class RecentAppSidebarFragment extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return CMMetricsLogger.RECENT_APP_SIDE_BAR_FRAGMENT;
     }
 
     @Override

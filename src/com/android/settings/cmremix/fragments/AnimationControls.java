@@ -35,7 +35,7 @@ import com.android.internal.util.cmremix.AwesomeAnimationHelper;
 
 import java.util.Arrays;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class AnimationControls extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -75,7 +75,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.ANIMATION_CONTROL;
     }
 
     @Override

@@ -23,7 +23,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class LockClock extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -32,7 +32,7 @@ public class LockClock extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.LOCK_CLOCK;
     }
 
     @Override

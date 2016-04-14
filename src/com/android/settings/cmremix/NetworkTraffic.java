@@ -47,7 +47,7 @@ import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.cmremix.utils.SeekBarPreference;
 
@@ -91,7 +91,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.NETWORK_TRAFFIC;
     }
 
     @Override

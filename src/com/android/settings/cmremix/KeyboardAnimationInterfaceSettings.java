@@ -37,8 +37,9 @@ import android.util.Log;
 import android.text.TextUtils;
 
 import com.android.settings.cmremix.utils.SeekBarPreference;
-import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.cmremix.AwesomeAnimationHelper;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -68,7 +69,7 @@ public class KeyboardAnimationInterfaceSettings extends SettingsPreferenceFragme
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.KEYBOARD_ANIMATION_INTERFACE_SETTINGS;
     }
 
     @Override

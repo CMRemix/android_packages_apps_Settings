@@ -34,7 +34,7 @@ import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import cyanogenmod.providers.CMSettings;
 
 import com.android.settings.R;
@@ -122,7 +122,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.QS_PANEL;
     }
 
     @Override

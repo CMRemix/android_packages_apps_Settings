@@ -32,7 +32,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cmremix.utils.SeekBarPreference;
 import com.android.settings.Utils;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.STATUS_BAR_WEATHER;
     }
 
     @Override

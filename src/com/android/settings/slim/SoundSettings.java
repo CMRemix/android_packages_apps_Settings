@@ -35,7 +35,7 @@ import android.util.Log;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class SoundSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -55,7 +55,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return CMMetricsLogger.SOUND_SETTINGS;
     }
 
     @Override

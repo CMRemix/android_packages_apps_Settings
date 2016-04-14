@@ -45,7 +45,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.cmremix.utils.SeekBarPreference;
-import com.android.internal.logging.MetricsLogger;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class CarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -70,7 +71,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.CARRIER_LABEL;
     }
 
     @Override

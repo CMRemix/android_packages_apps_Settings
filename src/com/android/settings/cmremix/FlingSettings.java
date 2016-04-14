@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.ActionHandler;
 import com.android.internal.utils.du.Config.ButtonConfig;
@@ -224,6 +224,6 @@ public class FlingSettings extends ActionFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
+        return CMMetricsLogger.FLING_SETTINGS;
     }
 }

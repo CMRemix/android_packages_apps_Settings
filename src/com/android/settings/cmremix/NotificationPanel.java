@@ -39,8 +39,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
-import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -203,7 +203,7 @@ private static final String PREF_MASTER_SWITCH = "header_color_switch";
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.NOTIFICATION_PANEL;
     }
 
     @Override

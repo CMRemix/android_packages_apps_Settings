@@ -33,7 +33,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class QsVibrate extends SettingsPreferenceFragment {
 	
@@ -47,6 +47,6 @@ public class QsVibrate extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.QS_VIBRATE;
     }
 }

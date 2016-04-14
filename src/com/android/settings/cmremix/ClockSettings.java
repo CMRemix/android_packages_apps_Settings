@@ -50,7 +50,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -63,6 +62,8 @@ import java.util.List;
 import java.util.Map;
 
 import cyanogenmod.providers.CMSettings;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -211,8 +212,7 @@ public class ClockSettings extends SettingsPreferenceFragment
 	}
  @Override
     protected int getMetricsCategory() {
-        // todo add a constant in MetricsLogger.java
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.CLOCK_SETTINGS;
     }
 
     @Override

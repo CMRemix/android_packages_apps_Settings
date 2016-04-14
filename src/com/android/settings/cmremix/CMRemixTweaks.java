@@ -27,9 +27,10 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class CMRemixTweaks extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -39,7 +40,7 @@ public class CMRemixTweaks extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.CMREMIX_TWEAKS;
     }
 
     @Override

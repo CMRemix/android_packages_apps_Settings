@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class ScreenAndAnimations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -39,7 +39,7 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.SCREEN_AND_ANIMATIONS;
     }
 
     @Override

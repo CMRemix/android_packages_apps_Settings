@@ -44,8 +44,8 @@ import android.view.MenuItem;
 import android.view.MenuInflater;
 import android.util.Log;
 
-import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -158,7 +158,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.QS_COLORS;
     }
 
     @Override

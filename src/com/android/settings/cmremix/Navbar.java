@@ -62,7 +62,7 @@ import com.android.internal.util.slim.Action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -157,7 +157,7 @@ public class Navbar extends SettingsPreferenceFragment implements
     }		
 	@Override
 	protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return CMMetricsLogger.NAVIGATION_BAR;
     }
 
 }

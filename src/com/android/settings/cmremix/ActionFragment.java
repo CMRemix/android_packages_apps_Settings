@@ -21,7 +21,7 @@ package com.android.settings.cmremix;
 
 import java.util.ArrayList;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.internal.utils.du.ActionConstants.Defaults;
 import com.android.internal.utils.du.ActionHandler;
 import com.android.internal.utils.du.Config;
@@ -219,6 +219,6 @@ public class ActionFragment extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.WE_DONT_NEED_NO_BULL_SHIT_METRICS;
+        return CMMetricsLogger.ACTION_FRAGMENT;
     }
 }

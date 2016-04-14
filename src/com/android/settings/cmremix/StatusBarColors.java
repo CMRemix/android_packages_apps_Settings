@@ -39,8 +39,9 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.util.Helpers;
-import com.android.internal.logging.MetricsLogger;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class StatusBarColors extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -87,7 +88,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.STATUS_BAR_COLORS;
     }
 
      @Override

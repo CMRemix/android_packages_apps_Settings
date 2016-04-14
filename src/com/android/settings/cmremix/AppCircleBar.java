@@ -54,7 +54,7 @@ import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
 import com.android.settings.util.AppMultiSelectListPreference;
 
-import com.android.internal.logging.MetricsLogger;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.io.File;
 import java.lang.Thread;
@@ -82,7 +82,7 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.MAIN_SETTINGS;
+        return CMMetricsLogger.APP_CIRCLE_BAR;
     }
 
     @Override
