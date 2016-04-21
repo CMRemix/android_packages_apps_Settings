@@ -1906,4 +1906,10 @@
     <string name="hide_apps_from_recents_title">Hidden Apps</string>
     <string name="hide_apps_from_recents_summary">Pick which apps to exclude from the recents panel.</string>
 
+    <!-- Nfc sound mode -->
+    <string name="nfc_sound_mode_title">NFC sound mode</string>
+    <string name="nfc_sound_mode_default">Sound</string>
+    <string name="nfc_sound_mode_vibration">Vibration</string>
+    <string name="nfc_sound_mode_mute">Mute</string>
+
 </resources>
