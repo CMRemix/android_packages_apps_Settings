@@ -2309,6 +2309,9 @@
                 android:value="com.android.settings.cmremix.FlingSettings" />
         </activity>
 
+        <!-- Hide Apps from Recents (HAFR) -->
+        <activity android:name="com.android.settings.cmremix.HAFRAppListActivity" />
+
  <!-- CMRemix activities End -->
 
         <!-- CyanogenMod activities Start -->

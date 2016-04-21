@@ -22,6 +22,7 @@ import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
@@ -87,6 +88,13 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private static final String RECENT_CARD_TEXT_COLOR =
             "recent_card_text_color";
 
+    private static final String PREF_HIDDEN_RECENTS_APPS_START = "hide_app_from_recents";
+    // Package name of the hidden recetns apps activity
+    public static final String HIDDEN_RECENTS_PACKAGE_NAME = "com.android.settings";
+    // Intent for launching the hidden recents actvity
+    public static Intent INTENT_HIDDEN_RECENTS_SETTINGS = new Intent(Intent.ACTION_MAIN)
+            .setClassName(HIDDEN_RECENTS_PACKAGE_NAME,
+            HIDDEN_RECENTS_PACKAGE_NAME + ".cmremix.HAFRAppListActivity");
 
     private SwitchPreference mRecentsSearchBar;
     private SwitchPreference mRecentsMemBar;
@@ -104,6 +112,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mRecentCardBgColor;
     private ColorPickerPreference mRecentCardTextColor;
     private ListPreference mImmersiveRecents;
+    private Preference mHiddenRecentsApps;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DEFAULT_BACKGROUND_COLOR = 0x00ffffff;
@@ -144,6 +153,8 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.IMMERSIVE_RECENTS, 0)));
         mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
         mImmersiveRecents.setOnPreferenceChangeListener(this);
+
+        mHiddenRecentsApps = (Preference) prefSet.findPreference(PREF_HIDDEN_RECENTS_APPS_START);
 
         updatePreference();
     }
@@ -263,6 +274,16 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
             mImmersiveRecents.setValue(String.valueOf(newValue));
             mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
             return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mHiddenRecentsApps) {
+            getActivity().startActivity(INTENT_HIDDEN_RECENTS_SETTINGS);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return false;
     }
