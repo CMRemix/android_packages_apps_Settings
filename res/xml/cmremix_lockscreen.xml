@@ -34,7 +34,13 @@
             android:title="@string/keyguard_show_charging_current"
             android:summaryOn="@string/keyguard_show_charging_current_summary_on"
             android:summaryOff="@string/keyguard_show_charging_current_summary_off"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lock_screen_show_current"
+            android:title="@string/lock_screen_show_current"
+            android:summary="@string/lock_screen_show_current_summary"
+            android:defaultValue="false" />
 
         <PreferenceScreen
             android:key="lockscreen_wallpaper"

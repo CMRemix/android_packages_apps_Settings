@@ -1878,6 +1878,8 @@
     <string name="keyguard_show_charging_current">Show charging current</string>
     <string name="keyguard_show_charging_current_summary_on">Allow charging current to be shown on lockscreen when plugged in</string>
     <string name="keyguard_show_charging_current_summary_off">Disallow charging current to be shown on lockscreen when plugged in</string>
+    <string name="lock_screen_show_current">Charging Current</string>
+    <string name="lock_screen_show_current_summary">Show Charging Current rate on lock screen</string>
 
     <!-- Heads Up Timeout -->
     <string name="heads_up_time_out_title">Time out</string>
