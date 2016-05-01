@@ -2312,6 +2312,20 @@
         <!-- Hide Apps from Recents (HAFR) -->
         <activity android:name="com.android.settings.cmremix.HAFRAppListActivity" />
 
+        <!-- Ambient Display settings activity. -->
+        <activity android:name="Settings$AmbientDisplaySettingsActivity"
+                android:label="@string/doze_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.AmbientSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_and_lights_settings" />
+        </activity>
+
  <!-- CMRemix activities End -->
 
         <!-- CyanogenMod activities Start -->

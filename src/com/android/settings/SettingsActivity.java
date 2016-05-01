@@ -101,6 +101,7 @@ import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.livedisplay.LiveDisplay;
 import com.android.settings.cmremix.NetworkTraffic;
+import com.android.settings.cmremix.AmbientSettings;
 import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
 import com.android.settings.notification.SoundSettings;
@@ -389,7 +390,8 @@ public class SettingsActivity extends Activity
             NotificationManagerSettings.class.getName(),
             LiveLockScreenSettings.class.getName(),
             WeatherServiceSettings.class.getName(),
-            HeadsUpSettings.class.getName()
+            HeadsUpSettings.class.getName(),
+            AmbientSettings.class.getName()
     };
 
 
