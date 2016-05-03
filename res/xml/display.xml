@@ -139,7 +139,7 @@
                 android:summary="@string/dashboard_columns_summary"
                 android:persistent="false" />
 
-	    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="dashboard_tileview_double_lines"
                 android:title="@string/dashboard_tileview_double_lines_title"
  		        android:summary="@string/dashboard_tileview_double_lines_summary"
@@ -151,7 +151,7 @@
                 android:summary="@string/dashboard_tileview_dividers_summary"
                 android:defaultValue="false" />
 
- 	 <ListPreference
+        <ListPreference
                 android:key="dashboard_switches"
                 android:title="@string/dashboard_switches_title"
                 android:dialogTitle="@string/dashboard_switches_dialog_title"
@@ -159,6 +159,18 @@
                 android:entryValues="@array/dashboard_switches_values"
                 android:summary="@string/dashboard_switches_summary"
                 android:persistent="false" />
+
+        <ListPreference
+                android:key="dashboard_font_style"
+                android:entries="@array/dashboard_font_style_entries"
+                android:entryValues="@array/dashboard_font_style_values"
+                android:title="@string/dashboard_font_style_title" />
+
+        <PreferenceScreen
+                android:key="settings_colors"
+                android:title="@string/settings_colors_title"
+                android:fragment="com.android.settings.temasek.DashboardColors"
+                android:summary="@string/settings_colors_summary" />
 
         <com.android.settings.cmremix.utils.SeekBarPreference
                 android:key="settings_category_text_size"
@@ -177,18 +189,6 @@
                 settings:defaultValue="14"
                 settings:unitsLeft=""
                 settings:unitsRight="dp" />
-
-        <ListPreference
-                android:key="dashboard_font_style"
-                android:entries="@array/dashboard_font_style_entries"
-                android:entryValues="@array/dashboard_font_style_values"
-                android:title="@string/dashboard_font_style_title" />
-
-        <PreferenceScreen
-                android:key="settings_colors"
-                android:title="@string/settings_colors_title"
-                android:fragment="com.android.settings.cmremix.DashboardColors"
-                android:summary="@string/settings_colors_summary" />
 
     </PreferenceCategory>
 
