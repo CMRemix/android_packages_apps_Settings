@@ -116,6 +116,7 @@
     <string name="screen_and_animations_title">Screen and animations</string>
     <string name="statusbar_notifications_title">Notifications</string>
     <string name="quicksettings_title">Quicksettings</string>
+    <string name="toolbar_title">Toolbar</string>
 
     <!-- Color picker -->
     <string name="dialog_color_picker_title">Color Picker</string>
