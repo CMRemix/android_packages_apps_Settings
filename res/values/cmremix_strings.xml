@@ -2021,4 +2021,8 @@
     <string name="background_title">Background</string>
     <string name="text_title">Text</string>
 
+    <!-- Dashboard Text Size -->
+    <string name="dash_title_text_size">Title Text Size</string>
+    <string name="dash_category_text_size">Category Text Size</string>
+
 </resources>

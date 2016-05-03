@@ -86,6 +86,7 @@ import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
 
 import com.android.settings.dashboard.DashboardContainerView;
+import com.android.settings.cmremix.utils.SeekBarPreference;
 
 import cyanogenmod.hardware.LiveDisplayManager;
 import cyanogenmod.providers.CMSettings;
@@ -122,6 +123,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String DASHBOARD_SWITCHES = "dashboard_switches";
     private static final String DASHBOARD_FONT_STYLE = "dashboard_font_style";
+    private static final String SETTINGS_TITLE_TEXT_SIZE  = "settings_title_text_size";
+    private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -145,6 +148,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mDashboardColumns;
     private ListPreference mDashboardSwitches;
     private ListPreference mDashFontStyle;
+    private SeekBarPreference mDashTitleTextSize;
+    private SeekBarPreference mDashCategoryTextSize;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -261,6 +266,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.DASHBOARD_SWITCHES, 0)));
         mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
         mDashboardSwitches.setOnPreferenceChangeListener(this);
+
+        mDashTitleTextSize =
+                (SeekBarPreference) findPreference(SETTINGS_TITLE_TEXT_SIZE);
+        mDashTitleTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_TITLE_TEXT_SIZE, 14));
+        mDashTitleTextSize.setOnPreferenceChangeListener(this);
+
+        mDashCategoryTextSize =
+                (SeekBarPreference) findPreference(SETTINGS_CATEGORY_TEXT_SIZE);
+        mDashCategoryTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, 15));
+        mDashCategoryTextSize.setOnPreferenceChangeListener(this);
 
         mDashFontStyle = (ListPreference) findPreference(DASHBOARD_FONT_STYLE);
         mDashFontStyle.setOnPreferenceChangeListener(this);
@@ -788,6 +805,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.DASHBOARD_FONT_STYLE, val);
             mDashFontStyle.setSummary(mDashFontStyle.getEntries()[index]);
+            return true;
+        } 
+        if (preference == mDashTitleTextSize) {
+            int width = ((Integer)objValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SETTINGS_TITLE_TEXT_SIZE, width);
+            return true;
+        } 
+        if (preference == mDashCategoryTextSize) {
+            int width = ((Integer)objValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, width);
             return true;
         }
         return true;
