@@ -133,4 +133,5 @@ public class Settings extends SettingsActivity {
     public static class WeatherProviderServicesActivity extends SettingsActivity { /* empty */ }
     public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AmbientDisplaySettingsActivity extends SettingsActivity { /* empty */ }
+    public static class FloatingWindowActivity extends SettingsActivity { /* empty */ }
 }

@@ -75,6 +75,7 @@ import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.cmremix.Navbar;
 import com.android.settings.cmremix.FlingSettings;
 import com.android.settings.cmremix.SmartbarSettings;
+import com.android.settings.cmremix.FloatingWindows;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ManageAssist;
@@ -391,7 +392,9 @@ public class SettingsActivity extends Activity
             LiveLockScreenSettings.class.getName(),
             WeatherServiceSettings.class.getName(),
             HeadsUpSettings.class.getName(),
-            AmbientSettings.class.getName()
+            AmbientSettings.class.getName(),
+            FloatingWindows.class.getName()
+
     };
 
 

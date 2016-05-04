@@ -59,4 +59,11 @@
          android:icon="@drawable/ic_cmremix_pie">
    </PreferenceScreen>
 
+   <PreferenceScreen
+         android:key="floating_windows"
+         android:title="@string/floating_windows"
+         android:icon="@drawable/ic_cmremix_float_windows"
+         android:fragment="com.android.settings.cmremix.FloatingWindows">
+   </PreferenceScreen>
+
 </PreferenceScreen>
