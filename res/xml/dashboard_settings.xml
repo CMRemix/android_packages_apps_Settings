@@ -82,7 +82,7 @@
         <PreferenceScreen
                 android:key="dashboard_custom_colors"
                 android:title="@string/dashboard_colors_title"
-                android:fragment="com.android.settings.temasek.DashboardColors"
+                android:fragment="com.android.settings.cmremix.DashboardColors"
                 android:summary="@string/dashboard_colors_summary"
                 android:dependency="dashboard_customizations" />
 
