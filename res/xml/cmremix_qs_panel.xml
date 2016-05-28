@@ -36,7 +36,6 @@
 	    android:summary="@string/qs_colors_summary"	
         android:fragment="com.android.settings.cmremix.QsColors" />
 
-
     <ListPreference
         android:key="sysui_qs_num_columns"
         android:title="@string/qs_num_columns_title"
@@ -51,13 +50,25 @@
         android:entryValues="@array/qs_num_rows_values"
         android:persistent="false" />
 
-
     <ListPreference
             android:key="qs_quick_pulldown"
             android:title="@string/status_bar_quick_qs_pulldown_title"
             android:entries="@array/status_bar_quick_qs_pulldown_entries"
             android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
 
+        <ListPreference
+            android:key="qs_tile_animation_style"
+            android:title="@string/qs_tile_animation_style_title"
+            android:entries="@array/qs_tile_animation_style_entries"
+            android:entryValues="@array/qs_tile_animation_style_values"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="qs_tile_animation_duration"
+            android:title="@string/qs_tile_animation_duration_title"
+            android:entries="@array/qs_tile_animation_duration_entries"
+            android:entryValues="@array/qs_tile_animation_duration_values"
+            android:persistent="false" />
    
     <ListPreference
             android:key="smart_pulldown"
@@ -65,7 +76,6 @@
             android:entries="@array/smart_pulldown_entries"
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
-
 
     <SwitchPreference
         android:key="block_on_secure_keyguard"

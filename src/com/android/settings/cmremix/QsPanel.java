@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -49,12 +50,16 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
  private static final String PREF_NUM_COLUMNS = "sysui_qs_num_columns";
  private static final String PREF_NUM_ROWS = "sysui_qs_num_rows";
+ private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
+ private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private ListPreference mNumColumns;
-    private ListPreference mNumRows;		
+    private ListPreference mNumRows;	
+    private ListPreference mTileAnimationStyle;
+    private ListPreference mTileAnimationDuration;	
     	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
@@ -118,6 +123,24 @@ int quickPulldown = CMSettings.System.getInt(resolver,
             updateNumRowsSummary(numRows);
             mNumRows.setOnPreferenceChangeListener(this);
 
+        // QS animation
+        mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
+        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_STYLE, 0,
+                UserHandle.USER_CURRENT);
+        mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
+        updateTileAnimationStyleSummary(tileAnimationStyle);
+        updateAnimTileDuration(tileAnimationStyle);
+        mTileAnimationStyle.setOnPreferenceChangeListener(this);
+
+        mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
+        int tileAnimationDuration = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_DURATION, 2000,
+                UserHandle.USER_CURRENT);
+        mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
+        updateTileAnimationDurationSummary(tileAnimationDuration);
+        mTileAnimationDuration.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -171,9 +194,44 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         numRows, UserHandle.USER_CURRENT);
                 updateNumRowsSummary(numRows);
                 return true;
+        } else if (preference == mTileAnimationStyle) {
+            int tileAnimationStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
+                    tileAnimationStyle, UserHandle.USER_CURRENT);
+            updateTileAnimationStyleSummary(tileAnimationStyle);
+            updateAnimTileDuration(tileAnimationStyle);
+            return true;
+        } else if (preference == mTileAnimationDuration) {
+            int tileAnimationDuration = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_DURATION,
+                    tileAnimationDuration, UserHandle.USER_CURRENT);
+            updateTileAnimationDurationSummary(tileAnimationDuration);
+            return true;
 	}
          return false;
 	}
+
+    private void updateTileAnimationStyleSummary(int tileAnimationStyle) {
+        String prefix = (String) mTileAnimationStyle.getEntries()[mTileAnimationStyle.findIndexOfValue(String
+                .valueOf(tileAnimationStyle))];
+        mTileAnimationStyle.setSummary(getResources().getString(R.string.qs_set_animation_style, prefix));
+    }
+
+    private void updateTileAnimationDurationSummary(int tileAnimationDuration) {
+        String prefix = (String) mTileAnimationDuration.getEntries()[mTileAnimationDuration.findIndexOfValue(String
+                .valueOf(tileAnimationDuration))];
+        mTileAnimationDuration.setSummary(getResources().getString(R.string.qs_set_animation_duration, prefix));
+    }
+
+    private void updateAnimTileDuration(int tileAnimationStyle) {
+        if (mTileAnimationDuration != null) {
+            if (tileAnimationStyle == 0) {
+                mTileAnimationDuration.setSelectable(false);
+            } else {
+                mTileAnimationDuration.setSelectable(true);
+            }
+        }
+    }
 
   private void updateSmartPulldownSummary(int value) {
         Resources res = getResources();
