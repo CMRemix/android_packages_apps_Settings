@@ -52,15 +52,17 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String PREF_NUM_ROWS = "sysui_qs_num_rows";
  private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
  private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
+ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private ListPreference mNumColumns;
-    private ListPreference mNumRows;	
+    private ListPreference mNumRows;
     private ListPreference mTileAnimationStyle;
-    private ListPreference mTileAnimationDuration;	
-    	
+    private ListPreference mTileAnimationDuration;
+    private ListPreference mTileAnimationInterpolator;
+
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
     public void onCreate(Bundle icicle) {
@@ -72,7 +74,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
 
         Resources res = getResources();
 	mQuickPulldown = (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
-int quickPulldown = CMSettings.System.getInt(resolver,
+        int quickPulldown = CMSettings.System.getInt(resolver,
                 CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
         mQuickPulldown.setValue(String.valueOf(quickPulldown));
         if (quickPulldown == 0) {
@@ -87,15 +89,15 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         }
         mQuickPulldown.setOnPreferenceChangeListener(this);
 
-            // Block QS on secure LockScreen
-            mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
-            if (lockPatternUtils.isSecure(MY_USER_ID)) {
+        // Block QS on secure LockScreen
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure(MY_USER_ID)) {
                 mBlockOnSecureKeyguard.setChecked(Settings.Secure.getIntForUser(resolver,
                         Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1, UserHandle.USER_CURRENT) == 1);
                 mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
-           } else if (mBlockOnSecureKeyguard != null) {
+        } else if (mBlockOnSecureKeyguard != null) {
                 prefSet.removePreference(mBlockOnSecureKeyguard);
-            }
+        }
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -105,8 +107,8 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         updateSmartPulldownSummary(smartPulldown);
 
 	 // Number of QS Columns 3,4,5
-            mNumColumns = (ListPreference) findPreference(PREF_NUM_COLUMNS);
-            int numColumns = Settings.System.getIntForUser(resolver,
+         mNumColumns = (ListPreference) findPreference(PREF_NUM_COLUMNS);
+         int numColumns = Settings.System.getIntForUser(resolver,
                     Settings.System.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
                     UserHandle.USER_CURRENT);
             mNumColumns.setValue(String.valueOf(numColumns));
@@ -130,7 +132,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                 UserHandle.USER_CURRENT);
         mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
         updateTileAnimationStyleSummary(tileAnimationStyle);
-        updateAnimTileDuration(tileAnimationStyle);
+        updateAnimTileStyle(tileAnimationStyle);
         mTileAnimationStyle.setOnPreferenceChangeListener(this);
 
         mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
@@ -140,6 +142,14 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
         updateTileAnimationDurationSummary(tileAnimationDuration);
         mTileAnimationDuration.setOnPreferenceChangeListener(this);
+
+         mTileAnimationInterpolator = (ListPreference) findPreference(PREF_TILE_ANIM_INTERPOLATOR);
+        int tileAnimationInterpolator = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_INTERPOLATOR, 0,
+                UserHandle.USER_CURRENT);
+        mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
+        updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+        mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
 
     }
 
@@ -194,20 +204,26 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         numRows, UserHandle.USER_CURRENT);
                 updateNumRowsSummary(numRows);
                 return true;
-        } else if (preference == mTileAnimationStyle) {
-            int tileAnimationStyle = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
-                    tileAnimationStyle, UserHandle.USER_CURRENT);
-            updateTileAnimationStyleSummary(tileAnimationStyle);
-            updateAnimTileDuration(tileAnimationStyle);
+         } else if (preference == mTileAnimationStyle) {
+             int tileAnimationStyle = Integer.valueOf((String) newValue);
+             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
+                     tileAnimationStyle, UserHandle.USER_CURRENT);
+             updateTileAnimationStyleSummary(tileAnimationStyle);
+             updateAnimTileStyle(tileAnimationStyle);
+             return true;
+         } else if (preference == mTileAnimationDuration) {
+             int tileAnimationDuration = Integer.valueOf((String) newValue);
+             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_DURATION,
+                     tileAnimationDuration, UserHandle.USER_CURRENT);
+             updateTileAnimationDurationSummary(tileAnimationDuration);
+             return true;
+         } else if (preference == mTileAnimationInterpolator) {
+            int tileAnimationInterpolator = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_INTERPOLATOR,
+                    tileAnimationInterpolator, UserHandle.USER_CURRENT);
+            updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
             return true;
-        } else if (preference == mTileAnimationDuration) {
-            int tileAnimationDuration = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_DURATION,
-                    tileAnimationDuration, UserHandle.USER_CURRENT);
-            updateTileAnimationDurationSummary(tileAnimationDuration);
-            return true;
-	}
+	     }
          return false;
 	}
 
@@ -223,17 +239,25 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         mTileAnimationDuration.setSummary(getResources().getString(R.string.qs_set_animation_duration, prefix));
     }
 
-    private void updateAnimTileDuration(int tileAnimationStyle) {
-        if (mTileAnimationDuration != null) {
-            if (tileAnimationStyle == 0) {
-                mTileAnimationDuration.setSelectable(false);
-            } else {
-                mTileAnimationDuration.setSelectable(true);
-            }
-        }
+     private void updateTileAnimationInterpolatorSummary(int tileAnimationInterpolator) {
+        String prefix = (String) mTileAnimationInterpolator.getEntries()[mTileAnimationInterpolator.findIndexOfValue(String
+                .valueOf(tileAnimationInterpolator))];
+        mTileAnimationInterpolator.setSummary(getResources().getString(R.string.qs_set_animation_interpolator, prefix));
     }
 
-  private void updateSmartPulldownSummary(int value) {
+     private void updateAnimTileStyle(int tileAnimationStyle) {
+         if (mTileAnimationDuration != null) {
+             if (tileAnimationStyle == 0) {
+                 mTileAnimationDuration.setSelectable(false);
+                 mTileAnimationInterpolator.setSelectable(false);
+             } else {
+                 mTileAnimationDuration.setSelectable(true);
+                 mTileAnimationInterpolator.setSelectable(true);
+             }
+         }
+     }
+
+     private void updateSmartPulldownSummary(int value) {
         Resources res = getResources();
 
         if (value == 0) {
@@ -272,7 +296,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         }
 
 
-        private int getDefaultNumColums() {
+     private int getDefaultNumColums() {
             try {
                 Resources res = getActivity().getPackageManager()
                         .getResourcesForApplication("com.android.systemui");
