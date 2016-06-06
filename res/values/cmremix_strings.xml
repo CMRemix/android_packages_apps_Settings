@@ -1627,9 +1627,6 @@
     <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
 
-    <!-- Lock screen rotation -->
-    <string name="display_lockscreen_rotation_title">Lock screen</string>
-
         <!-- StatusBar Icons Colors -->
     <string name="status_bar_colors_title">Statusbar Icon Colors</string>
     <string name="status_bar_network_icons_settings_title">Network icons</string>

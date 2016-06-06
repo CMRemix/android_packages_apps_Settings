@@ -118,7 +118,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_LIVEDISPLAY = "live_display";
 
-    private static final String ROTATION_LOCKSCREEN = "Lockscreen";
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String DASHBOARD_SWITCHES = "dashboard_switches";
 
@@ -384,10 +383,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             // The preference was removed, do nothing
             return;
         }
-        boolean configEnableLockRotation = getResources().
-                        getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation);
-        boolean lockScreenRotationEnabled = Settings.System.getInt(getContentResolver(),
-                        Settings.System.LOCKSCREEN_ROTATION, configEnableLockRotation ? 1 : 0) != 0;
         // We have a preference, lets update the summary
         boolean rotationEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
@@ -405,9 +400,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 | DisplayRotation.ROTATION_270_MODE);
         ArrayList<String> rotationList = new ArrayList<String>();
         String delim = "";
-	   if (lockScreenRotationEnabled) {
-                rotationList.add(ROTATION_LOCKSCREEN);
-        }
+
         if ((mode & DisplayRotation.ROTATION_0_MODE) != 0) {
             rotationList.add("0");
         }
