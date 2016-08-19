@@ -561,11 +561,6 @@
   <string name="display_rotation_180_title">180 gradu</string>
   <string name="display_rotation_270_title">270 gradu</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Pantailaren kolorea</string>
-  <string name="screencolor_summary">Doitu pantailaren ñabardura, saturazioa, kontrastea edo intentsitatea</string>
-  <string name="custom_screencolor">Pertsonalizatutako pantaila kolorea</string>
-  <string name="screencolor_save">Gorde</string>
-  <string name="screencolor_cancel">Utzi</string>
   <string name="restore_preview">Ikusi lehenetsitako irudia</string>
   <string name="selectnewfile_menu">Ikusi irudi berria galeriatik</string>
   <string name="selectfile_menu">Ikusi irudia galeriatik</string>

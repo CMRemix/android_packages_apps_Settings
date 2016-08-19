@@ -537,11 +537,6 @@
   <string name="display_rotation_180_title">180 Grad</string>
   <string name="display_rotation_270_title">270 Grad</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Schiermfaarf</string>
-  <string name="screencolor_summary">Faarftoun, Faarfsättegung, Kontrast an Intensitéit vum Schierm veränneren</string>
-  <string name="custom_screencolor">Benotzerdefinéiert Schiermfaarf</string>
-  <string name="screencolor_save">Späicheren</string>
-  <string name="screencolor_cancel">Ofbriechen</string>
   <string name="restore_preview">Standard-Bild uweisen</string>
   <string name="selectnewfile_menu">Neit Bild aus der Galerie uweisen</string>
   <string name="selectfile_menu">Bild aus der Galerie uweisen</string>

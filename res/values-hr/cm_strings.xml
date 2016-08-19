@@ -561,11 +561,6 @@
   <string name="display_rotation_180_title">180 stupnjeva</string>
   <string name="display_rotation_270_title">270 stupnjeva</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Boja zaslona</string>
-  <string name="screencolor_summary">Podešavanje nijansi zaslona, zasićenje, kontrasta ili intenziteta</string>
-  <string name="custom_screencolor">Prilagođena boja zaslona</string>
-  <string name="screencolor_save">Spremi</string>
-  <string name="screencolor_cancel">Odustani</string>
   <string name="restore_preview">Vidi zadanu sliku</string>
   <string name="selectnewfile_menu">Pogledaj novu sliku iz galerije</string>
   <string name="selectfile_menu">Prikaz slike iz galerije</string>

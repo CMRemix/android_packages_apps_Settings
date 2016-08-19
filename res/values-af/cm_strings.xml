@@ -558,11 +558,6 @@
   <string name="display_rotation_180_title">180 grade</string>
   <string name="display_rotation_270_title">270 grade</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Skerm kleur</string>
-  <string name="screencolor_summary">Verander skerm kleur, versadiging, kontras of intensiteit</string>
-  <string name="custom_screencolor">Persoonlike skerm kleur</string>
-  <string name="screencolor_save">Stoor</string>
-  <string name="screencolor_cancel">Kanselleer</string>
   <string name="restore_preview">Vertoon standaard foto</string>
   <string name="selectnewfile_menu">Vertoon nuwe foto van Galery</string>
   <string name="selectfile_menu">Vertoon foto vanuit Galery</string>

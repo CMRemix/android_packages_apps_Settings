@@ -557,11 +557,6 @@
   <string name="display_rotation_180_title">180 ଡିଗ୍ରୀ</string>
   <string name="display_rotation_270_title">270 ଡିଗ୍ରୀ</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">ସ୍କ୍ରିନ୍‍ ରଙ୍ଗ</string>
-  <string name="screencolor_summary">ଘ୍ୟୁ, ସାଚୁରେସନ୍‍, କଂଟ୍ରାଷ୍ଟ ବା ତୀବ୍ରତା ଟ୍ଯୁନ୍‍ କରନ୍ତୁ</string>
-  <string name="custom_screencolor">ସ୍କ୍ରିନ୍‍ ରଙ୍ଗ କଷ୍ଟମ୍‍ କରନ୍ତୁ</string>
-  <string name="screencolor_save">ସଞ୍ଚୟ</string>
-  <string name="screencolor_cancel">ବାତିଲ</string>
   <string name="restore_preview">ଡିଫଲ୍ଟ ଚିତ୍ର ଦେଖାନ୍ତୁ</string>
   <string name="selectnewfile_menu">ଗ୍ୟାଲେରୀରୁ ନୂଆ ଚିତ୍ର ଦେଖାନ୍ତୁ</string>
   <string name="selectfile_menu">ଗ୍ୟାଲେରୀରୁ ଚିତ୍ର ଦେଖାନ୍ତୁ</string>

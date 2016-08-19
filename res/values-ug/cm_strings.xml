@@ -557,11 +557,6 @@
   <string name="display_rotation_180_title">180 گرادۇس</string>
   <string name="display_rotation_270_title">270 گرادۇس</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">ئېكران رەڭگى</string>
-  <string name="screencolor_summary">رەڭ تۈسى، تويۇنۇشچانلىقى، ئاق-قارىلىقى ياكى يورۇقلۇقىنى تەڭشەيدۇ</string>
-  <string name="custom_screencolor">ئىختىيارىي ئېكران رەڭگى</string>
-  <string name="screencolor_save">ساقلا</string>
-  <string name="screencolor_cancel">ۋاز كەچ</string>
   <string name="restore_preview">كۆڭۈلدىكى رەسىمنى كۆرسىتىدۇ</string>
   <string name="selectnewfile_menu">رەسىم توپلىمىدىن يېڭى رەسىمنى كۆرسىتىدۇ</string>
   <string name="selectfile_menu">رەسىم توپلىمىدىن رەسىمنى كۆرسىتىدۇ</string>

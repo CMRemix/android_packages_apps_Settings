@@ -458,11 +458,6 @@
   <string name="display_rotation_180_title">180 dərəcə</string>
   <string name="display_rotation_270_title">270 dərəcə</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Ekran rəngi</string>
-  <string name="screencolor_summary">Ekran rəng çalarını, doydurmanı, təzadını və gərginliyini tənzimlə</string>
-  <string name="custom_screencolor">Xüsusi ekran rəngi</string>
-  <string name="screencolor_save">Saxla</string>
-  <string name="screencolor_cancel">İmtina</string>
   <string name="restore_preview">İlkin şəklə bax</string>
   <string name="selectnewfile_menu">Qalereyadan yeni şəklə bax</string>
   <string name="selectfile_menu">Qalereyadan şəklə bax</string>

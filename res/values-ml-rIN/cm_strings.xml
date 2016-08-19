@@ -557,11 +557,6 @@
   <string name="display_rotation_180_title">180 ഡിഗ്രി</string>
   <string name="display_rotation_270_title">270 ഡിഗ്രി</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">സ്ക്രീൻ നിറം</string>
-  <string name="screencolor_summary">സ്ക്രീൻ ഹ്യൂ, സാച്ചുറേഷൻ, ദൃശ്യതീവ്രത അല്ലെങ്കിൽ തീവ്രത ട്യൂണ്‍ ചെയ്യുക</string>
-  <string name="custom_screencolor">ഇഷ്ടാനുസൃത സ്ക്രീൻ നിറം</string>
-  <string name="screencolor_save">സംരക്ഷിക്കുക</string>
-  <string name="screencolor_cancel">റദ്ദാക്കുക</string>
   <string name="restore_preview">ഡിഫോള്‍ട്ട് ചിത്രം കാണുക</string>
   <string name="selectnewfile_menu">ഗാലറിയിൽ നിന്നും പുതിയ ചിത്രം കാണുക</string>
   <string name="selectfile_menu">ഗാലറിയിൽ നിന്നും ചിത്രം കാണുക</string>

@@ -557,11 +557,6 @@
   <string name="display_rotation_180_title">180 度</string>
   <string name="display_rotation_270_title">270 度</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">屏幕颜色</string>
-  <string name="screencolor_summary">调整屏幕色调、饱和度、对比度或亮度</string>
-  <string name="custom_screencolor">自定义屏幕颜色</string>
-  <string name="screencolor_save">保存</string>
-  <string name="screencolor_cancel">取消</string>
   <string name="restore_preview">查看默认图片</string>
   <string name="selectnewfile_menu">从图库查看新图片</string>
   <string name="selectfile_menu">从图库查看图片</string>

@@ -494,11 +494,6 @@
   <string name="display_rotation_180_title">۱۸۰ درجه</string>
   <string name="display_rotation_270_title">۲۷۰ درجه</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">رنگ صفحه</string>
-  <string name="screencolor_summary">تنظیم ته‌رنگ، اشباع، کنتراست یا شدت رنگ صفحه</string>
-  <string name="custom_screencolor">رنگ سفارشی صفحه</string>
-  <string name="screencolor_save">ذخیره</string>
-  <string name="screencolor_cancel">لغو</string>
   <string name="restore_preview">مشاهده تصویر پیش‌فرض</string>
   <string name="selectnewfile_menu">مشاهده تصویر جدید از گالری</string>
   <string name="selectfile_menu">مشاهده تصویر از گالری</string>

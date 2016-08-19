@@ -490,11 +490,6 @@
   <string name="display_rotation_180_title">180 डिग्री</string>
   <string name="display_rotation_270_title">270 डिग्री</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">स्क्रीन का रंग</string>
-  <string name="screencolor_summary">स्क्रीन के रंग, संतृत्पि, कोंट्रास्ट या तीव्रता को समायोजित करें</string>
-  <string name="custom_screencolor">मनपसंद स्क्रीन रंग</string>
-  <string name="screencolor_save">सहेजें</string>
-  <string name="screencolor_cancel">रद्द करें</string>
   <string name="restore_preview">डिफ़ॉल्ट चित्र देखें</string>
   <string name="selectnewfile_menu">गैलरी से नया चित्र देखें</string>
   <string name="selectfile_menu">गैलरी से चित्र देखें</string>

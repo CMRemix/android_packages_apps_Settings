@@ -555,11 +555,6 @@
   <string name="display_rotation_180_title">180 stopni</string>
   <string name="display_rotation_270_title">270 stopni</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Kolor ekranu</string>
-  <string name="screencolor_summary">Dostosuj odcień, nasycenie, kontrast lub intensywność ekranu</string>
-  <string name="custom_screencolor">Własny kolor ekranu</string>
-  <string name="screencolor_save">Zapisz</string>
-  <string name="screencolor_cancel">Anuluj</string>
   <string name="restore_preview">Pokaż domyślny obraz</string>
   <string name="selectnewfile_menu">Zobacz nowy obraz w Galerii</string>
   <string name="selectfile_menu">Zobacz zdjęcie z Galerii</string>

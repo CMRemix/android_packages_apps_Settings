@@ -492,11 +492,6 @@
   <string name="display_rotation_180_title">180 kraadi</string>
   <string name="display_rotation_270_title">270 kraadi</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Ekraani värv</string>
-  <string name="screencolor_summary">Häälesta värvus, küllastus, kontrast ja intensiivsus</string>
-  <string name="custom_screencolor">Kohandatud ekraani värv</string>
-  <string name="screencolor_save">Salvesta</string>
-  <string name="screencolor_cancel">Tühista</string>
   <string name="restore_preview">Kuva vaikepilt</string>
   <string name="selectnewfile_menu">Kuva uus pilti Galeriist</string>
   <string name="selectfile_menu">Kuva pilt Galeriist</string>

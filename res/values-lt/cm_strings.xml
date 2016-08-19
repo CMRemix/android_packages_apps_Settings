@@ -495,11 +495,6 @@
   <string name="display_rotation_180_title">180 laipsnių</string>
   <string name="display_rotation_270_title">270 laipsnių</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Ekrano spalva</string>
-  <string name="screencolor_summary">Nustatyti ekrano atspalvį, saturaciją, kontrastą arba intensyvumą</string>
-  <string name="custom_screencolor">Tinkinta ekrano spalva</string>
-  <string name="screencolor_save">Išsaugoti</string>
-  <string name="screencolor_cancel">Atšaukti</string>
   <string name="restore_preview">Žiūrėti numatytąjį vaizdą</string>
   <string name="selectnewfile_menu">Žiūrėti naują vaizdą iš galerijos</string>
   <string name="selectfile_menu">Žiūrėti vaizdą iš galerijos</string>

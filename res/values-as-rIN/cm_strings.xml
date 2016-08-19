@@ -557,11 +557,6 @@
   <string name="display_rotation_180_title">180 ডিগ্ৰী</string>
   <string name="display_rotation_270_title">270 ডিগ্ৰী</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">স্ক্ৰীণৰ ৰং</string>
-  <string name="screencolor_summary">স্ক্ৰীণৰ হিউ, সংপৃক্ততা, বিষমতা আৰু তীব্ৰতা টিউন কৰক</string>
-  <string name="custom_screencolor">কাষ্টম স্ক্ৰীণ ৰং</string>
-  <string name="screencolor_save">ছেভ কৰা</string>
-  <string name="screencolor_cancel">নাকচ</string>
   <string name="restore_preview">ডিফ\'ল্ট ছবি চাওক</string>
   <string name="selectnewfile_menu">গেলাৰীৰ পৰা নতুন ছবি চাওক</string>
   <string name="selectfile_menu">গেলাৰীৰ পৰা ছবি চাওক</string>

@@ -471,10 +471,6 @@
   <string name="display_rotation_180_title">180 پلە</string>
   <string name="display_rotation_270_title">270 پلە</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">ڕەنگی ڕوونما</string>
-  <string name="custom_screencolor">ڕێکخستنی ڕەنگی ڕوونما</string>
-  <string name="screencolor_save">پاشەکەوتکردن</string>
-  <string name="screencolor_cancel">پاشگەزبوونەوە</string>
   <string name="restore_preview">بینینی وێنەی بنەڕەتی</string>
   <string name="selectnewfile_menu">بینینی وێنەی نوێ لە پێشانگەوە</string>
   <string name="selectfile_menu">بینینی وێنە لە پێشانگەوە</string>

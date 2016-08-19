@@ -559,11 +559,6 @@
   <string name="display_rotation_180_title">180 derajat</string>
   <string name="display_rotation_270_title">270 derajat</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Warna layar</string>
-  <string name="screencolor_summary">Menyetel warna layar, saturasi, kontras atau intensitas</string>
-  <string name="custom_screencolor">Warna layar khusus</string>
-  <string name="screencolor_save">Simpan</string>
-  <string name="screencolor_cancel">Batalkan</string>
   <string name="restore_preview">Lihat gambar semula</string>
   <string name="selectnewfile_menu">Lihat gambar baru dari Galeri</string>
   <string name="selectfile_menu">Lihat gambar dari Galeri</string>

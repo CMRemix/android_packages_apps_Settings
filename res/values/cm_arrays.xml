@@ -379,13 +379,6 @@
         <item>silent</item>
     </string-array>
 
-    <!-- Values for screen color  -->
-    <string-array name="screen_color_setting">
-        <item>Standard</item>
-        <item>Vivid</item>
-        <item>Custom</item>
-    </string-array>
-
     <!-- Stylus Gestures -->
     <string-array name="gestures_entries" translatable="false">
         <item>@string/gestures_action_empty</item>

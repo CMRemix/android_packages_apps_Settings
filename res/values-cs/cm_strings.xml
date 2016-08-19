@@ -561,11 +561,6 @@
   <string name="display_rotation_180_title">180 stupňů</string>
   <string name="display_rotation_270_title">270 stupňů</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Barvy obrazovky</string>
-  <string name="screencolor_summary">Upravit odstín, sytost, kontrast nebo intenzitu obrazovky</string>
-  <string name="custom_screencolor">Vlastní barvy obrazovky</string>
-  <string name="screencolor_save">Uložit</string>
-  <string name="screencolor_cancel">Zrušit</string>
   <string name="restore_preview">Zobrazit výchozí obrázek</string>
   <string name="selectnewfile_menu">Zobrazit nový obrázek z Galerie</string>
   <string name="selectfile_menu">Zobrazit obrázek z Galerie</string>

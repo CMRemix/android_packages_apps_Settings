@@ -529,11 +529,6 @@
   <string name="display_rotation_180_title">180 de grade</string>
   <string name="display_rotation_270_title">270 de grade</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Culoare ecran</string>
-  <string name="screencolor_summary">Reglează nuanța, saturația, contrastul sau intensitatea ecranului</string>
-  <string name="custom_screencolor">Culoare ecran personalizată</string>
-  <string name="screencolor_save">Salvaţi</string>
-  <string name="screencolor_cancel">Revocaţi</string>
   <string name="restore_preview">Vezi imaginea implicită</string>
   <string name="selectnewfile_menu">Vezi noua imagine din Galerie</string>
   <string name="selectfile_menu">Vezi imaginea din Galerie</string>

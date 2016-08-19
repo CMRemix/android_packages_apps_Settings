@@ -560,11 +560,6 @@
   <string name="display_rotation_180_title">180 Grad</string>
   <string name="display_rotation_270_title">270 Grad</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Bildschirmfarbe</string>
-  <string name="screencolor_summary">Farbton, Sättigung, Kontrast und Intensität des Bildschirms anpassen</string>
-  <string name="custom_screencolor">Benutzerdefinierte Bildschirmfarbe</string>
-  <string name="screencolor_save">Speichern</string>
-  <string name="screencolor_cancel">Abbrechen</string>
   <string name="restore_preview">Standardbild anzeigen</string>
   <string name="selectnewfile_menu">Neues Bild aus Galerie anzeigen</string>
   <string name="selectfile_menu">Bild aus Galerie anzeigen</string>
