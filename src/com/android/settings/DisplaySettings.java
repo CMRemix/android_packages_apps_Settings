@@ -20,6 +20,7 @@ import com.android.internal.logging.MetricsLogger;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.preference.CheckBoxPreference;
 
 import android.os.UserHandle;
@@ -85,6 +86,7 @@ import com.android.settings.cyanogenmod.DisplayRotation;
 
 import com.android.settings.dashboard.DashboardContainerView;
 
+import cyanogenmod.hardware.CMHardwareManager;
 import cyanogenmod.hardware.LiveDisplayManager;
 import cyanogenmod.providers.CMSettings;
 
@@ -115,6 +117,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_LIVEDISPLAY = "live_display";
+    private static final String KEY_HIGH_TOUCH_SENSITIVITY = "high_touch_sensitivity";
 
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String DASHBOARD_SWITCHES = "dashboard_switches";
@@ -137,9 +140,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private PreferenceScreen mDozeFragement;
     private SwitchPreference mTapToWakePreference;
+    private SwitchPreference mHighTouchSensitivity;
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
+
+    private CMHardwareManager mHardware;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -170,6 +176,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final Activity activity = getActivity();
         final ContentResolver resolver = activity.getContentResolver();
         addPreferencesFromResource(R.xml.display);
+
+        mHardware = CMHardwareManager.getInstance(activity);
 
         PreferenceCategory displayPrefs = (PreferenceCategory)
                 findPreference(KEY_CATEGORY_DISPLAY);
@@ -308,6 +316,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (displayPrefs != null && mTapToWakePreference != null) {
                 displayPrefs.removePreference(mTapToWakePreference);
             }
+        }
+
+        mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
+        if (!mHardware.isSupported(
+                CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+            displayPrefs.removePreference(mHighTouchSensitivity);
+            mHighTouchSensitivity = null;
+        } else {
+            mHighTouchSensitivity.setChecked(
+                    mHardware.get(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY));
         }
 
         mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
@@ -695,6 +713,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else if (preference == mAccelerometer) {
             RotationPolicy.setRotationLockForAccessibility(getActivity(),
                     !mAccelerometer.isChecked());
+        } else if (preference == mHighTouchSensitivity) {
+            boolean mHighTouchSensitivityEnable = mHighTouchSensitivity.isChecked();
+            CMSettings.System.putInt(getActivity().getContentResolver(),
+                    CMSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE,
+                    mHighTouchSensitivityEnable ? 1 : 0);
+            return true;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -823,6 +847,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
+                    final CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+
                     ArrayList<String> result = new ArrayList<String>();
                     if (!context.getResources().getBoolean(
                             com.android.internal.R.bool.config_dreamsSupported)) {
@@ -855,7 +881,23 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!isCameraGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_GESTURE);
                     }
+                    if (hardware.isSupported(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+                        result.add(KEY_HIGH_TOUCH_SENSITIVITY);
+                    }
                     return result;
                 }
             };
+
+    public static void restore(Context context) {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        if (hardware.isSupported(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+            final boolean enabled = prefs.getBoolean(KEY_HIGH_TOUCH_SENSITIVITY,
+                    hardware.get(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY));
+            CMSettings.System.putInt(context.getContentResolver(),
+                    CMSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE,
+                    enabled ? 1 : 0);
+        }
+    }
+
 }
