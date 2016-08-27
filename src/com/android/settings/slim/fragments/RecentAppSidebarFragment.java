@@ -17,6 +17,9 @@
 package com.android.settings.slim.fragments;
 
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +30,13 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
-public class RecentAppSidebarFragment extends SettingsPreferenceFragment {
+public class RecentAppSidebarFragment extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+
+    // Preferences
+    private static final String USE_RECENT_APP_SIDEBAR = "use_recent_app_sidebar";
+
+    private SwitchPreference mUseSidebar;
 
     @Override
     protected int getMetricsCategory() {
@@ -39,6 +48,7 @@ public class RecentAppSidebarFragment extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.recent_app_sidebar_fragment);
+        initializeAllPreferences();
     }
 
     @Override
@@ -53,5 +63,22 @@ public class RecentAppSidebarFragment extends SettingsPreferenceFragment {
             list.setPadding(0, paddingTop, 0, paddingBottom);
         }
         return view;
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mUseSidebar) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.USE_RECENT_APP_SIDEBAR,
+                    ((Boolean) newValue) ? 1 : 0);
+            return true;
+        }
+        return false;
+    }
+
+    private void initializeAllPreferences() {
+        mUseSidebar = (SwitchPreference) findPreference(USE_RECENT_APP_SIDEBAR);
+        mUseSidebar.setOnPreferenceChangeListener(this);
+        mUseSidebar.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.USE_RECENT_APP_SIDEBAR, 1) == 1);
     }
 }
