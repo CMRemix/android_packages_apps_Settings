@@ -50,6 +50,8 @@ import com.android.internal.utils.du.Config;
 import com.android.internal.utils.du.Config.ButtonConfig;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cmremix.utils.SeekBarPreference;
+
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -58,7 +60,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private ListPreference mSmartBarContext;
     private ListPreference mImeActions;
     private ListPreference mButtonAnim;
-    private static final String NAVBAR_COLOR = "navbar_button_color";
+    private SeekBarPreference mButtonsAlpha;
 
     private ColorPickerPreference mNavbuttoncolor;
 
@@ -68,6 +70,8 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DIALOG_RESET_CONFIRM = 1;
+    private static final String NAVBAR_COLOR = "navbar_button_color";
+    private static final String PREF_NAVBAR_BUTTONS_ALPHA = "navbar_buttons_alpha";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +107,13 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNavbuttoncolor.setSummary(hexColor);
         mNavbuttoncolor.setNewPreviewColor(intColor);
+
+	mButtonsAlpha =
+                (SeekBarPreference) findPreference(PREF_NAVBAR_BUTTONS_ALPHA);
+        int bAlpha = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.NAVBAR_BUTTONS_ALPHA, 255, UserHandle.USER_CURRENT);
+        mButtonsAlpha.setValue(bAlpha / 1);
+        mButtonsAlpha.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -200,6 +211,11 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
                 "smartbar_button_animation_style", 0);
         mButtonAnim.setValue(String.valueOf(0));
         mButtonAnim.setOnPreferenceChangeListener(this);
+
+	Settings.Secure.putInt(mContext.getContentResolver(),
+                "navbar_buttons_alpha", 255);
+        mButtonsAlpha.setValue(255);
+        mButtonsAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -226,6 +242,11 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAVBAR_BUTTON_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonsAlpha) {
+            int val = (Integer) newValue;
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.NAVBAR_BUTTONS_ALPHA, val * 1, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

@@ -2042,4 +2042,7 @@
     <string name="advanced_reboot_oneclick">One click reboot</string>
     <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
 
+    <!-- Navbar buttons transparency -->
+    <string name="navbar_buttons_alpha_title">Buttons transparency</string>
+
 </resources>
