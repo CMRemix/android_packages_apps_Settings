@@ -48,6 +48,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.ArrayList;
