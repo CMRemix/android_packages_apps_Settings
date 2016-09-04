@@ -2096,4 +2096,8 @@
     <string name="status_bar_custom_header_text_shadow_color_title">Header text shadow color</string>
     <string name="unit_percent">\u0025</string>
 
+    <!-- make overlay permission check configurable -->
+    <string name="toggle_package_install_overlay_check_title">Disable permission overlay check</string>
+    <string name="toggle_package_install_overlay_check_summary">WARNING\u003A this disables a security check to prevent tapjacking! Use only if you understand the consequences.</string>
+
 </resources>
