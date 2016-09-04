@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr;
+package com.android.settings.cmremix;
 
 import android.app.ActivityManager;
 import android.content.Context;

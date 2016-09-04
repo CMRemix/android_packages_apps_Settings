@@ -76,6 +76,7 @@ import com.android.settings.cmremix.Navbar;
 import com.android.settings.cmremix.FlingSettings;
 import com.android.settings.cmremix.SmartbarSettings;
 import com.android.settings.cmremix.FloatingWindows;
+import com.android.settings.cmremix.Halo;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ManageAssist;
@@ -306,7 +307,8 @@ public class SettingsActivity extends Activity
             R.id.home_settings,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod,
-            R.id.button_settings
+            R.id.button_settings,
+            R.id.cmremix_halo
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -396,7 +398,8 @@ public class SettingsActivity extends Activity
             WeatherServiceSettings.class.getName(),
             HeadsUpSettings.class.getName(),
             AmbientSettings.class.getName(),
-            FloatingWindows.class.getName()
+            FloatingWindows.class.getName(),
+            Halo.class.getName()
 
     };
 

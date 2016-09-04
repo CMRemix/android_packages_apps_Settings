@@ -33,7 +33,7 @@
     <PreferenceScreen
             android:id="@+id/halo_settings"
             android:title="@string/halo_settings_title"
-            android:fragment="com.android.settings.rr.Halo" />
+            android:fragment="com.android.settings.cmremix.Halo" />
 
     <!-- Zen Mode -->
     <PreferenceScreen
