@@ -69,10 +69,14 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     private static final String DAYLIGHT_HEADER_PACK = "daylight_header_pack";
     private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
     private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
+    private static final String CUSTOM_HEADER_TEXT_SHADOW = "status_bar_custom_header_text_shadow";
+    private static final String CUSTOM_HEADER_TEXT_SHADOW_COLOR = "status_bar_custom_header_text_shadow_color";
 
     private ListPreference mDaylightHeaderPack;
     private SwitchPreference mCustomHeaderImage;
     private SeekBarPreference mHeaderShadow;
+    private SeekBarPreference mTextShadow;
+    private ColorPickerPreference mTShadowColor;
 
     private PreferenceCategory mWeatherCategory;
     private ListPreference mWeatherIconPack;
@@ -80,6 +84,8 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     private boolean mSecure;
     private int mLockscreenSelectedValue;
     private DropDownPreference mLockscreen;
+
+    static final int DEFAULT_HEADER_SHADOW_COLOR = 0xFF000000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -157,6 +163,22 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, 0);
         mHeaderShadow.setValue((int)((headerShadow / 255) * 100));
         mHeaderShadow.setOnPreferenceChangeListener(this);
+
+         // Status Bar header text shadow
+         mTextShadow = (SeekBarPreference) findPreference(CUSTOM_HEADER_TEXT_SHADOW);
+         final float textShadow = Settings.System.getFloat(resolver,
+                      Settings.System.STATUS_BAR_CUSTOM_HEADER_TEXT_SHADOW, 0);
+         mTextShadow.setValue((int)(textShadow));
+         mTextShadow.setOnPreferenceChangeListener(this);
+
+        //Status Bar header text shadow color
+         mTShadowColor = (ColorPickerPreference) findPreference(CUSTOM_HEADER_TEXT_SHADOW_COLOR);
+         mTShadowColor.setOnPreferenceChangeListener(this);
+         int shadowColor = Settings.System.getInt(resolver,
+                      Settings.System.STATUS_BAR_CUSTOM_HEADER_TEXT_SHADOW_COLOR, DEFAULT_HEADER_SHADOW_COLOR);
+         String HexColor = String.format("#%08x", (0x000000 & shadowColor));
+         mTShadowColor.setSummary(HexColor);
+         mTShadowColor.setNewPreviewColor(shadowColor);
     }
 
     // === Lockscreen (public / private) notifications ===
@@ -273,6 +295,20 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, realHeaderValue);
             return true;
+	     }  else if (preference == mTextShadow) {
+            float textShadow = (Integer) newValue;
+            float realHeaderValue = (float) ((double) textShadow);
+            Settings.System.putFloat(resolver,
+                         Settings.System.STATUS_BAR_CUSTOM_HEADER_TEXT_SHADOW, realHeaderValue);
+            return true;
+         }  else if (preference == mTShadowColor) {
+             String hex = ColorPickerPreference.convertToARGB(
+                           Integer.valueOf(String.valueOf(newValue)));
+             preference.setSummary(hex);
+             int intHex = ColorPickerPreference.convertToColorInt(hex);
+             Settings.System.putInt(resolver,
+                         Settings.System.STATUS_BAR_CUSTOM_HEADER_TEXT_SHADOW_COLOR, intHex);
+             return true;
         }
         return false;
     }

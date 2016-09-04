@@ -2086,4 +2086,10 @@
     <string name="halo_color_title">Halo color</string>
     <string name="halo_color_summary">Defines what color the Halo bubble is</string>
 
+    <!-- Header text shadow and color -->
+    <string name="status_bar_custom_header_text_shadow_title">Header text shadow</string>
+    <string name="status_bar_custom_header_text_shadow_summary">For better visibility on themed headers</string>
+    <string name="status_bar_custom_header_text_shadow_color_title">Header text shadow color</string>
+    <string name="unit_percent">\u0025</string>
+
 </resources>
