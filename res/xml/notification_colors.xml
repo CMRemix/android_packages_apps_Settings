@@ -165,5 +165,41 @@
         settings:unitsRight="%"
         android:persistent="false" />
 
+    <com.android.settings.cmremix.utils.SeekBarPreference
+        android:key="qs_dash_width"
+        android:title="@string/qs_dash_width_title"
+        android:max="50"
+        aicpextras:min="0"
+        aicpextras:unitsLeft=""
+        aicpextras:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.cmremix.utils.SeekBarPreference
+        android:key="qs_dash_gap"
+        android:title="@string/qs_dash_gap_title"
+        android:max="50"
+        aicpextras:min="1"
+        aicpextras:unitsLeft=""
+        aicpextras:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.cmremix.utils.SeekBarPreference
+        android:key="volume_dialog_dash_width"
+        android:title="@string/volume_dialog_dash_width_title"
+        android:max="50"
+        aicpextras:min="0"
+        aicpextras:unitsLeft=""
+        aicpextras:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.cmremix.utils.SeekBarPreference
+        android:key="volume_dialog_dash_gap"
+        android:title="@string/volume_dialog_dash_gap_title"
+        android:max="50"
+        aicpextras:min="1"
+        aicpextras:unitsLeft=""
+        aicpextras:unitsRight="px"
+        android:persistent="false" />
+
 	</PreferenceCategory>
 </PreferenceScreen>
