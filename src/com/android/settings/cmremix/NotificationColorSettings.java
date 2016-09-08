@@ -23,6 +23,7 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -69,7 +70,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
     private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
     private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
-
+    private static final String PREF_VOLUME_DIALOG_STROKE = "volume_dialog_stroke";
+    private static final String PREF_VOLUME_DIALOG_STROKE_COLOR = "volume_dialog_stroke_color";
+    private static final String PREF_VOLUME_DIALOG_STROKE_THICKNESS = "volume_dialog_stroke_thickness";
+    private static final String PREF_VOLUME_DIALOG_CORNER_RADIUS = "volume_dialog_corner_radius";
+    private static final String PREF_QS_STROKE = "qs_stroke";
+    private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
+    private static final String PREF_QS_STROKE_THICKNESS = "qs_stroke_thickness";
+    private static final String PREF_QS_CORNER_RADIUS = "qs_corner_radius";
 
     private static final int CMREMIX_BLUE_GREY = 0xff1b1f23;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
@@ -78,6 +86,9 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
     private static final int TRANSLUCENT_HOLO_BLUE_LIGHT = 0x4d33b5e5;
     private static final int TRANSLUCENT_WHITE = 0x4dffffff;
+    
+    static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
+    static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -92,11 +103,19 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mClearAllIconColor;
     private SeekBarPreference mQSShadeAlpha;
-    private SeekBarPreference mQSHeaderAlpha;	
-    private SeekBarPreference mVolumeDialogAlpha;	
-    private SeekBarPreference mPowerMenuAlpha;	
+    private SeekBarPreference mQSHeaderAlpha;
+    private SeekBarPreference mVolumeDialogAlpha;
+    private SeekBarPreference mPowerMenuAlpha;
     private SeekBarPreference mNotificationsAlpha;
-  
+    private ListPreference mVolumeDialogStroke;
+    private ColorPickerPreference mVolumeDialogStrokeColor;
+    private SeekBarPreference mVolumeDialogStrokeThickness;
+    private SeekBarPreference mVolumeDialogCornerRadius;
+    private ListPreference mQSStroke;
+    private ColorPickerPreference mQSStrokeColor;
+    private SeekBarPreference mQSStrokeThickness;
+    private SeekBarPreference mQSCornerRadius;
+
     private ContentResolver mResolver;
 
     @Override
@@ -199,9 +218,9 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
-        mClearAllIconColor =
+	    mClearAllIconColor =
                 (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
-        intColor = Settings.System.getInt(mResolver,
+	    intColor = Settings.System.getInt(mResolver,
                 Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR, WHITE); 
         mClearAllIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
@@ -227,7 +246,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
             mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 
- // Volume dialog alpha
+	    // Volume dialog alpha
             mVolumeDialogAlpha =
                     (SeekBarPreference) findPreference(PREF_TRANSPARENT_VOLUME_DIALOG);
             int volumeDialogAlpha = Settings.System.getInt(mResolver,
@@ -250,6 +269,83 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                     Settings.System.NOTIFICATION_ALPHA, 255);
             mNotificationsAlpha.setValue(notificationsAlpha / 1);
             mNotificationsAlpha.setOnPreferenceChangeListener(this);
+
+	    setHasOptionsMenu(true);
+
+            // Volume dialog stroke
+            mVolumeDialogStroke =
+                    (ListPreference) findPreference(PREF_VOLUME_DIALOG_STROKE);
+            int volumeDialogStroke = Settings.System.getIntForUser(mResolver,
+                            Settings.System.VOLUME_DIALOG_STROKE, 1,
+                            UserHandle.USER_CURRENT);
+            mVolumeDialogStroke.setValue(String.valueOf(volumeDialogStroke));
+            mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntry());
+            mVolumeDialogStroke.setOnPreferenceChangeListener(this);
+
+            // Volume dialog stroke color
+            mVolumeDialogStrokeColor =
+                    (ColorPickerPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_COLOR);
+            mVolumeDialogStrokeColor.setOnPreferenceChangeListener(this);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_STROKE_COLOR, DEFAULT_VOLUME_DIALOG_STROKE_COLOR);
+            hexColor = String.format("#%08x", (0xFF80CBC4 & intColor));
+            mVolumeDialogStrokeColor.setSummary(hexColor);
+            mVolumeDialogStrokeColor.setNewPreviewColor(intColor);
+
+            // Volume dialog stroke thickness
+            mVolumeDialogStrokeThickness =
+                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_THICKNESS);
+            int volumeDialogStrokeThickness = Settings.System.getInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, 4);
+            mVolumeDialogStrokeThickness.setValue(volumeDialogStrokeThickness / 1);
+            mVolumeDialogStrokeThickness.setOnPreferenceChangeListener(this);
+
+            // Volume dialog corner radius
+            mVolumeDialogCornerRadius =
+                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_CORNER_RADIUS);
+            int volumeDialogCornerRadius = Settings.System.getInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_CORNER_RADIUS, 10);
+            mVolumeDialogCornerRadius.setValue(volumeDialogCornerRadius / 1);
+            mVolumeDialogCornerRadius.setOnPreferenceChangeListener(this);
+
+            // QS stroke
+            mQSStroke =
+                    (ListPreference) findPreference(PREF_QS_STROKE);
+            int qSStroke = Settings.System.getIntForUser(mResolver,
+                            Settings.System.QS_STROKE, 1,
+                            UserHandle.USER_CURRENT);
+            mQSStroke.setValue(String.valueOf(qSStroke));
+            mQSStroke.setSummary(mQSStroke.getEntry());
+            mQSStroke.setOnPreferenceChangeListener(this);
+
+            // QS stroke color
+            mQSStrokeColor =
+                    (ColorPickerPreference) findPreference(PREF_QS_STROKE_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.QS_STROKE_COLOR, DEFAULT_QS_STROKE_COLOR);
+            hexColor = String.format("#%08x", (0xFF80CBC4 & intColor));
+            mQSStrokeColor.setSummary(hexColor);
+            mQSStrokeColor.setNewPreviewColor(intColor);
+            mQSStrokeColor.setOnPreferenceChangeListener(this);
+
+            // QS stroke thickness
+            mQSStrokeThickness =
+                    (SeekBarPreference) findPreference(PREF_QS_STROKE_THICKNESS);
+            int qSStrokeThickness = Settings.System.getInt(mResolver,
+                    Settings.System.QS_STROKE_THICKNESS, 4);
+            mQSStrokeThickness.setValue(qSStrokeThickness / 1);
+            mQSStrokeThickness.setOnPreferenceChangeListener(this);
+
+            // QS corner radius
+            mQSCornerRadius =
+                    (SeekBarPreference) findPreference(PREF_QS_CORNER_RADIUS);
+            int qSCornerRadius = Settings.System.getInt(mResolver,
+                    Settings.System.QS_CORNER_RADIUS, 5);
+            mQSCornerRadius.setValue(qSCornerRadius / 1);
+            mQSCornerRadius.setOnPreferenceChangeListener(this);
+
+            VolumeDialogSettingsDisabler(volumeDialogStroke);
+            QSSettingsDisabler(qSStroke);
     }
 
     @Override
@@ -370,8 +466,86 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 Settings.System.putInt(mResolver,
                         Settings.System.NOTIFICATION_ALPHA, alpha * 1);
                 return true;
+	}  else if (preference == mVolumeDialogStroke) {
+                int volumeDialogStroke = Integer.parseInt((String) newValue);
+                int index = mVolumeDialogStroke.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(mResolver, Settings.System.
+                        VOLUME_DIALOG_STROKE, volumeDialogStroke, UserHandle.USER_CURRENT);
+                mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntries()[index]);
+                VolumeDialogSettingsDisabler(volumeDialogStroke);
+                return true;
+        }  else if (preference == mVolumeDialogStrokeColor) {
+                hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(mResolver,
+                        Settings.System.VOLUME_DIALOG_STROKE_COLOR, intHex);
+                return true;
+        }  else if (preference == mVolumeDialogStrokeThickness) {
+                int val = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, val * 1);
+                return true;
+        }  else if (preference == mVolumeDialogCornerRadius) {
+                int val = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.VOLUME_DIALOG_CORNER_RADIUS, val * 1);
+                return true;
+        }  else if (preference == mQSStroke) {
+                int qSStroke = Integer.parseInt((String) newValue);
+                int index = mQSStroke.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(mResolver, Settings.System.
+                        QS_STROKE, qSStroke, UserHandle.USER_CURRENT);
+                mQSStroke.setSummary(mQSStroke.getEntries()[index]);
+                QSSettingsDisabler(qSStroke);
+                return true;
+        }  else if (preference == mQSStrokeColor) {
+                hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(mResolver,
+                        Settings.System.QS_STROKE_COLOR, intHex);
+                return true;
+        } else if (preference == mQSStrokeThickness) {
+                int val = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.QS_STROKE_THICKNESS, val * 1);
+                return true;
+        }  else if (preference == mQSCornerRadius) {
+                int val = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.QS_CORNER_RADIUS, val * 1);
+                return true;
 	    }
         return false;
+    }
+
+    private void VolumeDialogSettingsDisabler(int volumeDialogStroke) {
+            if (volumeDialogStroke == 0) {
+                mVolumeDialogStrokeColor.setEnabled(false);
+                mVolumeDialogStrokeThickness.setEnabled(false);
+            } else if (volumeDialogStroke == 1) {
+                mVolumeDialogStrokeColor.setEnabled(false);
+                mVolumeDialogStrokeThickness.setEnabled(true);
+            } else {
+                mVolumeDialogStrokeColor.setEnabled(true);
+                mVolumeDialogStrokeThickness.setEnabled(true);
+            }
+        }
+
+        private void QSSettingsDisabler(int qSStroke) {
+            if (qSStroke == 0) {
+                mQSStrokeColor.setEnabled(false);
+                mQSStrokeThickness.setEnabled(false);
+            } else if (qSStroke == 1) {
+                mQSStrokeColor.setEnabled(false);
+                mQSStrokeThickness.setEnabled(true);
+            } else {
+                mQSStrokeColor.setEnabled(true);
+                mQSStrokeThickness.setEnabled(true);
+            }
     }
 
     private void showDialogInner(int id) {
