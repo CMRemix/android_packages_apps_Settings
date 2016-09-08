@@ -123,6 +123,12 @@
             android:summary="@string/battery_low_notif_summary"
             android:defaultValue="true" />
 
+      <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+    	   android:key="bluetooth_show_battery"
+           android:title="@string/bluetooth_battery_title"
+           android:summary="@string/bluetooth_battery_summary"
+           android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

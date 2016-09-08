@@ -2100,4 +2100,7 @@
     <string name="toggle_package_install_overlay_check_title">Disable permission overlay check</string>
     <string name="toggle_package_install_overlay_check_summary">WARNING\u003A this disables a security check to prevent tapjacking! Use only if you understand the consequences.</string>
 
+    <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
+    <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
+
 </resources>
