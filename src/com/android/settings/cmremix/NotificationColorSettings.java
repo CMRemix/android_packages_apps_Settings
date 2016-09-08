@@ -68,6 +68,8 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
     private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
     private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
+    private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
+
 
     private static final int CMREMIX_BLUE_GREY = 0xff1b1f23;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
@@ -93,6 +95,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private SeekBarPreference mQSHeaderAlpha;	
     private SeekBarPreference mVolumeDialogAlpha;	
     private SeekBarPreference mPowerMenuAlpha;	
+    private SeekBarPreference mNotificationsAlpha;
   
     private ContentResolver mResolver;
 
@@ -239,6 +242,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                     Settings.System.TRANSPARENT_POWER_MENU, 100);
             mPowerMenuAlpha.setValue(powerMenuAlpha / 1);
             mPowerMenuAlpha.setOnPreferenceChangeListener(this);
+
+            // Notifications alpha
+            mNotificationsAlpha =
+                    (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
+            int notificationsAlpha = Settings.System.getInt(mResolver,
+                    Settings.System.NOTIFICATION_ALPHA, 255);
+            mNotificationsAlpha.setValue(notificationsAlpha / 1);
+            mNotificationsAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -354,7 +365,12 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 Settings.System.putInt(mResolver,
                         Settings.System.TRANSPARENT_POWER_MENU, alpha * 1);
                 return true;
-	}
+    } else if (preference == mNotificationsAlpha) {
+                int alpha = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.NOTIFICATION_ALPHA, alpha * 1);
+                return true;
+	    }
         return false;
     }
 

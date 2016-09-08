@@ -90,6 +90,14 @@
             android:defaultValue="0xff000000" 
 	    android:dependency="notif_color_switch"  />
 
+    <com.android.settings.cmremix.utils.SeekBarPreference
+           android:key="notification_alpha"
+           android:title="@string/notifications_transparency"
+           android:max="255"
+           settings:min="0"
+           settings:unitsLeft=""
+           settings:unitsRight=""
+           android:persistent="false" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
            android:key="notification_drawer_clear_all_icon_color"

@@ -1315,6 +1315,9 @@
      <!-- QS header transparency -->
     <string name="qs_transparent_header">QS header transparency</string>
 
+    <!-- Notifications transparency -->
+    <string name="notifications_transparency">Notifications transparency</string>
+
    <!-- Volume dialog transparency -->
    <string name="volume_dialog_transparency">Volume dialog transparency</string>
 
