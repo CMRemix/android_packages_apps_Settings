@@ -11,13 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.RelativeLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import com.android.settings.R;
 
-public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
+public class SeekBarPreferenceCham extends Preference implements SeekBar.OnSeekBarChangeListener {
 
     private final String TAG = getClass().getName();
 
@@ -28,8 +29,8 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
     private int mMaxValue      = 100;
     private int mMinValue      = 0;
     private int mInterval      = 1;
+    private int mDefaultValue  = -1;
     private int mCurrentValue;
-    private int mDefaultValue = -1;
     private String mUnitsLeft  = "";
     private String mUnitsRight = "";
     private SeekBar mSeekBar;
@@ -40,12 +41,12 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
 
     private TextView mStatusText;
 
-    public SeekBarPreference(Context context, AttributeSet attrs) {
+    public SeekBarPreferenceCham(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPreference(context, attrs);
     }
 
-    public SeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SeekBarPreferenceCham(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initPreference(context, attrs);
     }
@@ -58,25 +59,11 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
     }
 
     private void setValuesFromXml(AttributeSet attrs) {
-        final TypedArray typedArray = getContext().obtainStyledAttributes(
-                attrs, R.styleable.SeekBarPreference);
-
         mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
         mMinValue = attrs.getAttributeIntValue(SETTINGS, "minimum", 0);
-	mDefaultValue = attrs.getAttributeIntValue(SETTINGS, "defaultVal", -1);
+        mDefaultValue = attrs.getAttributeIntValue(SETTINGS, "defaultVal", -1);
         mUnitsLeft = getAttributeStringValue(attrs, SETTINGS, "unitsLeft", "");
-        String units = getAttributeStringValue(attrs, SETTINGS, "units", "");
-        mUnitsRight = getAttributeStringValue(attrs, SETTINGS, "unitsRight", units);
-
-        Integer id = typedArray.getResourceId(R.styleable.SeekBarPreference_unitsRight, 0);
-        if (id > 0) {
-            mUnitsRight = getContext().getResources().getString(id);
-        }
-        id = typedArray.getResourceId(R.styleable.SeekBarPreference_unitsLeft, 0);
-        if (id > 0) {
-            mUnitsLeft = getContext().getResources().getString(id);
-        }
-
+        mUnitsRight = getAttributeStringValue(attrs, SETTINGS, "unitsRight", "");
         try {
             String newInterval = attrs.getAttributeValue(SETTINGS, "interval");
             if(newInterval != null)
@@ -111,7 +98,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
 
     @Override
     protected View onCreateView(ViewGroup parent){
-	super.onCreateView(parent);
+        super.onCreateView(parent);
 
         RelativeLayout layout =  null;
         try {
@@ -120,15 +107,15 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
             mTitle = (TextView) layout.findViewById(android.R.id.title);
             mImagePlus = (ImageView) layout.findViewById(R.id.imagePlus);
             mImagePlus.setOnClickListener(new View.OnClickListener() {
-                 @Override
-                 public void onClick(View view) {
-                     mSeekBar.setProgress((mCurrentValue + 1) - mMinValue);
-                 }
-             });
-             mImagePlus.setOnLongClickListener(new View.OnLongClickListener() {
-                 @Override
-                 public boolean onLongClick(View view) {
-                     mSeekBar.setProgress((mCurrentValue + 10) - mMinValue);
+                @Override
+                public void onClick(View view) {
+                    mSeekBar.setProgress((mCurrentValue + 1) - mMinValue);
+                }
+            });
+            mImagePlus.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    mSeekBar.setProgress((mCurrentValue + 10) - mMinValue);
                     return true;
                 }
             });
@@ -146,8 +133,8 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
                     return true;
                 }
             });
-	    mProgressThumb = mSeekBar.getThumb();
-	}
+            mProgressThumb = mSeekBar.getThumb();
+        }
         catch(Exception e)
         {
             Log.e(TAG, "Error creating seek bar preference", e);
@@ -182,7 +169,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
     }
 
     /**
-     * Update a SeekBarPreference view with our current state
+     * Update a SeekBarPreferenceCham view with our current state
      * @param view
      */
     protected void updateView(View view) {
@@ -219,7 +206,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
             seekBar.setProgress(mCurrentValue - mMinValue);
             return;
         }
-   	// change accepted, store it
+        // change accepted, store it
         mCurrentValue = newValue;
         if (mCurrentValue == mDefaultValue && mDefaultValue != -1) {
             mStatusText.setText(R.string.default_string);
@@ -231,7 +218,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
             mStatusText.setText(String.valueOf(newValue));
 	    if (mProgressThumb !=null) {
             mProgressThumb.clearColorFilter();
-	    }
+	   }
         }
         persistInt(newValue);
     }
@@ -270,11 +257,5 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
 
     public void setValue(int value) {
         mCurrentValue = value;
-    }
-
-    @Override
-    public void setEnabled (boolean enabled) {
-        mSeekBar.setEnabled(enabled);
-        super.setEnabled(enabled);
     }
 }

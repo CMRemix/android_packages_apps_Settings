@@ -58,6 +58,53 @@
 	</PreferenceCategory>
 
     <PreferenceCategory
+        android:key="notification_cat_volume"
+        android:title="@string/notification_cat_volume">
+
+    <ListPreference
+        android:key="volume_dialog_stroke"
+        android:title="@string/volume_dialog_stroke_title"
+        android:dialogTitle="@string/volume_dialog_stroke_title"
+        android:entries="@array/volume_dialog_stroke_entries"
+        android:entryValues="@array/volume_dialog_stroke_values"
+        android:defaultValue="1" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="volume_dialog_stroke_color"
+        android:title="@string/volume_dialog_stroke_color_title"
+        android:defaultValue="0xffffffff" />
+
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+        android:key="volume_dialog_stroke_thickness"
+        android:title="@string/volume_dialog_stroke_thickness_title"
+        android:max="25"
+        settings:min="1"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+        android:key="volume_dialog_corner_radius"
+        android:title="@string/volume_dialog_corner_radius_title"
+        android:max="50"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+
+
+   <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+        android:key="transparent_volume_dialog"
+        android:title="@string/volume_dialog_transparency"
+        android:max="255"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight=""
+        android:persistent="false" />
+
+      </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="notification_cat_colors"
         android:title="@string/colors_title">
 
@@ -90,7 +137,7 @@
             android:defaultValue="0xff000000" 
 	    android:dependency="notif_color_switch"  />
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
            android:key="notification_alpha"
            android:title="@string/notifications_transparency"
            android:max="255"
@@ -106,7 +153,7 @@
 	    android:dependency="notif_color_switch"  />
 
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
             android:key="qs_transparent_shade"
             android:title="@string/qs_transparent_shade"
             android:max="255"
@@ -116,7 +163,7 @@
             android:persistent="false" 
 	    android:dependency="notif_color_switch"  />
 
-	<com.android.settings.cmremix.utils.SeekBarPreference
+	<com.android.settings.cmremix.utils.SeekBarPreferenceCham
         android:key="qs_transparent_header"
         android:title="@string/qs_transparent_header"
         android:max="255"
@@ -138,7 +185,7 @@
         android:title="@string/qs_stroke_color_title"
         android:defaultValue="0xff80cbc4"/>
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
         android:key="qs_stroke_thickness"
         android:title="@string/qs_stroke_thickness_title"
         android:max="25"
@@ -147,7 +194,7 @@
         settings:unitsRight="px"
         android:persistent="false" />
 
-	<com.android.settings.cmremix.utils.SeekBarPreference
+	<com.android.settings.cmremix.utils.SeekBarPreferenceCham
         android:key="transparent_volume_dialog"
         android:title="@string/volume_dialog_transparency"
         android:max="255"
@@ -156,7 +203,7 @@
         settings:unitsRight=""
         android:persistent="false" />
 
-      <com.android.settings.cmremix.utils.SeekBarPreference
+      <com.android.settings.cmremix.utils.SeekBarPreferenceCham
         android:key="transparent_power_menu"
         android:title="@string/power_menu_transparency"
         android:max="100"
@@ -165,41 +212,41 @@
         settings:unitsRight="%"
         android:persistent="false" />
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
-        android:key="qs_dash_width"
-        android:title="@string/qs_dash_width_title"
-        android:max="50"
-        aicpextras:min="0"
-        aicpextras:unitsLeft=""
-        aicpextras:unitsRight="px"
-        android:persistent="false" />
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+         android:key="qs_dash_width"
+         android:title="@string/qs_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
-        android:key="qs_dash_gap"
-        android:title="@string/qs_dash_gap_title"
-        android:max="50"
-        aicpextras:min="1"
-        aicpextras:unitsLeft=""
-        aicpextras:unitsRight="px"
-        android:persistent="false" />
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+         android:key="qs_dash_gap"
+         android:title="@string/qs_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
-        android:key="volume_dialog_dash_width"
-        android:title="@string/volume_dialog_dash_width_title"
-        android:max="50"
-        aicpextras:min="0"
-        aicpextras:unitsLeft=""
-        aicpextras:unitsRight="px"
-        android:persistent="false" />
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_width"
+         android:title="@string/volume_dialog_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
 
-    <com.android.settings.cmremix.utils.SeekBarPreference
-        android:key="volume_dialog_dash_gap"
-        android:title="@string/volume_dialog_dash_gap_title"
-        android:max="50"
-        aicpextras:min="1"
-        aicpextras:unitsLeft=""
-        aicpextras:unitsRight="px"
-        android:persistent="false" />
+    <com.android.settings.cmremix.utils.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_gap"
+         android:title="@string/volume_dialog_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
 
 	</PreferenceCategory>
 </PreferenceScreen>
