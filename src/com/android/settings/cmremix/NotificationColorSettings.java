@@ -179,7 +179,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mBgColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBgColor.setSummary(hexColor);
-        mBgColor.setDefaultColors(CMREMIX_BLUE_GREY, CMREMIX_BLUE_GREY);
+        mBgColor.setResetColors(CMREMIX_BLUE_GREY, CMREMIX_BLUE_GREY);
         mBgColor.setOnPreferenceChangeListener(this);
 
         mBgGutsColor =
@@ -189,7 +189,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mBgGutsColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBgGutsColor.setSummary(hexColor);
-        mBgGutsColor.setDefaultColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
+        mBgGutsColor.setResetColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
         mBgGutsColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory colorCat =
@@ -202,7 +202,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             mAppIconBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mAppIconBgColor.setSummary(hexColor);
-            mAppIconBgColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
+            mAppIconBgColor.setResetColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
             mAppIconBgColor.setOnPreferenceChangeListener(this);
         } else {     
             colorCat.removePreference(mAppIconBgColor);
@@ -215,7 +215,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
@@ -225,7 +225,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
 	    mClearAllIconColor =
@@ -235,12 +235,12 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mClearAllIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mClearAllIconColor.setSummary(hexColor);
-        mClearAllIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mClearAllIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mClearAllIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
 
-	// QS shade alpha
+	    // QS shade alpha
         mQSShadeAlpha =
                 (SeekBarPreferenceCham) findPreference(PREF_QS_TRANSPARENT_SHADE);
         int qSShadeAlpha = Settings.System.getInt(mResolver,
@@ -248,7 +248,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mQSShadeAlpha.setValue(qSShadeAlpha / 1);
         mQSShadeAlpha.setOnPreferenceChangeListener(this);
 
- // QS header alpha
+            // QS header alpha
             mQSHeaderAlpha =
                     (SeekBarPreferenceCham) findPreference(PREF_QS_TRANSPARENT_HEADER);
             int qSHeaderAlpha = Settings.System.getInt(mResolver,

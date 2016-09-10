@@ -116,7 +116,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mSignal.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mSignal.setSummary(hexColor);
-         mSignal.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mSignal.setResetColors(WHITE, HOLO_BLUE_LIGHT);
          mSignal.setOnPreferenceChangeListener(this);
  
          mNoSim =
@@ -127,7 +127,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mNoSim.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mNoSim.setSummary(hexColor);
-         mNoSim.setDefaultColors(WHITE, RED_500);
+         mNoSim.setResetColors(WHITE, RED_500);
          mNoSim.setOnPreferenceChangeListener(this);
  
          mAirplaneMode =
@@ -138,7 +138,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mAirplaneMode.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mAirplaneMode.setSummary(hexColor);
-         mAirplaneMode.setDefaultColors(WHITE, RED_500);
+         mAirplaneMode.setResetColors(WHITE, RED_500);
          mAirplaneMode.setOnPreferenceChangeListener(this);
  
          mBatteryIcon =
@@ -149,7 +149,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mBatteryIcon.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mBatteryIcon.setSummary(hexColor);
-         mBatteryIcon.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mBatteryIcon.setResetColors(WHITE, HOLO_BLUE_LIGHT);
          mBatteryIcon.setOnPreferenceChangeListener(this);
 
          mBatteryText =
@@ -160,7 +160,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mBatteryText.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mBatteryText.setSummary(hexColor);
-         mBatteryText.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mBatteryText.setResetColors(WHITE, HOLO_BLUE_LIGHT);
          mBatteryText.setOnPreferenceChangeListener(this);
 
          mColor =
@@ -171,7 +171,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mColor.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mColor.setSummary(hexColor);
-         mColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
          mColor.setOnPreferenceChangeListener(this);
  
          mStatus =
@@ -182,7 +182,7 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mStatus.setNewPreviewColor(intColor);
          hexColor = String.format("#%08x", (0xffffffff & intColor));
          mStatus.setSummary(hexColor);
-         mStatus.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mStatus.setResetColors(WHITE, HOLO_BLUE_LIGHT);
          mStatus.setOnPreferenceChangeListener(this);
 
 			
