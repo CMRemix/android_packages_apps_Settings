@@ -2165,4 +2165,8 @@
      <string name="qs_trans_title">Notification Panel</string>
      <string name="notification_cat_volume"> Volume Dialouge</string>
 
+    <!-- Instant reboot -->
+    <string name="advanced_reboot_oneclick">One click reboot</string>
+    <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
+
 </resources>
