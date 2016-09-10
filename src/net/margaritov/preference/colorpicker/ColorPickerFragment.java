@@ -51,7 +51,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.android.internal.util.rr.ColorHelper;
+import com.android.internal.util.cmremix.ColorHelper;
 
 import com.android.settings.R;
 
