@@ -31,6 +31,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings.Global;
 import android.provider.Settings.System;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.telephony.TelephonyManager;
 
@@ -51,7 +52,8 @@ import java.util.List;
 import static com.android.settings.notification.SettingPref.TYPE_GLOBAL;
 import static com.android.settings.notification.SettingPref.TYPE_SYSTEM;
 
-public class OtherSoundSettings extends SettingsPreferenceFragment implements Indexable {
+public class OtherSoundSettings extends SettingsPreferenceFragment implements Indexable,
+        Preference.OnPreferenceChangeListener {
     private static final String TAG = "OtherSoundSettings";
 
     private static final int DEFAULT_ON = 1;
@@ -73,6 +75,9 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
     private static final String KEY_DOCK_AUDIO_MEDIA = "dock_audio_media";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
+    private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
+
+    private ListPreference mAnnoyingNotifications;
 
     // Boot Sounds needs to be a system property so it can be accessed during boot.
     private static final String KEY_BOOT_SOUNDS = "boot_sounds";
@@ -208,6 +213,12 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
 
         mContext = getActivity();
 
+        mAnnoyingNotifications = (ListPreference) findPreference(PREF_LESS_NOTIFICATION_SOUNDS);
+        int notificationThreshold = System.getInt(getContentResolver(),
+                System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, 0);
+        mAnnoyingNotifications.setValue(Integer.toString(notificationThreshold));
+        mAnnoyingNotifications.setOnPreferenceChangeListener(this);
+
         for (SettingPref pref : PREFS) {
             pref.init(this);
         }
@@ -235,6 +246,16 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     public void onPause() {
         super.onPause();
         mSettingsObserver.register(false);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        if (PREF_LESS_NOTIFICATION_SOUNDS.equals(key)) {
+            final int val = Integer.valueOf((String) objValue);
+            System.putInt(getContentResolver(),
+                    System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, val);
+        }
+        return true;
     }
 
     @Override
