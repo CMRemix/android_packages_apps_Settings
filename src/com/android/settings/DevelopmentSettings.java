@@ -125,6 +125,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String ENABLE_ADB = "enable_adb";
     private static final String ADB_TCPIP = "adb_over_network";
+    private static final String ADB_ALWAYS_NOTIFY = "adb_always_notify";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
@@ -263,6 +264,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private SwitchPreference mEnableAdb;
     private SwitchPreference mAdbOverNetwork;
+    private SwitchPreference mAdbAlwaysNotify;
     private Preference mClearAdbKeys;
     private SwitchPreference mEnableTerminal;
     private Preference mBugreport;
@@ -400,6 +402,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
         mEnableAdb = findAndInitSwitchPref(ENABLE_ADB);
         mAdbOverNetwork = findAndInitSwitchPref(ADB_TCPIP);
+        mAdbAlwaysNotify = findAndInitSwitchPref(ADB_ALWAYS_NOTIFY);
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
         if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
             if (debugDebuggingCategory != null) {
@@ -752,6 +755,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mHaveDebugSettings = false;
         updateSwitchPreference(mEnableAdb, Settings.Global.getInt(cr,
                 Settings.Global.ADB_ENABLED, 0) != 0);
+        updateSwitchPreference(mAdbAlwaysNotify, Settings.Global.getInt(cr,
+                Settings.Global.ADB_ALWAYS_NOTIFY, 0) != 0);
         if (mEnableTerminal != null) {
             updateSwitchPreference(mEnableTerminal,
                     context.getPackageManager().getApplicationEnabledSetting(TERMINAL_APP_PACKAGE)
@@ -2158,6 +2163,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                         CMSettings.Secure.ADB_PORT, -1);
                 updateAdbOverNetwork();
             }
+        } else if (preference == mAdbAlwaysNotify) {
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ALWAYS_NOTIFY,
+                    mAdbAlwaysNotify.isChecked() ? 1 : 0);
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())
