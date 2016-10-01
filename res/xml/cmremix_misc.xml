@@ -65,4 +65,15 @@
                  android:targetClass="org.adaway.ui.BaseActivity" />
         </Preference>
 
+
+        <!-- CMRemix Updater -->
+        <PreferenceScreen android:key="cmremix_updates"
+                android:title="@string/cmremixupdate_settings_title"
+                android:icon="@drawable/ic_cmremix_ota_icon_2">
+                android:summary="@string/cmremixupdate_settings_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cmremix.updater"
+                    android:targetClass="com.cmremix.updater.UpdatesSettings" />
+        </PreferenceScreen>
+
 </PreferenceScreen>

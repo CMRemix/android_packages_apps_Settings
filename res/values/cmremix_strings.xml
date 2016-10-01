@@ -38,6 +38,7 @@
 	<string name="cmremix_notification_panel_title">Notification Panel</string>
     <string name="ka_title">Performance</string>
     <string name="adaway_settings_title">Ad Blocker </string>
+	<string name="updater_title">Updates</string>
 
 	<string name="notification_drawer_title">Notification Drawer</string>
 	<string name="recents_settings_title">Recents Settings</string>
