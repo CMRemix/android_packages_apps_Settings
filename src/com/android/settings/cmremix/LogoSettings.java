@@ -57,14 +57,16 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
         addPreferencesFromResource(R.xml.cmremix_logo);
 
         PreferenceScreen prefSet = getPreferenceScreen();
+        int intColor;
+        String hexColor;
 
-        	// CMREMIX logo color
+        	// CMRemix logo color
         	mCMRLogoColor =
             (ColorPickerPreference) prefSet.findPreference(KEY_CMR_LOGO_COLOR);
         	mCMRLogoColor.setOnPreferenceChangeListener(this);
-        	int intColor = Settings.System.getInt(getContentResolver(),
+        	intColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_CMR_LOGO_COLOR, 0xffffffff);
-       		String hexColor = String.format("#%08x", (0xffffffff & intColor));
+       		hexColor = String.format("#%08x", (0xffffffff & intColor));
             mCMRLogoColor.setSummary(hexColor);
             mCMRLogoColor.setNewPreviewColor(intColor);
 
@@ -97,7 +99,7 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
                 mCMRLogoStyle.setSummary(
                         mCMRLogoStyle.getEntries()[index]);
                 return true;
-             }
+        }
         return false;
     }
 

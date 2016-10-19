@@ -48,7 +48,7 @@ import android.util.Log;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.android.internal.util.rr.PackageUtils;
+import com.android.internal.util.cmremix.PackageUtils;
 
 public class QsAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

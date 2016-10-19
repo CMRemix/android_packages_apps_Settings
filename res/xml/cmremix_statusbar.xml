@@ -32,6 +32,12 @@
 		android:fragment="com.android.settings.cmremix.LogoSettings"
 		android:icon="@drawable/cmremix_statusbar_logo_icon" />
 
+    <PreferenceScreen
+        android:key="custom_logo"
+        android:title="@string/sb_custom_logos"
+		android:fragment="com.android.settings.cmremix.CustomLogo"
+		android:icon="@drawable/cmremix_custom_logo_icon" />
+
      <PreferenceScreen
         android:key="cmremix_battery"
 		android:fragment="com.android.settings.cmremix.BatterySettings"
