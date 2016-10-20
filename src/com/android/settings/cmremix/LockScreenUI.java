@@ -24,7 +24,7 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.cmremix.SeekBarPreference;
 import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -53,27 +53,27 @@ public class LockScreenUI extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         mClockFontSize = (SeekBarPreference) findPreference(CLOCK_FONT_SIZE);
-        mClockFontSize.setProgress(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 70));
+        mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 88));
         mClockFontSize.setOnPreferenceChangeListener(this);
 
         mDateFontSize = (SeekBarPreference) findPreference(DATE_FONT_SIZE);
-        mDateFontSize.setProgress(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKDATE_FONT_SIZE,14 ));
+        mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKDATE_FONT_SIZE,14));
         mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
 	ContentResolver resolver = getActivity().getContentResolver();
          if (preference == mClockFontSize) {
-            int top = ((Integer)objValue).intValue();
+            int top = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKCLOCK_FONT_SIZE, top);
+                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
             return true;
         } else if (preference == mDateFontSize) {
-            int top = ((Integer)objValue).intValue();
+            int top = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKDATE_FONT_SIZE, top);
+                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
             return true;
         }
         return true;
