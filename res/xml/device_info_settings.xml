@@ -44,6 +44,12 @@
                     android:targetClass="com.cmremix.updater.UpdatesSettings" />
         </PreferenceScreen>
 
+        <!-- CMRemix Change Log -->
+       <PreferenceScreen android:key="changelog"
+               android:title="@string/changelog_title"
+               android:icon="@drawable/ic_settings_about"
+               android:fragment="com.android.settings.cmremix.ChangeLog" />
+
         <!-- LineageOS Updates -->
         <cyanogenmod.preference.SelfRemovingPreference android:key="cm_updates"
                 android:title="@string/cmupdate_settings_title"

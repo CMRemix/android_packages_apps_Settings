@@ -25,4 +25,11 @@
     <string name="cmremixupdate_settings_alternate_title">System updates</string>
     <string name="cmremixupdate_settings_summary">Check for, view or install available updates</string>
 
+    <!-- cmRemiX Change Logs -->
+    <string name="changelog_title"><i><b>Changelog</b></i></string>
+    <string name="changelog_loading">Loading changelog...</string>
+    <string name="changelog_error">Unable to load changelog</string>
+    <string name="changelog_unknown">Unknown</string>
+    <string name="changelog_version">Version</string>
+
 </resources>
