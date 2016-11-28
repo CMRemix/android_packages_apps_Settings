@@ -32,4 +32,13 @@
     <string name="changelog_unknown">Unknown</string>
     <string name="changelog_version">Version</string>
 
+	<!--CMRemix Configurations-->
+	<string name="cmremix_title"> CMRemix Configurations</string>
+	<string name="cmremix_statusbar_title">Status Bar</string>
+	<string name="cmremix_notification_panel_title">Notification Panel</string>
+
+	<string name="notification_drawer_title">Notification Drawer</string>
+	<string name="recents_settings_title">Recents Settings</string>
+	<string name="animation_title">Animations</string>
+
 </resources>
