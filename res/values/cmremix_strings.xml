@@ -2039,4 +2039,10 @@
     <string name="doze_notification_color_invert_summary_off">Notifications will not be inverted. Use for dark themes.</string>
     <string name="doze_notification_color_invert_summary_on">Notifications will be inverted. Use for light/stock theme.</string>
 
+    <!-- SystemUI restart prompt -->
+    <string name="systemui_restart_title">WARNING</string>
+    <string name="systemui_restart_message">SystemUI will be restarted so that selected setting can be applied correctly.</string>
+    <string name="restarting_ui">Restarting UI\u2026</string>
+    <string name="print_restart">Restart</string>
+
 </resources>
