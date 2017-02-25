@@ -1526,4 +1526,8 @@
     <string name="show_settings_drawer_enabled">Settings drawer enabled</string>
     <string name="show_settings_drawer_disabled">Settings drawer disabled</string>
 
+   <!-- Force authorize substratum packages -->
+   <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
+   <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
+
 </resources>
