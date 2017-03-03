@@ -321,10 +321,6 @@
    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
 
-    <!-- Disabling FC notifications -->
-    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
-    <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
-
    <!-- Disabling immersive mode messages -->
    <string name="disable_immersive_message_title">Disable Immersive Mode Messages</string>
    <string name="disable_immersive_message_summary">This will hide all Immersive Mode Messages</string>
@@ -2273,5 +2269,9 @@
     <string name="cmremix_notif_settings_summary">Customize the look of your notifications in notification panel</string>
     <string name="notification_guts_kill_app_button_title">Kill app button</string>
     <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
+
+    <!-- Disabling FC notifications -->
+    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
+    <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
 
 </resources>
