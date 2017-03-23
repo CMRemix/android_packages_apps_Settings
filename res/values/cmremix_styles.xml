@@ -48,4 +48,6 @@
         <item name="preferenceTheme">@style/cmremix_settings</item>
     </style>
 
+    <style name="Theme.SmartBar.Dialog" parent="@*android:style/Theme.Material.Light.Dialog.Alert" />
+
 </resources>
