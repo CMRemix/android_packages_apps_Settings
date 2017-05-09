@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 RR
+ * Copyright (C) 2016 CMRemix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr.Preferences;
+package com.android.settings.cmremix.Preferences;
 
 import android.content.Context;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
 
