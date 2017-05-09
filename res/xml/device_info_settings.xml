@@ -104,6 +104,12 @@
                 settings:allowDividerAbove="true"
                 settings:allowDividerBelow="true"/>
 
+        <!-- CMRemix version -->
+        <Preference android:key="cmremix_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/cmremix_version"
+                android:summary="@string/cmremix_version_default" />
+
         <!-- Device firmware version -->
         <Preference android:key="firmware_version"
                 android:enabled="false"
