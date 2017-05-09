@@ -189,4 +189,8 @@
      <string name="network_traffic_hidearrow_summary">Hide arrows in traffic indicator</string>
      <string name="network_traffic_hidearrow_title">Hide arrows</string>
 
+    <!-- Statusbar CMREMIX logo -->
+    <string name="status_bar_cmr_logo_title">CMRemix logo</string>
+    <string name="status_bar_cmr_logo_summary">Enable to show CMRemix logo on the left side of statusbar</string>
+
 </resources>
