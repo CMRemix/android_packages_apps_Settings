@@ -28,7 +28,14 @@
            android:title="@string/bluetooth_battery_title"
            android:summary="@string/bluetooth_battery_summary"
            android:defaultValue="false" />
-  
+
      </PreferenceCategory>
+
+
+    <PreferenceScreen
+           android:key="network_traffic_settings"
+           android:title="@string/network_traffic_title"
+           android:fragment="com.android.settings.cmremix.NetworkTrafficSettings" />
+
 
 </PreferenceScreen>
