@@ -24,7 +24,7 @@ import android.support.v14.preference.SwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-import com.android.settings.cmremix.SeekBarPreference;
+import com.android.settings.SeekBarPreference;
 
 import android.provider.Settings;
 
@@ -42,7 +42,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.CMREMIX;
     }
 
     @Override

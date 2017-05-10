@@ -74,8 +74,6 @@
                 android:targetClass="com.android.systemui.cmremix.LockscreenShortcutsActivity" />
         </PreferenceScreen>
 
-</PreferenceScreen>
-
 
         <PreferenceScreen
                  android:key="lockscreen_shortcuts"

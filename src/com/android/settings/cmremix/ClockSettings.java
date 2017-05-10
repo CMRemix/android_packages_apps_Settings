@@ -50,7 +50,7 @@ import android.widget.EditText;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings..cmremix.SeekBarPreference;
+import com.android.settings.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import java.util.ArrayList;
@@ -187,7 +187,7 @@ public class ClockSettings extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.CMREMIX;
     }
 
 
