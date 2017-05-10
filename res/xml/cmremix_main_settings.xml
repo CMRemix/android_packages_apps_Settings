@@ -57,4 +57,11 @@
             android:icon="@drawable/cmremix_buttons_icon"
             />
 
+    <!-- QS Panel -->
+    <PreferenceScreen
+            android:id="@+id/qs_customizations"
+            android:title="@string/cmr_qs_title"
+            android:fragment="com.android.settings.cmremix.QsPanel" 
+	    	android:icon="@drawable/cmr_quick_settings_icon" />
+
 </PreferenceScreen>
