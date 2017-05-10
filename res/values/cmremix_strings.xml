@@ -566,6 +566,18 @@
     <string name="shortcuts_icon_custom">Gallery</string>
     <string name="shortcuts_icon_picker_choose_icon_title">Choose icon</string>
 
+    <string name="lockscreen_shortcuts_category">Shortcuts</string>
+    <string name="keyguard_torch_title">Lockscreen torch</string>
+    <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
+    <!-- Lockscreen shortcuts -->
+    <string name="lockscreen_shortcuts_title">Upper Shortcuts</string>
+    <string name="lockscreen_shortcuts_summary">Change the shortcuts right under the lockscreen clock</string>
+    <string name="lockscreen_shorcuts_launch_type_title">Shortcut click type</string>
+    <string name="lockscreen_shortcuts_single_tap">Click</string>
+    <string name="lockscreen_shortcuts_double_tap">Double tap</string>
+    <string name="lockscreen_shorcuts_longpress_title">Longpress</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Longpress to open apps from shortcuts</string>
+
     <string name="shortcuts_icon_picker_alarm">Alarm</string>
     <string name="shortcuts_icon_picker_andy">Andy</string>
     <string name="shortcuts_icon_picker_battery">Battery</string>
