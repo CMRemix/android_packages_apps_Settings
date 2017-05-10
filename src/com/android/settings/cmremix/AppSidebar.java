@@ -13,7 +13,7 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.cmremix.CustomSeekBarPreference;
+import com.android.settings.cmremix.SeekBarPreference;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 public class AppSidebar extends SettingsPreferenceFragment implements
@@ -30,12 +30,12 @@ public class AppSidebar extends SettingsPreferenceFragment implements
     private static final String KEY_TRIGGER_BOTTOM = "trigger_bottom";
 
     private SwitchPreference mEnabledPref;
-    private CustomSeekBarPreference mTransparencyPref;
+    private SeekBarPreference mTransparencyPref;
     private ListPreference mPositionPref;
     private SwitchPreference mHideLabelsPref;
-    private CustomSeekBarPreference mTriggerWidthPref;
-    private CustomSeekBarPreference mTriggerTopPref;
-    private CustomSeekBarPreference mTriggerBottomPref;
+    private SeekBarPreference mTriggerWidthPref;
+    private SeekBarPreference mTriggerTopPref;
+    private SeekBarPreference mTriggerBottomPref;
 
     @Override
     protected int getMetricsCategory() {
@@ -64,16 +64,16 @@ public class AppSidebar extends SettingsPreferenceFragment implements
         mPositionPref.setValue(String.valueOf(position));
         updatePositionSummary(position);
 
-        mTransparencyPref = (CustomSeekBarPreference) findPreference(KEY_TRANSPARENCY);
+        mTransparencyPref = (SeekBarPreference) findPreference(KEY_TRANSPARENCY);
         mTransparencyPref.setOnPreferenceChangeListener(this);
 
-        mTriggerWidthPref = (CustomSeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
         mTriggerWidthPref.setOnPreferenceChangeListener(this);
 
-        mTriggerTopPref = (CustomSeekBarPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref = (SeekBarPreference) findPreference(KEY_TRIGGER_TOP);
         mTriggerTopPref.setOnPreferenceChangeListener(this);
 
-        mTriggerBottomPref = (CustomSeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
+        mTriggerBottomPref = (SeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
         mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
         findPreference(KEY_SETUP_ITEMS).setOnPreferenceClickListener(this);
