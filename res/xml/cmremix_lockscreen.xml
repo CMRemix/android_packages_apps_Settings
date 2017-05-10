@@ -22,5 +22,12 @@
             android:summary="@string/lockscreen_enable_power_menu_summary"
             android:defaultValue="true" />
 
+         <PreferenceScreen
+            android:title="@string/lockscreen_targets_message" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cmremix.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
+
 </PreferenceScreen>
 
