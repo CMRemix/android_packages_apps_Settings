@@ -2022,9 +2022,6 @@
                        android:value="com.android.settings.ApnEditor" />
         </activity>
 
-        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
-        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
-
         <activity android:name="Settings$DevelopmentSettingsActivity"
                 android:label="@string/development_settings_title"
                 android:icon="@drawable/ic_settings_development"
@@ -2505,7 +2502,7 @@
 	<!-- CMRemix settings -->
         <activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/cmremix_title"
-                android:icon="@drawable/ic_cmremix_tools_tint">
+                android:icon="@drawable/ic_cmremix_settings">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2514,20 +2511,23 @@
                 android:value="com.android.settings.category.cmremix" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.cmremix.MainSettings" />
-        </activity>
+         </activity>
 
-       <activity android:name="com.android.settings.cmremix.recentshidden.HAFRAppListActivity" />
+        <activity android:name="com.android.settings.cmremix.recentshidden.HAFRAppListActivity" />
+
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
             <intent-filter android:priority="1">
                 <action android:name="android.app.action.START_ENCRYPTION" />
-                <category android:name="android.intent.category.DEFAULT" /> />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" /> />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.CryptKeeperSettings" />

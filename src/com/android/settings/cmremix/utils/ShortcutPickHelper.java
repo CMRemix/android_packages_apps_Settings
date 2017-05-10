@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cmremix;
+package com.android.settings.cmremix.utils;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.cmremix.ShortcutPickHelper.AppExpandableAdapter.GroupInfo;
+import com.android.settings.cmremix.utils.ShortcutPickHelper.AppExpandableAdapter.GroupInfo;
 
 public class ShortcutPickHelper {
 

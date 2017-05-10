@@ -30,7 +30,7 @@ import java.util.List;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class RRGestures extends SettingsPreferenceFragment {
+public class CMRemixGestures extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

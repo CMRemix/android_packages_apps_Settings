@@ -125,8 +125,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         } else {
              mSuggestions = suggestions;
              mCategories = categories;
-        };
-    }
+        }
 
         // TODO: Better place for tinting?
         TypedValue tintColor = new TypedValue();
