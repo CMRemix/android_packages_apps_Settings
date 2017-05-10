@@ -78,4 +78,11 @@
 	   	    android:fragment="com.android.settings.cmremix.LockScreenSettings" 
 	   		android:icon="@drawable/cmremix_lock_icon"/>
 
+     <!-- Misc -->
+     <PreferenceScreen
+           	android:key="cmr_misc"
+       	   	android:title="@string/cmr_misc_title"
+	   	    android:fragment="com.android.settings.cmremix.MiscSettings" 
+	   		android:icon="@drawable/cmremix_misc_icon"/>
+
 </PreferenceScreen>
