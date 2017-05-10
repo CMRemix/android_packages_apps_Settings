@@ -62,7 +62,7 @@
             android:id="@+id/qs_customizations"
             android:title="@string/cmr_qs_title"
             android:fragment="com.android.settings.cmremix.QsPanel" 
-	    	android:icon="@drawable/cmr_quick_settings_icon" />
+	    	android:icon="@drawable/cmremix_quick_settings_icon" />
 
      <!-- Gestures -->
      <PreferenceScreen
@@ -70,5 +70,12 @@
        	   	android:title="@string/gestures_settings"
 	   	    android:fragment="com.android.settings.cmremix.CMRemixGestures" 
 	   		android:icon="@drawable/cmremix_gestures_icon"/>
+
+     <!-- Lockscreen -->
+     <PreferenceScreen
+           	android:key="cmremix_lockscreen"
+       	   	android:title="@string/cmremix_lockscreen_title"
+	   	    android:fragment="com.android.settings.cmremix.LockScreenSettings" 
+	   		android:icon="@drawable/cmremix_lock_icon"/>
 
 </PreferenceScreen>
