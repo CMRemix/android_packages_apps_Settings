@@ -1,5 +1,6 @@
 package com.android.settings.cmremix;
 
+import android.content.ContentResolver;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
