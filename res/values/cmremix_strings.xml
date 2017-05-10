@@ -838,4 +838,7 @@
     <string name="lockscreen_maxnotif_sumary">Enable adjustment of max lockscreen notifications</string>
     <string name="lockscreen_maxnotif_config">Max lockscreen notifications</string>
 
+    <string name="qs_fancy_animation_title">Fancy QS animation</string>
+    <string name="qs_fancy_animation_summary">Enable a different animation effect when pulling down the statusbar</string>
+
 </resources>
