@@ -24,5 +24,12 @@
             android:title="@string/gesture_anywhere_title"
             />
 
+        <!-- App sidebar -->
+        <PreferenceScreen
+            android:key="app_sidebar"
+            android:fragment="com.android.settings.cmremix.AppSidebar"
+            android:title="@string/app_sidebar_title" 
+            />
+
 </PreferenceScreen>
 
