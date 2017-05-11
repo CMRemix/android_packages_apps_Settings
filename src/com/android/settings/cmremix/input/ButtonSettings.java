@@ -61,9 +61,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "ButtonSettings";
 
-    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 	private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
-  
+
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
@@ -276,14 +275,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (hasHomeKey) {
             if (!showHomeWake) {
                 homeCategory.removePreference(findPreference(CMSettings.System.HOME_WAKE_SCREEN));
-            }        
-
-		// kill-app long press back
-        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
-        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
-                KILL_APP_LONGPRESS_BACK, 0);
-        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
+            }
 
             if (!TelephonyUtils.isVoiceCapable(getActivity())) {
                 homeCategory.removePreference(mHomeAnswerCall);
@@ -635,11 +627,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
-            return true;
-        } else if (preference == mKillAppLongPressBack) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(), KILL_APP_LONGPRESS_BACK,
-                    value ? 1 : 0);
             return true;
         } else if (preference == mLongpressKillDelay) {
             int killconf = (Integer) newValue;
