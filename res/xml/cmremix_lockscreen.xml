@@ -94,7 +94,7 @@
                android:summary="@string/lockscreen_maxnotif_sumary"
                android:defaultValue="false" />
 
-        <com.android.settings.cmremix.SeekBarPreference
+        <com.android.settings.SeekBarPreference
                android:key="lockscreen_max_notif_cofig"
                android:title="@string/lockscreen_maxnotif_config"
                android:max="8"
