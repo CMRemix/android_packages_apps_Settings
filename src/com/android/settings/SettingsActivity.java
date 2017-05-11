@@ -162,6 +162,8 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final String SAVE_KEY_SHOW_SEARCH = ":settings:show_search";
     private static final String SAVE_KEY_HOME_ACTIVITIES_COUNT = ":settings:home_activities_count";
 
+    private static final String KA_FRAGMENT = "com.android.settings.ka";
+
     /**
      * When starting this activity, the invoking Intent can contain this extra
      * string to specify which fragment should be initially displayed.
@@ -1052,6 +1054,15 @@ public class SettingsActivity extends SettingsDrawerActivity
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
         }
+
+  		 if (KA_FRAGMENT.equals(fragmentName)) {
+            Intent kaIntent = new Intent();
+            kaIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
+            startActivity(kaIntent);
+            finish();
+            return null;
+        }
+
         Fragment f = Fragment.instantiate(this, fragmentName, args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.main_content, f);
@@ -1140,6 +1151,15 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
+
+        boolean kapresent = false;
+        try {
+            kapresent = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.KActivity.class.getName()),
+                kapresent, isAdmin, pm);
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
