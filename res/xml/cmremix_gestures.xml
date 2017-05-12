@@ -18,10 +18,11 @@
 
         <!-- Gesture anywhere -->
         <PreferenceScreen
-	    android:id="@+id/gesture_anywhere"	
+	    	android:id="@+id/gesture_anywhere"	
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.cmremix.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title"
+			android:icon="@drawable/cmremix_gesture_anywhere_icon"
             />
 
         <!-- App sidebar -->
@@ -29,6 +30,7 @@
             android:key="app_sidebar"
             android:fragment="com.android.settings.cmremix.AppSidebar"
             android:title="@string/app_sidebar_title" 
+			android:icon="@drawable/cmremix_app_sidebar_icon"
             />
 
 </PreferenceScreen>

@@ -20,14 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/cmremix_title">
 
-     <PreferenceScreen
+     <!--PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/cmremix_statusbar_title"
                 android:fragment="com.android.settings.cmremix.StatusBarSettings"
                 android:icon="@drawable/cmremix_statusbar_icon"
                 />
 
-     <!-- Notification drawer -->
      <PreferenceScreen
             android:id="@+id/notification_drawer_settings"
             android:title="@string/notification_drawer_title"
@@ -41,7 +40,6 @@
             android:title="@string/recents_settings_title"
             android:icon="@drawable/cmremix_recents_icon" />
 
-    <!-- Animation Settings -->
     <PreferenceScreen
             android:key="animation_settings"
             android:title="@string/animation_title"
@@ -49,7 +47,6 @@
             android:icon="@drawable/cmremix_animations_icon"
             />
 
-    <!-- Button Settings -->
     <PreferenceScreen
             android:key="button_settings"
             android:title="@string/button_settings"
@@ -57,32 +54,28 @@
             android:icon="@drawable/cmremix_buttons_icon"
             />
 
-    <!-- QS Panel -->
     <PreferenceScreen
             android:id="@+id/qs_customizations"
             android:title="@string/cmr_qs_title"
             android:fragment="com.android.settings.cmremix.QsPanel" 
 	    	android:icon="@drawable/cmremix_quick_settings_icon" />
 
-     <!-- Gestures -->
      <PreferenceScreen
            	android:key="gestures"
        	   	android:title="@string/gestures_settings"
 	   	    android:fragment="com.android.settings.cmremix.CMRemixGestures" 
 	   		android:icon="@drawable/cmremix_gestures_icon"/>
 
-     <!-- Lockscreen -->
      <PreferenceScreen
            	android:key="cmremix_lockscreen"
        	   	android:title="@string/cmremix_lockscreen_title"
 	   	    android:fragment="com.android.settings.cmremix.LockScreenSettings" 
 	   		android:icon="@drawable/cmremix_lock_icon"/>
 
-     <!-- Misc -->
      <PreferenceScreen
-           	android:key="cmr_misc"
-       	   	android:title="@string/cmr_misc_title"
+           	android:key="cmremix_misc"
+       	   	android:title="@string/cmremix_misc_title"
 	   	    android:fragment="com.android.settings.cmremix.MiscSettings" 
-	   		android:icon="@drawable/cmremix_misc_icon"/>
+	   		android:icon="@drawable/cmremix_misc_icon"/>-->
 
 </PreferenceScreen>

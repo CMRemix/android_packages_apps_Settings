@@ -2505,8 +2505,8 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-	<!-- CMRemix settings -->
-        <activity android:name="Settings$MainSettingsActivity"
+	    <!-- CMRemix settings -->
+        <!--<activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/cmremix_title"
                 android:icon="@drawable/ic_cmremix_settings">
             <intent-filter android:priority="1">
@@ -2517,7 +2517,27 @@
                 android:value="com.android.settings.category.cmremix" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.cmremix.MainSettings" />
-         </activity>
+         </activity>-->
+
+        <activity android:name="Settings$MainSettingsLayoutActivity"
+                android:label="@string/cmremix_title"
+                android:icon="@drawable/ic_cmremix_tools_tint"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.cmremix" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.MainSettingsLayout" />
+        </activity>
+        <activity
+             android:name="com.android.settings.MainSettingsLayout"
+             android:theme="@style/AppTheme" />
 
         <activity android:name="com.android.settings.cmremix.recentshidden.HAFRAppListActivity" />
 

@@ -138,6 +138,7 @@ import com.android.settingslib.drawer.Tile;
 
 import java.net.URISyntaxException;
 import com.android.settings.cmremix.MainSettings;
+import com.android.settings.cmremix.MainSettingsLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -374,7 +375,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
-            MainSettings.class.getName()
+			MainSettingsLayout.class.getName()
     };
 
 
@@ -578,7 +579,7 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         mIsShowingDashboard = className.equals(Settings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName())
-				|| className.equals(Settings.MainSettings.class.getName())
+				|| className.equals(MainSettingsLayout.class.getName())
                 || className.equals(Settings.DeviceSettings.class.getName())
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());

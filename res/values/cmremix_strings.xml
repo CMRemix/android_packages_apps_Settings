@@ -34,7 +34,7 @@
 
 	<!--CMRemix Configurations-->
 	<string name="cmremix_title"> CMRemix Configurations</string>
-	<string name="cmremix_statusbar_title">Status Bar</string>
+	<string name="cmremix_statusbar_title">StatusBar</string>
 	<string name="cmremix_notification_panel_title">Notification Panel</string>
     <string name="ka_title">Performance</string>
     <string name="adaway_settings_title">Ad Blocker </string>
@@ -44,6 +44,21 @@
 	<string name="animation_title">Animations</string>
 	<string name="button_settings">Buttons</string>
 	<string name="cmr_misc_title">Miscellaneous</string>
+    <string name="cmremix_lockscreen_title">LockScreen</string>
+	<string name="cmremix_ls_gestures">Gestures</string>
+	<string name="cmremix_ls_ui">UI</string>
+	<string name="cmremix_ls_security">Security</string>
+    <string name="cmremix_battery">Battery</string>
+	<string name="cmremix_sb_icons">Icons</string>
+	<string name="cmremix_sb_battery">Statusbar</string>
+    <string name="recents_settings_title">Recents</string>
+	<string name="recents_ui_title">General UI</string>
+    <string name="cmr_qs_title">Quick Settings Panel</string>
+    <string name="cmremix_misc_title">miscellaneous</string>
+
+    <!-- Statusbar CMRemix logo -->
+    <string name="status_bar_cmremix_logo_title">CMRemix logo</string>
+    <string name="status_bar_cmremix_logo_summary">Enable to show CMRemix logo on the statusbar</string>
 
 	<string name="system_animations">System Animations</string>
 	<string name="toast">Toast</string>
@@ -111,6 +126,7 @@
     <string name="quicksettings_title">Quicksettings</string>
     <string name="cmremix_lockscreen_title"><b>Lock Screen</b></string>
 	<string name="entries">Entries</string>
+    <string name="restart_systemui">Restart UI</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
@@ -324,7 +340,13 @@
     <string name="power_menu_animation_translucent_top">Translucent (top)</string>
     <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
 
-    <string name="cmr_qs_title">Quick Settings Panel</string>
+    <string name="cmremix_qs_title">Quick Settings Panel</string>
+	<string name="cmremix_battery_title">Battery</string>
+	<string name="cmremix_qs_animation">Quick Animations</string>
+	<string name="cmremix_qs_pulldown">Quick PullDown</string>
+	<string name="cmremix_navbar_title">Navigation Bar</string>
+    <string name="cmremix_toast_title">Toast</string>
+    <string name="cmremix_pm_animations_title">Power Menu</string>
 
     <!-- Tiles animation style  -->
 	<string name="qs_tiles">QS Tiles</string>
