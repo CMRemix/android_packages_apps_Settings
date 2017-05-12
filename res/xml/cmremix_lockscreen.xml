@@ -60,7 +60,7 @@
    		<PreferenceScreen
        	 android:key="cmremix_ls_security"
 		 android:icon="@drawable/cmremix_security_icon"
-         android:title="@string/cmremix_ls_ui"
+         android:title="@string/cmremix_ls_security"
          android:fragment="com.android.settings.cmremix.LockScreenSecurity" />
 
 </PreferenceScreen>
