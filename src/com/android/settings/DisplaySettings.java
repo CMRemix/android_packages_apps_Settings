@@ -40,6 +40,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.DropDownPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceCategory;
 import android.text.TextUtils;
@@ -94,6 +95,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
+	private static final String CMREMIX_CONFIG = "cmremix_config_style";
 
     private Preference mFontSizePref;
 
@@ -105,6 +107,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
+	private ListPreference mConfig;
 
     @Override
     protected int getMetricsCategory() {
@@ -269,6 +272,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
+
+        mConfig= (ListPreference) findPreference(CMREMIX_CONFIG);
+        mConfig.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.CMREMIX_CONFIG_STYLE, 0)));
+        mConfig.setSummary(mConfig.getEntry());
+        mConfig.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -458,6 +467,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
+        }  if (preference == mConfig) {
+			Settings.System.putInt(getContentResolver(), Settings.System.CMREMIX_CONFIG_STYLE,
+            Integer.valueOf((String) objValue));
+            mConfig.setValue(String.valueOf(objValue));
+            mConfig.setSummary(mConfig.getEntry());
+            return true;
         }
         return true;
     }

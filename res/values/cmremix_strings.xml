@@ -33,7 +33,11 @@
     <string name="changelog_version">Version</string>
 
 	<!--CMRemix Configurations-->
-	<string name="cmremix_title"> CMRemix Configurations</string>
+    <string name="cmremix_title"><b>Configurations</b></string>
+	<string name="cmremix_config_main_title">CMRemix</string>
+	<string name="cmremix_config_style_title">Configurations Style</string>
+	<string name="cmremix_config_n">Nougat</string>
+	<string name="cmremix_config_mm">Classic</string>
     <string name="cmremix_ota_fab_title">Show OTA Floating Button</string>
     <string name="cmremix_ota_fab_summary">Enable /Disbale to show/hide floating button in configurations.Enter/Exit once when switch used</string>
 	<string name="cmremix_statusbar_title">StatusBar</string>

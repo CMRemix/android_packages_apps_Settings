@@ -2505,19 +2505,11 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-	    <!-- CMRemix settings -->
-        <!--<activity android:name="Settings$MainSettingsActivity"
-                android:label="@string/cmremix_title"
-                android:icon="@drawable/ic_cmremix_settings">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.action.SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                android:value="com.android.settings.category.cmremix" />
+        <activity android:name="Settings$MainSettingsActivity"
+                android:label="@string/cmremix_title">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.cmremix.MainSettings" />
-         </activity>-->
+        </activity>
 
         <activity android:name="Settings$MainSettingsLayoutActivity"
                 android:label="@string/cmremix_title"

@@ -16,12 +16,26 @@
 
 package com.android.settings.cmremix;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.app.Activity;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
+import android.app.Fragment;
+import android.content.ContentResolver;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import android.provider.Settings;
+
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;

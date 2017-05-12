@@ -20,7 +20,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/cmremix_title">
 
-     <!--PreferenceScreen
+     <PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/cmremix_statusbar_title"
                 android:fragment="com.android.settings.cmremix.StatusBarSettings"
@@ -56,14 +56,14 @@
 
     <PreferenceScreen
             android:id="@+id/qs_customizations"
-            android:title="@string/cmr_qs_title"
+            android:title="@string/cmremix_qs_title"
             android:fragment="com.android.settings.cmremix.QsPanel" 
 	    	android:icon="@drawable/cmremix_quick_settings_icon" />
 
      <PreferenceScreen
            	android:key="gestures"
        	   	android:title="@string/gestures_settings"
-	   	    android:fragment="com.android.settings.cmremix.CMRemixGestures" 
+	   	    android:fragment="com.android.settings.cmremix.RRGestures" 
 	   		android:icon="@drawable/cmremix_gestures_icon"/>
 
      <PreferenceScreen
@@ -76,6 +76,6 @@
            	android:key="cmremix_misc"
        	   	android:title="@string/cmremix_misc_title"
 	   	    android:fragment="com.android.settings.cmremix.MiscSettings" 
-	   		android:icon="@drawable/cmremix_misc_icon"/>-->
+	   		android:icon="@drawable/cmremix_misc_icon"/>
 
 </PreferenceScreen>

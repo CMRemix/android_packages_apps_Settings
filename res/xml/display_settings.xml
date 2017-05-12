@@ -184,6 +184,12 @@
                 android:key="dashboard_category"
                 android:title="@string/dashboard_category">
 
+        <ListPreference
+            	android:key="cmremix_config_style"
+            	android:title="@string/cmremix_config_style_title"
+            	android:entries="@array/cmremix_config_style_entries"
+            	android:entryValues="@array/cmremix_config_style_values" />
+
         <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
                 android:key="disable_suggestions"
                 android:title="@string/disable_suggestions_title"
