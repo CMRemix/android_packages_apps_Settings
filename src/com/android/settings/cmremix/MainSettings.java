@@ -42,7 +42,7 @@ public class MainSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.cmremix_main_settings);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
+    public boolean onPreferenceChange(Preference preference, Object objValue){
         return true;
     }
 }

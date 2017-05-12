@@ -63,7 +63,7 @@
      <PreferenceScreen
            	android:key="gestures"
        	   	android:title="@string/gestures_settings"
-	   	    android:fragment="com.android.settings.cmremix.RRGestures" 
+	   	    android:fragment="com.android.settings.cmremix.CMRemixGestures" 
 	   		android:icon="@drawable/cmremix_gestures_icon"/>
 
      <PreferenceScreen

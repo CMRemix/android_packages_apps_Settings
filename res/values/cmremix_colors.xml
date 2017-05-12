@@ -51,7 +51,7 @@
     <color name="color_picker_help_summary_text_color">#b3ffffff</color>
 
 	<color name="theme_accent">#ff009688</color>
-	<color name="cmremix_accent">#ff009688</color>
+	<color name="cmremix_accent">@color/theme_accent</color>
 
     <!-- Gesture Anywhere -->
     <color name="ga_gesture_color">@android:color/holo_blue_light</color>
