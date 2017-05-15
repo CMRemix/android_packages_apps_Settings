@@ -34,6 +34,13 @@
 			android:icon="@drawable/cmremix_qs_pulldown_icon"
             />
 
+        <PreferenceScreen
+            android:key="cmremix_qs_layout"
+            android:fragment="com.android.settings.cmremix.QsLayout"
+            android:title="@string/qs_tile_layout"
+			android:icon="@drawable/cmremix_qs_layout_icon"
+            />
+
         <com.android.settings.cmremix.Preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
