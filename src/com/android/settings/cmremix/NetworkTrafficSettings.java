@@ -18,6 +18,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.SeekBarPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
             implements OnPreferenceChangeListener  {
@@ -29,6 +30,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     private static final String NETWORK_TRAFFIC_PERIOD = "network_traffic_period";
     private static final String NETWORK_TRAFFIC_AUTOHIDE = "network_traffic_autohide";
     private static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
+    private static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
 
     private int mNetTrafficVal;
     private int MASK_UP;
@@ -41,6 +43,8 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     private ListPreference mNetTrafficPeriod;
     private SwitchPreference mNetTrafficAutohide;
 	private SeekBarPreference mNetTrafficAutohideThreshold;
+    private ColorPickerPreference mNetTrafficColor;
+    private ColorPickerPreference mColorPicker;	
 
     @Override
     protected int getMetricsCategory() {
@@ -73,6 +77,15 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficAutohideThreshold.setProgress(netTrafficAutohideThreshold / 1);
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
+		mNetTrafficColor =
+                (ColorPickerPreference) prefSet.findPreference(NETWORK_TRAFFIC_COLOR);
+        mNetTrafficColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_COLOR, 0xffffffff);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mNetTrafficColor.setSummary(hexColor);
+        mNetTrafficColor.setNewPreviewColor(intColor);
+
 
         // TrafficStats will return UNSUPPORTED if the device does not support it.
         if (TrafficStats.getTotalTxBytes() != TrafficStats.UNSUPPORTED &&
@@ -84,7 +97,8 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
                 mNetTrafficUnit.setEnabled(false);
                 mNetTrafficPeriod.setEnabled(false);
                 mNetTrafficAutohide.setEnabled(false);
-                mNetTrafficAutohideThreshold.setEnabled(false);
+				mNetTrafficAutohideThreshold.setEnabled(false);
+				mNetTrafficColor.setEnabled(false);
             }
             mNetTrafficState.setValueIndex(intIndex >= 0 ? intIndex : 0);
             mNetTrafficState.setSummary(mNetTrafficState.getEntry());
@@ -104,13 +118,9 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_UNIT));
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_PERIOD));
             prefSet.removePreference(findPreference(NETWORK_TRAFFIC_AUTOHIDE));
-            prefSet.removePreference(findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD));
+			prefSet.removePreference(findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD));
+			prefSet.removePreference(findPreference(NETWORK_TRAFFIC_COLOR));
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     private void updateNetworkTrafficState(int mIndex) {
@@ -118,12 +128,14 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             mNetTrafficUnit.setEnabled(false);
             mNetTrafficPeriod.setEnabled(false);
             mNetTrafficAutohide.setEnabled(false);
-            mNetTrafficAutohideThreshold.setEnabled(false);
+			mNetTrafficAutohideThreshold.setEnabled(false);
+			mNetTrafficColor.setEnabled(false);
         } else {
             mNetTrafficUnit.setEnabled(true);
             mNetTrafficPeriod.setEnabled(true);
             mNetTrafficAutohide.setEnabled(true);
-            mNetTrafficAutohideThreshold.setEnabled(true);
+			mNetTrafficAutohideThreshold.setEnabled(true);
+			mNetTrafficColor.setEnabled(true);
         }
     }
 
@@ -163,7 +175,15 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, threshold * 1);
             return true;
-        }
+		}   else if (preference == mNetTrafficColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_COLOR, intHex);
+            return true;
+		}
         return false;
     }
 

@@ -61,7 +61,7 @@
     <string name="recents_settings_title">Recents</string>
 	<string name="recents_ui_title">General UI</string>
     <string name="cmr_qs_title">Quick Settings Panel</string>
-    <string name="cmremix_misc_title">miscellaneous</string>
+    <string name="cmremix_misc_title">Misc</string>
 
     <!-- Statusbar CMRemix logo -->
     <string name="status_bar_cmremix_logo_title">CMRemix logo</string>
@@ -1176,7 +1176,7 @@
 	<string name="recents_clear_all_location_bottom_left">Bottom left</string>
 	<string name="recents_clear_all_location_bottom_center">Bottom center</string>
 	<string name="recents_clear_all_title">Clear All</string>
-    <string name="rr_recents_animations_title">Recents</string>
+    <string name="cmremix_recents_animations_title">Recents</string>
     <string name="recents_anim_title">Recents Animations</string>
     <string name="recents_anim_summary">Customize the Delay of Recents window and its actions</string>
 
@@ -1255,7 +1255,8 @@
 	<string name="qs_dash_gap_title">QS stroke dash gap</string>
 
 	<string name="qs_tile_layout">Tile Layout</string>
-	<string name="rr_qs_layout">Layout</string>
+	<string name="cmremix_qs_layout">Layout</string>
+
     <!-- QS settings -->
     <string name="status_bar_expanded_qs_settings">Layout</string>
     <string name="status_bar_expanded_qs_settings_summary">Choose the number of rows and columns</string>
@@ -1272,9 +1273,16 @@
     <string name="qs_rows_columns_7_title">7</string>
     <string name="qs_rows_columns_8_title">8</string>
 
-
     <!-- Battery saver color -->
     <string name="battery_saver_color_title">Warning color</string>
     <string name="battery_saver_color_summary">Enable orange status - navigation bars when battery saver is activated</string>
+
+	<string name="network_traffic_color_style">Color style</string>
+	<string name="network_traffic_color_reset">Reset color</string>
+	<string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
+	<string name="status_bar_weather_color_title">Temperature color</string>
+	<string name="status_bar_cmremix_logo_color">Logo color</string>
+	<string name="status_bar_logo">CMRemix logo</string>
+    <string name="status_bar_logo_title">Logos</string>
 
 </resources>
