@@ -20,6 +20,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notification_drawer_title">
 
+
+      <PreferenceScreen
+        android:key="cmremix_trans"
+        android:fragment="com.android.settings.cmremix.TransparencySettings"
+        android:title="@string/cmremix_trans_title"
+		android:icon="@drawable/cmremix_transparency_icon"
+       />
+
       <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
@@ -31,5 +39,6 @@
         android:title="@string/disable_immersive_message_title"
         android:summary="@string/disable_immersive_message_summary"
         android:persistent="false" />
+
 
 </PreferenceScreen>
