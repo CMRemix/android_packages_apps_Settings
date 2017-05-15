@@ -22,24 +22,39 @@
 
 
     <!-- SELinux -->
-        <Preference
+    <Preference
             android:key="selinux_switch"
             android:title="@string/selinux_switch_title"
             android:summary="@string/selinux_switch_summary"
 			android:icon="@drawable/cmremix_selinux_icon"
             android:selectable="false"/>
 
-        <SwitchPreference
+    <SwitchPreference
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
 
-        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-                android:key="fingerprint_success_vib"
-                android:title="@string/fprint_sucess_vib_title"
-                android:summary="@string/fprint_sucess_vib_summary"
-				android:icon="@drawable/cmremix_fingerprint_icon"
-                android:defaultValue="true" />
+    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="fingerprint_success_vib"
+            android:title="@string/fprint_sucess_vib_title"
+            android:summary="@string/fprint_sucess_vib_summary"
+			android:icon="@drawable/cmremix_fingerprint_icon"
+            android:defaultValue="true" />
+
+
+    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="battery_save_mode_color"
+            android:title="@string/battery_saver_color_title"
+            android:summary="@string/battery_saver_color_summary"
+			android:icon="@drawable/cmremix_battery_saver_icon"
+            android:defaultValue="true" />
+
+    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="cmremix_ota_fab"
+            android:title="@string/cmremix_ota_fab_title"
+            android:summary="@string/cmremix_ota_fab_summary"
+            android:defaultValue="true" />
+
 
         <!-- Weather Settings -->
        <Preference
@@ -76,18 +91,5 @@
                     android:targetPackage="com.cmremix.updater"
                     android:targetClass="com.cmremix.updater.UpdatesSettings" />
         </PreferenceScreen>
-
-    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-			android:icon="@drawable/cmremix_battery_saver_icon"
-            android:defaultValue="true" />
-
-        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-                android:key="cmremix_ota_fab"
-                android:title="@string/cmremix_ota_fab_title"
-                android:summary="@string/cmremix_ota_fab_summary"
-                android:defaultValue="true" />
 
 </PreferenceScreen>

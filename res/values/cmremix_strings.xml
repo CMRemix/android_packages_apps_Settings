@@ -347,7 +347,7 @@
     <string name="power_menu_animation_translucent_top">Translucent (top)</string>
     <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
 
-    <string name="cmremix_qs_title">Quick Settings Panel</string>
+    <string name="cmremix_qs_title">QuickSettings</string>
 	<string name="cmremix_battery_title">Battery</string>
 	<string name="cmremix_qs_animation">Quick Animations</string>
 	<string name="cmremix_qs_pulldown">Quick PullDown</string>

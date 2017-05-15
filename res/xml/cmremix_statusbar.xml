@@ -28,7 +28,7 @@
 
     <PreferenceScreen
         android:key="cmremix_logo"
-        android:title="@string/status_bar_cmremix_logo_title"
+        android:title="@string/status_bar_logo_title"
 		android:fragment="com.android.settings.cmremix.LogoSettings"
 		android:icon="@drawable/cmremix_statusbar_logo_icon" />
 
