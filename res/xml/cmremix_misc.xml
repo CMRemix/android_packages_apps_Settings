@@ -67,7 +67,8 @@
 
 
         <!-- CMRemix Updater -->
-        <PreferenceScreen android:key="cmremix_updates"
+        <PreferenceScreen
+                android:key="cmremix_updates"
                 android:title="@string/cmremixupdate_settings_title"
                 android:icon="@drawable/ic_cmremix_ota_icon_2">
                 android:summary="@string/cmremixupdate_settings_summary">
@@ -75,6 +76,13 @@
                     android:targetPackage="com.cmremix.updater"
                     android:targetClass="com.cmremix.updater.UpdatesSettings" />
         </PreferenceScreen>
+
+    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="battery_save_mode_color"
+            android:title="@string/battery_saver_color_title"
+            android:summary="@string/battery_saver_color_summary"
+			android:icon="@drawable/cmremix_battery_saver_icon"
+            android:defaultValue="true" />
 
         <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
                 android:key="cmremix_ota_fab"
