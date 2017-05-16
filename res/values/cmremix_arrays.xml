@@ -292,7 +292,7 @@
 
     <array name="color_picker_darkkat_palette">
         <item>@color/black</item>
-        <item>@color/darkkat_blue_grey</item>
+        <item>@color/background_darkkat_blue_grey</item>
         <item>@color/holo_blue_light</item>
         <item>@color/material_deep_teal_500</item>
         <item>@color/white</item>
@@ -377,7 +377,7 @@
         <item>2500</item>
         <item>2000</item>
         <item>1500</item>
-		<item>750</item>
+		<item>400</item>
     </string-array>
 
      <!-- Tiles animation interpolator -->

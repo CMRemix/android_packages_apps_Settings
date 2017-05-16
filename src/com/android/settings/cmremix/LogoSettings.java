@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cmremix.fragments;
+package com.android.settings.cmremix;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;

@@ -14,15 +14,14 @@
 <resources>
 
      <!-- Color picker preference -->
- 
-     <declare-styleable name="ColorPickerPreference">
-         <attr name="defaultColor" format="color" />
-         <attr name="resetColor1" format="color" />
-         <attr name="resetColor2" format="color" />
-         <attr name="resetColor1Title" format="string" />
-         <attr name="resetColor2Title" format="string" />
-         <attr name="alphaSliderVisible" format="boolean" />
-     </declare-styleable>
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="defaultColor" format="color" />
+        <attr name="resetColor1" format="color" />
+        <attr name="resetColor2" format="color" />
+        <attr name="resetColor1Title" format="string" />
+        <attr name="resetColor2Title" format="string" />
+        <attr name="alphaSliderVisible" format="boolean" />
+    </declare-styleable>
 
     <declare-styleable name="IconPreferenceScreen">
         <attr name="icon" />
@@ -54,6 +53,14 @@
         <attr name="allowDividerBelow" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="SeekBarPreference">
+        <attr name="interval" format="integer" />
+        <attr name="minimum" format="integer" />
+        <attr name="unitsLeft" format="string|reference" />
+        <attr name="unitsRight" format="string|reference" />
+        <attr name="defaultVal" format="integer" />
+        <attr name="maximum" format="integer" />
+    </declare-styleable>
 
     <declare-styleable name="IntervalSeekBar">
         <attr name="min" format="float" />
