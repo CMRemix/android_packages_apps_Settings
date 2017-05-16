@@ -225,8 +225,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     public void stockitems() {
                 ContentResolver mResolver = getActivity().getContentResolver();
                             Settings.System.putInt(mResolver,
-                                    Settings.System.STATUS_BAR_CMREMIX_LOGO, 0);
-                            Settings.System.putInt(mResolver,
                                     Settings.System.TOAST_ANIMATION, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.LISTVIEW_ANIMATION, 0);
@@ -237,7 +235,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                             Settings.System.putInt(mResolver,
                                     Settings.System.SHOW_THREEG, 0);
                             Settings.System.putInt(mResolver,
-                                    Settings.System.STATUS_BAR_CMREMIX_LOGO, 0);
+                                    Settings.System.STATUS_BAR_CMR_LOGO, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.TOAST_ICON, 1);
                             Settings.System.putInt(mResolver,
@@ -260,8 +258,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.System.NETWORK_TRAFFIC_COLOR, 0xffffffff);
                             Settings.System.putInt(mResolver,
                                     Settings.System.POWER_MENU_ANIMATIONS, 0);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.POWER_MENU_LOCKSCREEN, 1);
+                            //Settings.System.putInt(mResolver,
+                                    //Settings.System.POWER_MENU_LOCKSCREEN, 1);
                             Settings.System.putInt(mResolver,
                                     Settings.System.ANIM_TILE_STYLE, 0);
                             Settings.System.putInt(mResolver,
@@ -304,8 +302,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.KEYGUARD_TOGGLE_TORCH, 0);
+                            //Settings.System.putInt(mResolver,
+                                    //Settings.System.KEYGUARD_TOGGLE_TORCH, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.HIDE_LOCKSCREEN_DATE, 1);
                             Settings.System.putInt(mResolver,
@@ -340,8 +338,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.System.SHOW_CLEAR_ALL_RECENTS, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.QS_SHOW_BRIGHTNESS_ICON, 0);
+                            //Settings.System.putInt(mResolver,
+                                    //Settings.System.QS_SHOW_BRIGHTNESS_ICON, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.QS_SMART_PULLDOWN, 0);
                             Settings.System.putInt(mResolver,

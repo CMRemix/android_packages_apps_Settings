@@ -11,7 +11,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 */
-package com.android.settings.cmrmeix;
+package com.android.settings.cmremix;
 
 import android.app.Activity;
 import android.content.Context;
@@ -54,7 +54,7 @@ public class RecentsClearAll extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.cmrmeix_recents_clear_all_fragment);
+        addPreferencesFromResource(R.xml.cmremix_recents_clear_all_fragment);
      	final ContentResolver resolver = getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();

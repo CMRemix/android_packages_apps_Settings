@@ -44,10 +44,10 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
 
     public static final String TAG = "LogoSettings";
 
-    private static final String KEY_RR_LOGO_COLOR = "status_bar_cmremix_logo_color";
+    private static final String KEY_CMR_LOGO_COLOR = "status_bar_cmr_logo_color";
 
-    private ColorPickerPreference mRRLogoColor;
-    private ListPreference mRRLogoStyle;
+    private ColorPickerPreference mCMRLogoColor;
+    private ListPreference mCMRLogoStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,27 +57,27 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        	// RR logo color
-        	mRRLogoColor =
-            (ColorPickerPreference) prefSet.findPreference(KEY_RR_LOGO_COLOR);
-        	mRRLogoColor.setOnPreferenceChangeListener(this);
+        	// CMREMIX logo color
+        	mCMRLogoColor =
+            (ColorPickerPreference) prefSet.findPreference(KEY_CMR_LOGO_COLOR);
+        	mCMRLogoColor.setOnPreferenceChangeListener(this);
         	int intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_RR_LOGO_COLOR, 0xffffffff);
+                Settings.System.STATUS_BAR_CMR_LOGO_COLOR, 0xffffffff);
        		String hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mRRLogoColor.setSummary(hexColor);
-            mRRLogoColor.setNewPreviewColor(intColor);
+            mCMRLogoColor.setSummary(hexColor);
+            mCMRLogoColor.setNewPreviewColor(intColor);
 
     }
 
 	@Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mRRLogoColor) {
+        if (preference == mCMRLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_RR_LOGO_COLOR, intHex);
+                    Settings.System.STATUS_BAR_CMR_LOGO_COLOR, intHex);
             return true;
         }
         return false;

@@ -36,7 +36,7 @@
 
         <PreferenceScreen
             android:key="cmremix_power_anim"
-            android:fragment="com.android.settings.rr.PowerMenuAnimations"
+            android:fragment="com.android.settings.cmremix.PowerMenuAnimations"
             android:title="@string/cmremix_pm_animations_title"
 			android:icon="@drawable/cmremix_power_anim_icon"
             />
