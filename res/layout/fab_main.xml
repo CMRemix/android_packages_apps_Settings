@@ -67,7 +67,7 @@
         fab:fab_size="mini"
         fab:fab_title="ResetSettings" />
 
-    <com.android.settings.cmremix.fab.FloatingActionButton
+    <!--<com.android.settings.cmremix.fab.FloatingActionButton
         android:id="@+id/fab_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         fab:fab_plusIconColor="@color/white"
         fab:fab_icon="@drawable/cmremix_info_icon"
         fab:fab_size="mini"
-        fab:fab_title="About RR" />
+        fab:fab_title="About CMRemix" />-->
 
 </com.android.settings.cmremix.fab.FloatingActionsMenu>
 
