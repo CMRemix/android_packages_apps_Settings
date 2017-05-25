@@ -1279,6 +1279,11 @@
 	<string name="status_bar_cmremix_logo_color">Logo color</string>
 	<string name="status_bar_logo">CMRemix logo</string>
     <string name="status_bar_logo_title">Logos</string>
+	<string name="status_bar_rr_logo_position">Logo location</string>
+	<string name="status_bar_rr_logo_position_summary">Choose which side to display the logo on, left or right</string>
+	<string name="status_bar_logo_position_right">Right</string>
+	<string name="status_bar_logo_position_left">Left</string>
+	<string name="status_bar_logo_position_center">Center</string>
 
     <string name="qs_wifi_easy_toggle_title">WiFi easy toggle</string>
     <string name="qs_wifi_easy_toggle_summary">Makes it so one click will turn WiFi on or off instead of taking you to settings</string>

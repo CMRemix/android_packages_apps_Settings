@@ -45,6 +45,7 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
     public static final String TAG = "LogoSettings";
 
     private static final String KEY_CMR_LOGO_COLOR = "status_bar_cmr_logo_color";
+    private static final String KEY_RR_LOGO_STYLE = "status_bar_cmr_logo_style";
 
     private ColorPickerPreference mCMRLogoColor;
     private ListPreference mCMRLogoStyle;
@@ -67,6 +68,14 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
             mCMRLogoColor.setSummary(hexColor);
             mCMRLogoColor.setNewPreviewColor(intColor);
 
+            mCMRLogoStyle = (ListPreference) findPreference(KEY_RR_LOGO_STYLE);
+            int cmrLogoStyle = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.STATUS_BAR_RR_LOGO_STYLE, 0,
+                    UserHandle.USER_CURRENT);
+            mCMRLogoStyle.setValue(String.valueOf(cmrLogoStyle));
+            mCMRLogoStyle.setSummary(mCMRLogoStyle.getEntry());
+            mCMRLogoStyle.setOnPreferenceChangeListener(this);
+
     }
 
 	@Override
@@ -79,7 +88,16 @@ public class LogoSettings extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_CMR_LOGO_COLOR, intHex);
             return true;
-        }
+        } else if (preference == mCMRLogoStyle) {
+                int cmrLogoStyle = Integer.valueOf((String) newValue);
+                int index = mCMRLogoStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                        getContentResolver(), Settings.System.STATUS_BAR_RR_LOGO_STYLE, cmrLogoStyle,
+                        UserHandle.USER_CURRENT);
+                mCMRLogoStyle.setSummary(
+                        mCMRLogoStyle.getEntries()[index]);
+                return true;
+             }
         return false;
     }
 
