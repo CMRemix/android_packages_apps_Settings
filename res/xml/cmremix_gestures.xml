@@ -33,5 +33,12 @@
 			android:icon="@drawable/cmremix_app_sidebar_icon"
             />
 
+        <!-- App Circle Bar -->
+        <PreferenceScreen
+            android:key="app_circle_bar"
+            android:fragment="com.android.settings.cmremix.AppCircleBar"
+            android:title="@string/app_circle_bar_title"
+            android:icon="@drawable/cmremix_appcirclebar_icon" />
+
 </PreferenceScreen>
 
