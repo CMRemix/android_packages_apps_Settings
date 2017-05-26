@@ -35,7 +35,7 @@
 
      <PreferenceScreen
             android:key="cmremix_nav_bar"
-            android:fragment="com.android.settings.cmremix.NavBarFragment"
+            android:fragment="com.android.settings.cmremix.navbar.NavbarSettings"
 			android:icon="@drawable/cmremix_navbar_icon"
             android:title="@string/cmremix_navbar_title"/>
 
