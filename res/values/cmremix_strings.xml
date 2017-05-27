@@ -2218,4 +2218,8 @@
     <string name="weather_config_summary"></string>
     <string name="weather_icon_pack_title">Condition icon pack</string>
 
+    <!-- FP gesture -->
+    <string name="quick_pulldown_fp_title">Fingerprint quick pulldown</string>
+    <string name="quick_pulldown_fp_summary">Expand the quick settings panel with only one swipe of the fingerprint sensor</string>
+
 </resources>
