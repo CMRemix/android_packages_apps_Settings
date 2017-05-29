@@ -1521,4 +1521,9 @@
     <string name="dashboard_summary_double_lines_summary_on">Show dashboard tile summaries in more lines</string>
     <string name="dashboard_summary_double_lines_summary_off">Show dashboard tile summaries in 1 line</string>
 
+    <!-- Settings drawer switch -->
+    <string name="show_settings_drawer_title">Show settings drawer</string>
+    <string name="show_settings_drawer_enabled">Settings drawer enabled</string>
+    <string name="show_settings_drawer_disabled">Settings drawer disabled</string>
+
 </resources>
