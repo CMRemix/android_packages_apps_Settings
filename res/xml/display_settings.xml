@@ -59,6 +59,7 @@
                 android:key="wallpaper"
                 android:title="@string/wallpaper_settings_title"
                 settings:keywords="@string/keywords_display_wallpaper"
+                android:fragment="com.android.settings.WallpaperTypeSettings"
                 settings:useAdminDisabledSummary="true" >
                 <intent
                         android:targetPackage="@string/config_wallpaper_picker_package"
@@ -135,17 +136,6 @@
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
                 android:key="expanded_desktop_settings" />
 
-        <PreferenceScreen
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
-                settings:keywords="@string/keywords_display_font_size" />
-
-        <com.android.settings.display.ScreenZoomPreference
-                android:key="screen_zoom"
-                android:title="@string/screen_zoom_title"
-                settings:keywords="@string/screen_zoom_keywords" />
-
         <!-- Disable on CM
         <DropDownPreference
                 android:key="auto_rotate"
@@ -178,35 +168,13 @@
 
         <!-- Battery light -->
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="battery_lights" />
+                android:key="battery_lights"
+                cm:requiresConfig="@*android:bool/config_intrusiveBatteryLed" />
 
         <!-- Notification lights -->
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="notification_lights" />
+                android:key="notification_lights"
+                cm:requiresConfig="@*android:bool/config_intrusiveNotificationLed" />
 
     </PreferenceCategory>
- 
-         <PreferenceCategory
-                android:key="dashboard_category"
-                android:title="@string/dashboard_category">
-
-        <ListPreference
-            	android:key="cmremix_config_style"
-            	android:title="@string/cmremix_config_style_title"
-            	android:entries="@array/cmremix_config_style_entries"
-            	android:entryValues="@array/cmremix_config_style_values" />
-
-        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-                android:key="disable_suggestions"
-                android:title="@string/disable_suggestions_title"
-                android:summary="@string/disable_suggestions_summary"
-                android:defaultValue="false" />
-
-        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-                android:key="remove_tile_summary"
-                android:title="@string/remove_tile_summaries_title"
-                android:summary="@string/remove_tile_summaries_summary"
-                android:defaultValue="false" />
-
-        </PreferenceCategory>
 </PreferenceScreen>

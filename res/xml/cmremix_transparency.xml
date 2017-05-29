@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The ChameleonOS Source Project
+<!-- Copyright (C) 2017 CMRemix Rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -95,97 +95,6 @@
         android:persistent="false" />
 
    </PreferenceCategory>
-
-   <PreferenceCategory
-        android:title="@string/vol_diag">
-
-    <com.android.settings.SeekBarPreference
-        android:key="transparent_volume_dialog"
-        android:title="@string/volume_dialog_transparency"
-        android:max="255"
-        settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight=""
-        settings:defaultVal="255"
-        android:persistent="false" />
-
-    <ListPreference
-        android:key="volume_dialog_stroke"
-        android:title="@string/volume_dialog_stroke_title"
-        android:dialogTitle="@string/volume_dialog_stroke_title"
-        android:entries="@array/volume_dialog_stroke_entries"
-        android:entryValues="@array/volume_dialog_stroke_values"
-        android:defaultValue="0" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="volume_dialog_stroke_color"
-        android:title="@string/volume_dialog_stroke_color_title"
-        android:defaultValue="0xffffffff" />
-
-    <com.android.settings.SeekBarPreference
-        android:key="volume_dialog_stroke_thickness"
-        android:title="@string/volume_dialog_stroke_thickness_title"
-        android:max="25"
-        settings:minimum="1"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        settings:defaultVal="4"
-        android:persistent="false" />
-
-    <com.android.settings.SeekBarPreference
-        android:key="volume_dialog_corner_radius"
-        android:title="@string/volume_dialog_corner_radius_title"
-        android:max="50"
-        settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        settings:defaultVal="10"
-        android:persistent="false" />
-
-    <com.android.settings.SeekBarPreference
-        android:key="volume_dialog_dash_width"
-        android:title="@string/volume_dialog_dash_width_title"
-        android:max="50"
-        settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        settings:defaultVal="0"
-        android:persistent="false" />
-
-    <com.android.settings.SeekBarPreference
-        android:key="volume_dialog_dash_gap"
-        android:title="@string/volume_dialog_dash_gap_title"
-        android:max="50"
-        settings:minimum="1"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        settings:defaultVal="10"
-        android:persistent="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/power">
-
-    <com.android.settings.SeekBarPreference
-        android:key="transparent_power_menu"
-        android:title="@string/power_menu_transparency"
-        android:max="100"
-        settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="%"
-        settings:defaultVal="100"
-        android:persistent="false" />
-
-    <com.android.settings.SeekBarPreference
-        android:key="transparent_power_dialog_dim"
-        android:title="@string/power_menu_dialog_dim"
-        android:max="100"
-        settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="%"
-        settings:defaultVal="50"
-        android:persistent="false" />
-    </PreferenceCategory>
 
     <!--<com.android.settings.SeekBarPreference
         android:key="notification_alpha"

@@ -29,8 +29,9 @@
 
     <com.android.settings.cmremix.PagerSlidingTabStrip
         android:id="@+id/tabs"
-        app:pstsShouldExpand="true"
+        app:pstsShouldExpand="false"
         android:layout_width="match_parent"
+        android:background="@color/cmremix_config_tab_color"
         android:layout_height="48dp" />
 
     <android.support.v4.view.ViewPager
@@ -40,6 +41,16 @@
         tools:context=".MainSettings"/>
 	</LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/fl_interceptor"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:background="@color/white_overlay">
+
  	<include layout="@layout/fab_main" />
+
+ </FrameLayout>
+
 
 </RelativeLayout>

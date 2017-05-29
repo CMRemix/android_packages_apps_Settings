@@ -50,7 +50,6 @@ import com.android.internal.app.NightDisplayController;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.view.RotationPolicy;
-import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -82,7 +81,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
-    private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
     private static final String KEY_DOZE = "doze";
@@ -95,9 +93,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
-	private static final String CMREMIX_CONFIG = "cmremix_config_style";
-
-    private Preference mFontSizePref;
 
     private TimeoutListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
@@ -107,7 +102,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
-	private ListPreference mConfig;
 
     @Override
     protected int getMetricsCategory() {
@@ -133,7 +127,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         mScreenTimeoutPreference = (TimeoutListPreference) findPreference(KEY_SCREEN_TIMEOUT);
-        mFontSizePref = findPreference(KEY_FONT_SIZE);
 
         if (displayPrefs != null) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
@@ -272,12 +265,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
-
-        mConfig= (ListPreference) findPreference(CMREMIX_CONFIG);
-        mConfig.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.CMREMIX_CONFIG_STYLE, 0)));
-        mConfig.setSummary(mConfig.getEntry());
-        mConfig.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -370,7 +357,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     }
 
     private void updateState() {
-        updateFontSizeSummary();
         updateScreenSaverSummary();
 
         // Update auto brightness if it is available.
@@ -412,17 +398,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateFontSizeSummary() {
-        final Context context = mFontSizePref.getContext();
-        final float currentScale = Settings.System.getFloat(context.getContentResolver(),
-                Settings.System.FONT_SCALE, 1.0f);
-        final Resources res = context.getResources();
-        final String[] entries = res.getStringArray(R.array.entries_font_size);
-        final String[] strEntryValues = res.getStringArray(R.array.entryvalues_font_size);
-        final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
-                strEntryValues);
-        mFontSizePref.setSummary(entries[index]);
-    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -467,12 +442,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
-        }  if (preference == mConfig) {
-			Settings.System.putInt(getContentResolver(), Settings.System.CMREMIX_CONFIG_STYLE,
-            Integer.valueOf((String) objValue));
-            mConfig.setValue(String.valueOf(objValue));
-            mConfig.setSummary(mConfig.getEntry());
-            return true;
         }
         return true;
     }

@@ -48,6 +48,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
@@ -72,33 +73,40 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     PagerSlidingTabStrip mTabs;
     SectionsPagerAdapter mSectionsPagerAdapter;
     protected Context mContext;
+	private LinearLayout mLayout;
+	private FloatingActionsMenu mFab;
+	private FrameLayout mInterceptorFrame;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-   		 mContainer = container;
-
+        mContainer = container;
         View view = inflater.inflate(R.layout.cmremix_main, container, false);
-        FloatingActionsMenu mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
+        mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
+        mLayout = (LinearLayout) view.findViewById(R.id.main_content);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+        mInterceptorFrame = (FrameLayout) view.findViewById(R.id.fl_interceptor);
+        FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
+        FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
+        FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
+        FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_config);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
-		
-		refreshSettings(mFab,view);
-		return view;
-
-		}
-		
-		void refreshSettings(View mFab, View view) {
-		mContext = getActivity().getApplicationContext();
-		ContentResolver resolver = getActivity().getContentResolver();
-
-		FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
-		FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
-		FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
+        mContext = getActivity().getApplicationContext();
+        ContentResolver resolver = getActivity().getContentResolver();
+        mInterceptorFrame.getBackground().setAlpha(0);
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.CMREMIX_CONFIG_STYLE, 0);
+        if (which == 1) {
+        mTabs.setVisibility(View.GONE);
+        mFab4.setTitle("Toggle Nougat Layout");
+        } else if (which == 0) {
+        mTabs.setVisibility(View.VISIBLE);
+        mFab4.setTitle("Toggle Marshmallow Layout");
+        }
 
         boolean isShowing =   Settings.System.getInt(resolver,
-		Settings.System.CMREMIX_OTA_FAB, 1) == 1;
+        Settings.System.CMREMIX_OTA_FAB, 1) == 1;
 
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -124,24 +132,72 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              alertDialog.setMessage("Reset All CMREMIX configurations to Default Values?");
 
              alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
-               			 public void onClick(DialogInterface dialog, int which) {
-                		 stockitems();
-                		 }
-              		 });
+                         public void onClick(DialogInterface dialog, int which) {
+                         stockitems();
+                         }
+                    });
              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,"Cancel", new DialogInterface.OnClickListener() {
-                		 public void onClick(DialogInterface dialog, int which) {
-                		 return;
-                		}
-               		});
+                         public void onClick(DialogInterface dialog, int which) {
+                         return;
+                         }
+                    });
              alertDialog.show();
              }
         });
 
-		if (isShowing) {
-		mFab.setVisibility(View.VISIBLE);
-		} else {
-		mFab.setVisibility(View.GONE);
-		}
+        mFab4.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                        if (which == 0) {
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.CMREMIX_CONFIG_STYLE, 1);
+                        } else if(which == 1) {
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.CMREMIX_CONFIG_STYLE, 0);
+                        }
+             finish();
+             startActivity(getIntent());
+             }
+        });
+
+        if (isShowing) {
+        mFab.setVisibility(View.VISIBLE);
+        } else {
+        mFab.setVisibility(View.GONE);
+        }
+
+        mFab.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
+        @Override
+        public void onMenuExpanded() {
+        mInterceptorFrame.getBackground().setAlpha(240);
+        mInterceptorFrame.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                   mFab.collapse();
+                   return true;
+                   }
+             });
+        }
+
+        @Override
+        public void onMenuCollapsed() {
+                    mInterceptorFrame.getBackground().setAlpha(0);
+                    mInterceptorFrame.setOnTouchListener(null);
+    	            }
+        });
+
+        mInterceptorFrame.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                if (mFab.isExpanded()) {
+                    mFab.collapse();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    return view;
     }
 
     @Override
@@ -161,22 +217,23 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-		int which = Settings.System.getInt(getActivity().getContentResolver(),
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.CMREMIX_CONFIG_STYLE, 0);
-			if (which == 0) {
+        	if (which == 0) {
             frags[0] = new StatusBarSettings();
             frags[1] = new NotificationDrawerSettings();
             frags[2] = new RecentsSettings();
             frags[3] = new QsPanel();
-			frags[4] = new LockScreenSettings();
+        	frags[4] = new LockScreenSettings();
             frags[5] = new CMRemixGestures();
             frags[6] = new ButtonSettings();
             frags[7] = new AnimationSettings();
-            frags[8] = new MiscSettings();
+            frags[8] = new UISettings();
+            frags[9] = new MiscSettings();
         	} else {
-		    frags[0] = new MainSettings();
-			}
-		}
+            frags[0] = new MainSettings();
+        	}
+        }
 
         @Override
         public Fragment getItem(int position) {
@@ -196,9 +253,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
-		int which = Settings.System.getInt(getActivity().getContentResolver(),
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.CMREMIX_CONFIG_STYLE, 0);
-		if (which == 0) {
+        if (which == 0) {
         titleString = new String[]{
                 getString(R.string.cmremix_statusbar_title),
                 getString(R.string.cmremix_notification_panel_title),
@@ -208,11 +265,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.gestures_settings),
                 getString(R.string.button_pref_title),
                 getString(R.string.animation_title),
+                getString(R.string.cmremix_ui_title),
                 getString(R.string.cmremix_misc_title)};
-		} else {
-				titleString = new String[]{
-				getString(R.string.cmremix_title) };
-		}
+        } else {
+                titleString = new String[]{
+                getString(R.string.cmremix_title)};
+        }
         return titleString;
     }
 
@@ -382,6 +440,22 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.Secure.QS_WIFI_EASY_TOGGLE, 0);
                             Settings.Secure.putInt(mResolver,
                                     Settings.Secure.QS_BT_EASY_TOGGLE, 0);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVIGATION_BAR_VISIBLE, 1);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVIGATION_BAR_MODE, 1);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVBAR_BUTTONS_ALPHA, 250);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.FLING_PULSE_ENABLED, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ENABLE_APP_CIRCLE_BAR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_MISSED_CALL_BREATH, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_VOICEMAIL_BREATH ,0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_SMS_BREATH, 0);
     }
 
 }

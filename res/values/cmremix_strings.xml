@@ -41,7 +41,7 @@
     <string name="cmremix_ota_fab_title">Show OTA Floating Button</string>
     <string name="cmremix_ota_fab_summary">Enable /Disbale to show/hide floating button in configurations.Enter/Exit once when switch used</string>
 	<string name="cmremix_statusbar_title">StatusBar</string>
-	<string name="cmremix_notification_panel_title">Notification Panel</string>
+	<string name="cmremix_notification_panel_title">Panel</string>
     <string name="ka_title">Performance</string>
     <string name="adaway_settings_title">Ad Blocker </string>
 	<string name="updater_title">Updates</string>
@@ -62,6 +62,13 @@
 	<string name="recents_ui_title">General UI</string>
     <string name="cmr_qs_title">Quick Settings Panel</string>
     <string name="cmremix_misc_title">Misc</string>
+    <string name="cmremix_volume_title">Volume Panel</string>
+    <string name="cmremix_power_title">Power Dialog</string>
+    <string name="cmremix_ui_title">UI</string>
+    <string name="cmremix_dash_board_title">Dashboard</string>
+    <string name="cmremix_qs_panel_title">QS</string>
+    <string name="cmremix_animation_title">ANIM</string>
+    <string name="cmremix_np_title">DRAWER</string>
 
     <!-- Statusbar CMRemix logo -->
     <string name="status_bar_cmremix_logo_title">CMRemix logo</string>
@@ -913,8 +920,8 @@
     <string name="backlight_summary_enabled">Enabled</string>
 
     <!-- Buttons - Enable navbar -->
-    <string name="disable_navkeys_title">Enable on-screen nav bar</string>
-    <string name="disable_navkeys_summary">Enable on-screen navigation bar and disable hardware buttons</string>
+    <string name="disable_navkeys_title">Disabe Hardware Keys</string>
+    <string name="disable_navkeys_summary">Enable/Disable hardware buttons on devices that support hw keys</string>
 
     <!-- Navigation Bar -->
     <string name="navigation_bar_category">Navigation bar</string>
@@ -1205,7 +1212,7 @@
     <string name="adb_always_notify">Debugging always notify</string>
     <string name="adb_always_notify_summary">Always display a notification when debugging is enabled, even if not connected</string>
 
-    <string name="cmremix_trans_title">Panels</string>
+    <string name="cmremix_trans_title">Notification Panel</string>
 	<string name="vol_diag">Volume Dialog</string>
 	<string name="power">Power</string>
 
