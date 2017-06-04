@@ -56,6 +56,12 @@
 		android:icon="@drawable/cmremix_network_traffic_icon"
         android:fragment="com.android.settings.cmremix.NetworkTrafficSettings" />
 
+   <PreferenceScreen
+        android:key="cmremix_carrier"
+		android:fragment="com.android.settings.cmremix.carrierlabel.CarrierLabel"
+        android:title="@string/carrier_title" 
+		android:icon="@drawable/cmremix_carrier_label_icon" />
+
    	<PreferenceScreen
         android:key="cmremix_breathing_notif"
         android:title="@string/breathing_notifications_title"
