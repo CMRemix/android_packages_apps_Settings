@@ -42,12 +42,6 @@
         android:icon="@drawable/cmremix_power_icon"
        />
 
-    <PreferenceScreen
-        android:key="cmremix_ui"
-        android:title="@string/cmremix_ui_title"
-        android:fragment="com.android.settings.cmremix.UISettings" 
-        android:icon="@drawable/cmremix_ui_settings_icon"/>
-
       <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"

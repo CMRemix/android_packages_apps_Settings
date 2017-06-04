@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 RR
+<!-- Copyright (C) 2016 CMRemix Rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -48,6 +48,12 @@
             />
 
     <PreferenceScreen
+            android:key="cmremix_ui"
+            android:title="@string/cmremix_ui_title"
+            android:fragment="com.android.settings.cmremix.UISettings" 
+            android:icon="@drawable/cmremix_ui_settings_icon"/>
+
+    <PreferenceScreen
             android:key="button_settings"
             android:title="@string/button_settings"
             android:fragment="com.android.settings.cmremix.input.ButtonSettings" 
@@ -61,20 +67,20 @@
 	    	android:icon="@drawable/cmremix_quick_settings_icon" />
 
      <PreferenceScreen
-           	android:key="gestures"
-       	   	android:title="@string/gestures_settings"
+            android:key="gestures"
+            android:title="@string/gestures_settings"
 	   	    android:fragment="com.android.settings.cmremix.CMRemixGestures" 
 	   		android:icon="@drawable/cmremix_gestures_icon"/>
 
      <PreferenceScreen
-           	android:key="cmremix_lockscreen"
-       	   	android:title="@string/cmremix_lockscreen_title"
+            android:key="cmremix_lockscreen"
+            android:title="@string/cmremix_lockscreen_title"
 	   	    android:fragment="com.android.settings.cmremix.LockScreenSettings" 
 	   		android:icon="@drawable/cmremix_lock_icon"/>
 
      <PreferenceScreen
-           	android:key="cmremix_misc"
-       	   	android:title="@string/cmremix_misc_title"
+            android:key="cmremix_misc"
+            android:title="@string/cmremix_misc_title"
 	   	    android:fragment="com.android.settings.cmremix.MiscSettings" 
 	   		android:icon="@drawable/cmremix_misc_icon"/>
 

@@ -143,6 +143,10 @@ import com.android.settings.cmremix.navbar.FlingSettings;
 import com.android.settings.cmremix.navbar.NavbarSettings;
 import com.android.settings.cmremix.navbar.SmartbarSettings;
 import com.android.settings.cmremix.navbar.PulseSettings;
+import com.android.settings.cmremix.AppCircleBar;
+import com.android.settings.cmremix.AppSidebar;
+import com.android.settings.cmremix.pie.PieControl;
+import com.android.settings.cmremix.gestureanywhere.GestureAnywhereSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -383,7 +387,11 @@ public class SettingsActivity extends SettingsDrawerActivity
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
-            PulseSettings.class.getName()
+            PulseSettings.class.getName(),
+            AppSidebar.class.getName(),
+            AppCircleBar.class.getName(),
+            GestureAnywhereSettings.class.getName(),
+            PieControl.class.getName(),
     };
 
 

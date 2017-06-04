@@ -2505,6 +2505,44 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+                <!-- Start CMRemix Rom Activity -->
+
+        <!-- Gesture Anywhere -->
+        <activity android:name="Settings$GestrueAnywhereActivity"
+             android:label="@string/gesture_anywhere_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.gestureanywhere.GestureAnywhereSettings" />
+        </activity>
+
+        <!-- App Sidebar -->
+        <activity android:name="Settings$AppSidebarActivity"
+             android:label="@string/app_circle_bar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.AppSidebar" />
+        </activity>
+
+     <!-- App Circle Bar -->
+        <activity android:name="Settings$AppCircleBarActivity"
+             android:label="@string/app_circle_bar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.AppCircleBar" />
+        </activity>
+
         <activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/cmremix_title">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
@@ -2553,6 +2591,20 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.ka" />
         </activity>
+
+        <!-- PA Pie settings activity. -->
+        <activity android:name="Settings$PieControlSettingsActivity"
+                android:label="@string/pa_pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.pie.PieControl" />
+        </activity>
+
+                <!-- End CMRemix Rom Activity -->
 
          <!-- Global DUI settings activity. -->
          <activity android:name="Settings$NavigationSettingsActivity"
