@@ -45,6 +45,12 @@
 		android:icon="@drawable/cmremix_statusbar_icons_icon" />
 
      <PreferenceScreen
+        android:key="cmremix_ticker"
+        android:fragment="com.android.settings.cmremix.Ticker"
+        android:title="@string/ticker_screen_title" 
+        android:icon="@drawable/cmremix_ticker_icon" />
+
+     <PreferenceScreen
         android:key="statusbar_weather"
 		android:fragment="com.android.settings.cmremix.StatusBarWeather"
         android:title="@string/status_bar_temperature_title" 
