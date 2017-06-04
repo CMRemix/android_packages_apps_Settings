@@ -20,6 +20,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fl_interceptor"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@color/white_overlay"
     tools:context="in.city.bytes.view.MainActivity">
 
 <com.android.settings.cmremix.fab.FloatingActionsMenu
@@ -81,3 +84,4 @@
 </com.android.settings.cmremix.fab.FloatingActionsMenu>
 
 </FrameLayout>
+
