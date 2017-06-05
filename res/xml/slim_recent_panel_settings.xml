@@ -97,18 +97,11 @@
         <PreferenceCategory
             android:title="@string/recent_app_sidebar_title">
 
-            <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+          <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
                 android:key="use_recent_app_sidebar"
                 android:title="@string/use_recent_app_sidebar_title"
                 android:summary="@string/use_recent_app_sidebar_summary"
                 android:defaultValue="true" />
-
-            <Preference
-                    android:key="recent_app_sidebar_content"
-                    android:title="@string/recent_app_sidebar_content_title"
-                    android:summary="@string/recent_app_sidebar_content_summary"
-                    android:dependency="use_recent_app_sidebar" />
-
 
             <PreferenceScreen
                     android:key="recent_app_sidebar"
@@ -117,13 +110,18 @@
                     android:summary="@string/recent_app_sidebar_style_summary"
                     android:dependency="use_recent_app_sidebar" />
 
-                <!-- TODO
-                    android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+            <PreferenceScreen
+                    android:key="recent_app_sidebar_content"
+                    android:fragment="com.android.settings.cmremix.dslv.ActionListViewSettings"
+                    android:title="@string/recent_app_sidebar_content_title"
+                    android:summary="@string/recent_app_sidebar_content_summary"
+                    android:dependency="use_recent_app_sidebar">
                 <extra android:name="actionMode" android:value="7" />
                 <extra android:name="maxAllowedActions" android:value="-1" />
                 <extra android:name="useAppPickerOnly" android:value="true" />
-                <extra android:name="fragment" android:value="com.lordclockan.cmremix.RecentAppSidebarFragment" />
-                -->
+                <extra android:name="fragment" android:value="com.android.settings.cmremix.RecentAppSidebarFragment" />
+
+        </PreferenceScreen>
 
         </PreferenceCategory>
 
