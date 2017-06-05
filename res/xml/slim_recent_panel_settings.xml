@@ -76,6 +76,13 @@
             defaultColor="#00ffffff"
             alphaSliderEnabled="true" />
 
+    	<com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+    	    android:key="slim_recents_mem_display"
+            android:title="@string/systemui_recents_mem_display_title"
+            android:summary="@string/systemui_recents_mem_display_summary"
+            android:defaultValue="false" />
+
+
         <PreferenceCategory
             android:title="@string/recent_app_sidebar_title">
 
@@ -90,6 +97,15 @@
                     android:title="@string/recent_app_sidebar_content_title"
                     android:summary="@string/recent_app_sidebar_content_summary"
                     android:dependency="use_recent_app_sidebar" />
+
+
+            <PreferenceScreen
+                    android:key="recent_app_sidebar"
+                    android:title="@string/recent_app_sidebar_style_title"
+                    android:fragment="com.android.settings.cmremix.RecentAppSidebar"
+                    android:summary="@string/recent_app_sidebar_style_summary"
+                    android:dependency="use_recent_app_sidebar" />
+
                 <!-- TODO
                     android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
                 <extra android:name="actionMode" android:value="7" />
