@@ -44,7 +44,13 @@
             android:key="pa_pie_control"
             android:title="@string/pa_pie_control_title"
             android:fragment="com.android.settings.cmremix.pie.PieControl"
-            android:icon="@drawable/rr_pie_icon" />
+            android:icon="@drawable/cmremix_pie_icon" />
+
+       <PreferenceScreen
+            android:key="GesturesSettings"
+            android:title="@string/gestures_settings_title"
+            android:fragment="com.android.settings.cmremix.GesturesSettings"
+            android:icon="@drawable/ic_settings_offscreen_gestures" />
 
 </PreferenceScreen>
 

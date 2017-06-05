@@ -81,7 +81,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.CMREMIX;
     }
 
     @Override

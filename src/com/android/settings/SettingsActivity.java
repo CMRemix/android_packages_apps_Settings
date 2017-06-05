@@ -147,6 +147,7 @@ import com.android.settings.cmremix.AppCircleBar;
 import com.android.settings.cmremix.AppSidebar;
 import com.android.settings.cmremix.pie.PieControl;
 import com.android.settings.cmremix.gestureanywhere.GestureAnywhereSettings;
+import com.android.settings.cmremix.GesturesSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -264,6 +265,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.SimSettingsActivity.class.getName(),
             Settings.WirelessSettingsActivity.class.getName(),
             //device_section
+            Settings.GesturesSettingsActivity.class.getName(),
             Settings.HomeSettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
             Settings.DisplaySettingsActivity.class.getName(),
@@ -392,8 +394,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             AppCircleBar.class.getName(),
             GestureAnywhereSettings.class.getName(),
             PieControl.class.getName(),
+            GesturesSettings.class.getName()
     };
-
 
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {
             "android.settings.APPLICATION_DETAILS_SETTINGS"
@@ -1123,6 +1125,10 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                 Settings.BluetoothSettingsActivity.class.getName()),
                 pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.GesturesSettingsActivity.class.getName()),
+                GesturesSettings.supportsGestures(this), isAdmin, pm);
 
         setTileEnabled(new ComponentName(packageName,
                 Settings.DataUsageSummaryActivity.class.getName()),

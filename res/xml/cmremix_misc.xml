@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 RR
+<!-- Copyright (C) 2016 CMRemix Rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@
     <Preference
            android:id="@+id/weather_settings"
            android:title="@string/weather_settings_title_cclock"
-           android:icon="@drawable/rr_cclock_icon">
+           android:icon="@drawable/cmremix_cclock_icon">
            <intent
                android:action="android.intent.action.MAIN"
                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
