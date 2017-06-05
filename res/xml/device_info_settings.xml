@@ -34,12 +34,6 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
 
-        <!-- CMRemix version -->
-        <Preference android:key="cmremix_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/cmremix_version"
-                android:summary="@string/cmremix_version_default" />
-
         <!-- CMRemix Updater -->
         <PreferenceScreen android:key="cmremix_updates"
                 android:title="@string/cmremixupdate_settings_title"
@@ -55,6 +49,30 @@
                android:title="@string/changelog_title"
                android:icon="@drawable/ic_settings_about"
                android:fragment="com.android.settings.cmremix.ChangeLog" />
+
+        <!-- CMRemix version -->
+        <Preference android:key="cmremix_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/cmremix_version"
+                android:summary="@string/cmremix_version_default" />
+
+        <!-- Build date -->
+        <com.android.settings.DividerPreference
+                android:key="build_date"
+                android:enabled="false"
+                android:selectable="false"
+                android:shouldDisableView="false"
+                android:title="@string/build_date"
+                android:summary="@string/build_date_default"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true" />
+
+        <!-- Detailed build version -->
+        <Preference android:key="build_number"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/build_number"
+                android:summary="@string/device_info_default"/>
 
         <!-- LineageOS Updates -->
         <cyanogenmod.preference.SelfRemovingPreference android:key="cm_updates"
@@ -199,17 +217,6 @@
                 settings:allowDividerAbove="true"
                 settings:allowDividerBelow="true"/>
 
-        <!-- Build date -->
-        <com.android.settings.DividerPreference
-                android:key="build_date"
-                android:enabled="false"
-                android:selectable="false"
-                android:shouldDisableView="false"
-                android:title="@string/build_date"
-                android:summary="@string/build_date_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true" />
-
         <!-- Device cpu info -->
         <Preference android:key="device_cpu"
                 style="?android:preferenceInformationStyle"
@@ -220,13 +227,6 @@
         <Preference android:key="device_memory"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/mem_info"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Detailed build version -->
-        <Preference android:key="build_number"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/build_number"
                 android:summary="@string/device_info_default"/>
 
         <!-- Device QGP version -->

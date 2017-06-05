@@ -34,6 +34,7 @@
 
 	<!--CMRemix Configurations-->
     <string name="cmremix_title"><b>Configurations</b></string>
+    <string name="cmremix_settings_title"><b>CMRemix Settings</b></string>
 	<string name="cmremix_config_main_title">CMRemix</string>
 	<string name="cmremix_config_style_title">Configurations Style</string>
 	<string name="cmremix_config_n">Nougat</string>

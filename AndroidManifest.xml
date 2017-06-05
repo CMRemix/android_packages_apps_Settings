@@ -2583,7 +2583,7 @@
         </activity>
 
         <activity android:name="Settings$MainSettingsActivity"
-                android:label="@string/cmremix_title">
+                android:label="@string/cmremix_settings_title">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.cmremix.MainSettings" />
         </activity>
