@@ -19,7 +19,7 @@ package com.android.settings.cmremix;
 import android.app.Fragment;
 import android.os.Bundle;
 
-import com.android.settings.slim.dslv.ActionListViewSettings;
+import com.android.settings.cmremix.dslv.ActionListViewSettings;
 
 public class SlimRecentAppSidebarActivity extends SubActivity {
 
