@@ -1313,8 +1313,8 @@
     <string name="status_bar_cmremix_logo_color">Logo color</string>
     <string name="status_bar_logo">CMRemix logo</string>
     <string name="status_bar_logo_title">Logos</string>
-	<string name="status_bar_rr_logo_position">Logo location</string>
-	<string name="status_bar_rr_logo_position_summary">Choose which side to display the logo on, left or right</string>
+	<string name="status_bar_cmremix_logo_position">Logo location</string>
+	<string name="status_bar_cmremix_logo_position_summary">Choose which side to display the logo on, left or right</string>
 	<string name="status_bar_logo_position_right">Right</string>
 	<string name="status_bar_logo_position_left">Left</string>
 	<string name="status_bar_logo_position_center">Center</string>
@@ -1786,5 +1786,21 @@
     <string name="dots_anim_duration_title">Dots duration</string>
     <string name="home_resize_anim_duration_title">Button resize duration</string>
     <string name="animation_settings_reset_message">Reset all animation settings to default?</string>
+
+    <!-- QS Header Icons -->
+    <string name="cmremix_header_title">Header</string>
+    <string name="cmremix_header_summary">Customize various elements in header</string>
+    <string name="qs_header_items_title">Header Items</string>
+    <string name="qs_settings_icon_title">Settings Shortcut</string>
+    <string name="qs_settings_icon_summary">Disable the settings shortcut in the header</string>
+    <string name="qs_edit_title">Edit Icon</string>
+    <string name="qs_edit_summary">Disable the tile edit icon in the header</string>
+    <string name="qs_multiuser_switch_title">Multi-user Switch</string>
+    <string name="qs_multiuser_switch_summary">Disable the multi-user switch in the header</string>
+    <string name="qs_expand_indicator_title">Expand Indicator</string>
+    <string name="qs_expand_indicator_summary">Disable the expand indicator in the header</string>
+    <!-- Center Date + Time in header -->
+    <string name="qs_date_time_center_title">Center Date and Time</string>
+    <string name="qs_date_time_center_summary">Requires one or more icons to be disabled</string>
 
 </resources>

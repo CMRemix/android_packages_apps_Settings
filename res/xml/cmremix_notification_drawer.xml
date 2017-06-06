@@ -29,9 +29,18 @@
        />
 
       <PreferenceScreen
+        android:key="cmremix_header"
+        android:fragment="com.android.settings.cmremix.HeaderSettings"
+        android:title="@string/cmremix_header_title"
+        android:summary="@string/cmremix_header_summary"
+        android:icon="@drawable/cmremix_header_icon"
+       />
+
+      <PreferenceScreen
         android:key="cmremix_volume"
         android:fragment="com.android.settings.cmremix.VolumePanelSettings"
         android:title="@string/cmremix_volume_title"
+        android:summary="@string/cmremix_volume_summary"
         android:icon="@drawable/cmremix_volume_icon"
        />
 
