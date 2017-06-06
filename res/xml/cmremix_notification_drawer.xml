@@ -37,6 +37,14 @@
        />
 
       <PreferenceScreen
+        android:key="cmremix_tm"
+        android:fragment="com.android.settings.cmremix.TaskManagerSettings"
+        android:title="@string/enable_task_manager_title"
+        android:summary="@string/enable_task_manager_summary"
+        android:icon="@drawable/cmremix_tm_icon"
+       />
+
+      <PreferenceScreen
         android:key="cmremix_volume"
         android:fragment="com.android.settings.cmremix.VolumePanelSettings"
         android:title="@string/cmremix_volume_title"
@@ -62,6 +70,5 @@
         android:title="@string/disable_immersive_message_title"
         android:summary="@string/disable_immersive_message_summary"
         android:persistent="false" />
-
 
 </PreferenceScreen>
