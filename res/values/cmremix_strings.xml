@@ -1749,4 +1749,8 @@
     <string name="nav_bar_dynamic_title">Dyanamic navbar color</string>
     <string name="nav_bar_dynamic_summary">Enable disable this swicth for navbar to adapt to apps primary dark color.Restart your desired app to see effect</string>
 
+    <!-- DUI Double Tap to Sleep -->
+    <string name="smartbar_doubletap_sleep_title">Double tap to sleep</string>
+    <string name="smartbar_doubletap_sleep_summary">Double tap on navbar empty areas to switch off the screen</string>
+
 </resources>
