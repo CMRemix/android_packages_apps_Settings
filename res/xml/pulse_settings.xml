@@ -62,12 +62,19 @@
             android:title="@string/pulse_legacy_mode_advanced_category">
 
            <com.android.settings.cmremix.SeekBarPreference
+                android:key="pulse_fading_blocks_opacity"
+                android:title="@string/pulse_fading_blocks_opacity"
+                settings:maximum="200"
+                settings:minimum="0"
+                android:dependency="eos_fling_show_pulse" />
+
+           <com.android.settings.cmremix.SeekBarPreference
                 android:key="pulse_custom_dimen"
                 android:title="@string/pulse_custom_dimen"
                 settings:max="30"
                 settings:minimum="1"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.cmremix.SeekBarPreference
                 android:key="pulse_custom_div"
@@ -76,7 +83,7 @@
                 settings:minimum="2"
                 settings:interval="2"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.cmremix.SeekBarPreference
                 android:key="pulse_filled_block_size"
@@ -84,7 +91,7 @@
                 settings:max="8"
                 settings:minimum="4"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.cmremix.SeekBarPreference
                 android:key="pulse_empty_block_size"
@@ -92,14 +99,14 @@
                 settings:max="4"
                 settings:minimum="0"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.cmremix.SeekBarPreference
                 android:key="pulse_custom_fudge_factor"
                 android:title="@string/pulse_custom_fudge_factor"
                 settings:max="6"
                 settings:minimum="2"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.cmremix.SeekBarPreference
                 android:key="fling_pulse_lavalamp_speed"
@@ -108,7 +115,7 @@
                 settings:minimum="200"
                 settings:interval="200"
                 settings:units="ms"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="fling_lavalamp_color_from"
@@ -132,7 +139,7 @@
             android:title="@string/pulse_solid_units_opacity"
             settings:maximum="255"
             settings:minimum="0"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.cmremix.SeekBarPreference
             android:key="pulse_solid_units_count"
@@ -140,14 +147,14 @@
             settings:maximum="128"
             settings:interval="16"
             settings:minimum="32"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.cmremix.SeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             settings:max="7"
             settings:minimum="2"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.cmremix.SeekBarPreference
             android:key="lavamp_solid_speed"
@@ -156,7 +163,7 @@
             settings:minimum="200"
             settings:interval="200"
             settings:units="ms"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 	</PreferenceCategory>
 
 </PreferenceScreen>
