@@ -96,7 +96,7 @@
 	<color name="fab_bg_5">#745CFA</color>
 	<color name="fab_main_pressed_color">@color/theme_accent</color>
 	<color name="cmremix_config_tab_color">#ff263238</color>
-	<color name="cmremix_config_tab_text_color">#ffffffff</color>
+	<color name="cmremix_config_tab_text_color">@*android:color/primary_text_default_material_dark</color>
 
     <!-- OMS Exposures -->
     <!-- Dashboard category and tile background -->
