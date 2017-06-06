@@ -1746,4 +1746,7 @@
     <string name="show_cpu_info">Show CPU info</string>
     <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
 
+    <string name="nav_bar_dynamic_title">Dyanamic navbar color</string>
+    <string name="nav_bar_dynamic_summary">Enable disable this swicth for navbar to adapt to apps primary dark color.Restart your desired app to see effect</string>
+
 </resources>
