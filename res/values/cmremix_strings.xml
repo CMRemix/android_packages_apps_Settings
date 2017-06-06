@@ -280,6 +280,7 @@
     <string name="pref_scrollingcache_force_disable">Force disable</string>
 
     <!-- Volume Steps -->
+    <string name="cmremix_volume_summary">Customize various elements in volume dialog such as transparency and stroke</string>
     <string name="volume_steps_title">Volume steps</string>
     <string name="volume_steps_alarm_title">Volume steps: Alarm</string>
     <string name="volume_steps_dtmf_title">Volume steps: DTMF</string>
