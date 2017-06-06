@@ -81,7 +81,7 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.CMREMIX;
     }
 
     @Override

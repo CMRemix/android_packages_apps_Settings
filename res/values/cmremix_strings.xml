@@ -1718,6 +1718,8 @@
     <string name="no_iconpacks_summary">No icon packs installed</string>
     <string name="dialog_pick_iconpack_title">Pick icon pack</string>
     <string name="default_iconpack_title">Default icons</string>
+    <string name="mem_bar_color">Memory bar</string>
+    <string name="mem_text_color">Membar text</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
@@ -1783,5 +1785,6 @@
     <string name="diamond_anim_duration_title">Diamond duration</string>
     <string name="dots_anim_duration_title">Dots duration</string>
     <string name="home_resize_anim_duration_title">Button resize duration</string>
+    <string name="animation_settings_reset_message">Reset all animation settings to default?</string>
 
 </resources>
