@@ -34,6 +34,12 @@
                 android:icon="@drawable/cmremix_display_icon"
                 settings:keywords="@string/screen_zoom_keywords" />
 
+        <PreferenceScreen
+                android:key="cmremix_blur"
+                android:fragment="com.android.settings.cmremix.BlurPersonalizations"
+                android:title="@string/settings_blur_cat" 
+                android:icon="@drawable/cmremix_blur_icon"/>
+
         <!--<PreferenceScreen
                 android:key="doze_fragment"
                 android:title="@string/doze_title"
