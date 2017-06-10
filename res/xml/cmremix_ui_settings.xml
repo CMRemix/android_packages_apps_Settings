@@ -52,4 +52,10 @@
                 android:icon="@drawable/cmremix_dashboard_icon"
                 android:fragment="com.android.settings.cmremix.DashBoardSettings"/>
 
+        <PreferenceScreen
+                android:key="heads_up_settings"
+                android:title="@string/heads_up_settings"
+                android:icon="@drawable/cmremix_heads_up_icon"
+                android:fragment="com.android.settings.cmremix.Headsup" />
+
 </PreferenceScreen>

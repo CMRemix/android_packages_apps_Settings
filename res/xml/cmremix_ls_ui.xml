@@ -53,6 +53,12 @@
             android:title="@string/lockscreen_visualizer_title"
             android:defaultValue="true"/>
 
+        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_charging_current"
+            android:title="@string/lockscreen_charging_current_title"
+            android:summary="@string/lockscreen_charging_current_summary"
+            android:defaultValue="true" />
+
         <com.android.settings.cmremix.SeekBarPreference
             android:key="lockclock_font_size"
             android:title="@string/lockclock_font_size_title"
