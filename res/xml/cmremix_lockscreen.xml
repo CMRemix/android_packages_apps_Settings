@@ -31,10 +31,10 @@
 
          <PreferenceScreen
             android:title="@string/lockscreen_targets_message"
-			android:icon="@drawable/cmremix_bottom_shortcuts_icon" >
+            android:icon="@drawable/cmremix_bottom_shortcuts_icon" >
             <intent
                 android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.cmremix.LockscreenShortcutsActivity" />
+                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
 
 
