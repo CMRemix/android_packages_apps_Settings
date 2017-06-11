@@ -274,7 +274,7 @@
   <string name="lockscreen_blur_enabled_title">模糊背景</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">防止意外喚醒</string>
-  <string name="proximity_wake_summary">手勢觸發喚醒前檢查接近感應器</string>
+  <string name="proximity_wake_summary">手勢觸發喚醒前檢查距離感應器</string>
   <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">高觸控靈敏度</string>
   <string name="high_touch_sensitivity_summary">增加觸控螢幕的靈敏度，因此戴著手套也可以使用手機</string>
@@ -419,4 +419,11 @@
   <string name="sub_activate_failed">啟用失敗。</string>
   <string name="sub_deactivate_success">SIM 卡已經停用。</string>
   <string name="sub_deactivate_failed">停用失敗。</string>
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
+  <string name="maximum_head_level">頭部：%1$s W/kg</string>
+  <string name="maximum_body_level">身體：%1$s W/kg</string>
+  <!-- IC Codes -->
+  <string name="ic_code_model">型號：%1$s</string>
+  <string name="ic_code_full">IC：%1$s</string>
 </resources>
