@@ -2289,4 +2289,8 @@
     <string name="show_settings_header_title">Custom drawer header</string>
     <string name="show_settings_header_summary">Show custom header in settings drawer</string>
 
+    <string name="nav_button_sounds_title">Touch sounds</string>
+    <string name="nav_button_sounds_summary">Play click sound when tapping smartbar.Ringer/loud mode only</string>
+
+
 </resources>
