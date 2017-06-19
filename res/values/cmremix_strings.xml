@@ -83,6 +83,14 @@
     <string name="icons">Icons</string>
     <string name="general">General</string>
 
+    <string name="recents_type_title">Recents type</string>
+    <string name="recents_stock">Stock AOSP</string>
+    <string name="recents_omniswitch">Omniswitch</string>
+    <string name="recents_grid">Grid</string>
+    <string name="recents_slim">Slim</string>
+
+    <string name="cmremix_notif_settings_title">Notifications</string>
+
     <!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
@@ -1286,7 +1294,8 @@
     <string name="animation15">Fast Rotation</string>
 
     <!-- OmniSwitch -->
-    <string name="omniswitch_category">OmniSwitch</string>
+    <string name="omniswitch_category">Omniswitch</string>
+    <string name="cmremix_recent_types">Recents types</string>
     <string name="recents_use_omniswitch_title">Use for recents</string>
     <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
     <string name="omniswitch_start_settings_title">Settings</string>
