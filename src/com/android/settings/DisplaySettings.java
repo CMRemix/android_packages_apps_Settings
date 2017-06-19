@@ -93,14 +93,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
+    private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
 
     private ListPreference mNightModePreference;
 
     private Preference mFontSizePref;
     private Preference mScreenSaverPreference;
 
+    private PreferenceScreen mDozeFragment;
+
     private SwitchPreference mLiftToWakePreference;
-    private SwitchPreference mDozePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
 
@@ -154,13 +156,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
 
-            mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
-            if (mDozePreference != null) {
-                if (isDozeAvailable(activity)) {
-                    mDozePreference.setOnPreferenceChangeListener(this);
-                } else {
-                    displayPrefs.removePreference(mDozePreference);
-                }
+            mDozeFragment = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
+            if (mDozeFragment != null
+                && (!isDozeAvailable(activity))) {
+                    displayPrefs.removePreference(mDozeFragment);
             }
 
             mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
@@ -349,6 +348,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private void updateState() {
         updateScreenSaverSummary();
+        updateDozeFragmentSummary();
 
         // Update auto brightness if it is available.
         if (mAutoBrightnessPreference != null) {
@@ -361,12 +361,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mLiftToWakePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), WAKE_GESTURE_ENABLED, 0);
             mLiftToWakePreference.setChecked(value != 0);
-        }
-
-        // Update doze if it is available.
-        if (mDozePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOZE_ENABLED, 1);
-            mDozePreference.setChecked(value != 0);
         }
 
         // Update camera gesture #1 if it is available.
@@ -383,6 +377,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private void updateDozeFragmentSummary() {
+        boolean dozeEnabled = Settings.Secure.getInt(
+                getContentResolver(), Settings.Secure.DOZE_ENABLED,
+                getActivity().getResources().getBoolean(
+                com.android.internal.R.bool.config_doze_enabled_by_default) ? 1 : 0) != 0;
+        if (mDozeFragment != null) {
+            mDozeFragment.setSummary(dozeEnabled
+                    ? R.string.summary_doze_enabled : R.string.summary_doze_disabled);
+        }
+
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -405,10 +410,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), WAKE_GESTURE_ENABLED, value ? 1 : 0);
         }
-        if (preference == mDozePreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
-        }
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
@@ -425,14 +426,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return true;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mDozePreference) {
-            MetricsLogger.action(getActivity(), MetricsEvent.ACTION_AMBIENT_DISPLAY);
-        }
-        return super.onPreferenceTreeClick(preference);
     }
 
     @Override

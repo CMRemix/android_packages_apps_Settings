@@ -2597,6 +2597,7 @@
                 android:value="com.android.settings.cmremix.MainSettings" />
         </activity>
 
+        <!-- CMRemix Main settings -->
         <activity android:name="Settings$MainSettingsLayoutActivity"
                 android:label="@string/cmremix_title"
                 android:icon="@drawable/ic_cmremix_tools_tint"
@@ -2620,7 +2621,19 @@
         <activity android:name="com.android.settings.cmremix.recentshidden.HAFRAppListActivity" />
 
         <activity android:name=".cmremix.gestureanywhere.GestureAnywhereBuilderActivity" />
-        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
+        <activity android:name=".cmremix.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
+        <!-- Ambient settings activity. -->
+        <activity android:name="Settings$AmbientSettingsActivity"
+                android:label="@string/doze_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cmremix.AmbientSettings" />
+        </activity>
 
         <activity android:name="Settings$KActivity"
                 android:label="@string/ka_title"
@@ -2651,8 +2664,6 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.cmremix.pie.PieControl" />
         </activity>
-
-                <!-- End CMRemix Rom Activity -->
 
          <!-- Global DUI settings activity. -->
          <activity android:name="Settings$NavigationSettingsActivity"

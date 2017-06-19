@@ -87,10 +87,10 @@
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />
 
-        <SwitchPreference
-                android:key="doze"
+        <PreferenceScreen
+                android:key="doze_fragment"
                 android:title="@string/doze_title"
-                android:summary="@string/doze_summary" />
+                android:fragment="com.android.settings.cmremix.AmbientSettings" />
  
         <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
         		android:key="ambient_display_show_battery"
@@ -98,14 +98,6 @@
         		android:summary="@string/ambient_display_show_battery_summary"
         		android:dependency="doze"
         		android:defaultValue="true" />
-
-        <cyanogenmod.preference.RemotePreference
-                android:key="doze_device_settings"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                cm:replacesKey="doze">
-            <intent android:action="org.cyanogenmod.settings.device.DOZE_SETTINGS" />
-        </cyanogenmod.preference.RemotePreference>
 
         <cyanogenmod.preference.CMGlobalSettingSwitchPreference
                 android:key="wake_when_plugged_or_unplugged"

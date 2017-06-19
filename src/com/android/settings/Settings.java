@@ -177,4 +177,5 @@ public class Settings extends SettingsActivity {
     public static class AppSidebarActivity extends SettingsActivity { /* empty */ }
     public static class AppCircleBarActivity extends SettingsActivity { /* empty */ }
     public static class GesturesSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AmbientSettingsActivity extends SettingsActivity { /* empty */ }
 }
