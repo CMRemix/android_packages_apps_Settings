@@ -66,13 +66,13 @@
             android:entryValues="@array/recents_type_title_values"/>
 
         <!-- OmniSwitch -->
-        <PreferenceScreen
+       <Preference
             android:key="omniswitch"
             android:id="@+id/omniswitch"
             android:title="@string/omniswitch_settings_title"
 			android:icon="@drawable/cmremix_recents_switcher_icon"
-            android:fragment="com.android.settings.cmremix.OmniSwitch" />
-
+            android:summary="@string/omniswitch_start_settings_summary"
+            android:persistent="false" />
 
         <Preference
             android:key="slim_recent_panel"
@@ -80,9 +80,6 @@
             android:summary="@string/slim_recents_settings_summary"
 			android:icon="@drawable/cmremix_slim_recents_icon"
             android:fragment="com.android.settings.cmremix.SlimRecentPanel" />
-
-    </PreferenceCategory>
-
 
 
 </PreferenceScreen>

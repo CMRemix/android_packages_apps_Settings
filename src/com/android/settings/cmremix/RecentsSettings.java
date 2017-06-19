@@ -15,9 +15,12 @@ package com.android.settings.cmremix;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.app.Fragment;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
@@ -45,9 +48,15 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private static final String OMNISWITCH = "omniswitch";
     private static final String SLIM_RECENTS = "slim_recent_panel";
 
+    // Package name of the omnniswitch app
+    public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
+    // Intent for launching the omniswitch settings actvity
+    public static Intent INTENT_OMNISWITCH_SETTINGS = new Intent(Intent.ACTION_MAIN)
+            .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
+
 
 	private ListPreference mRecentsType;
-    private PreferenceScreen mOmniSwitch;
+    private Preference mOmniSwitch;
     private Preference mSlimRecents;
 
 
@@ -57,7 +66,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.cmremix_recents);
 
         mSlimRecents = (Preference) findPreference(SLIM_RECENTS);
-        mOmniSwitch = (PreferenceScreen) findPreference(OMNISWITCH);
+        mOmniSwitch = (Preference) findPreference(OMNISWITCH);
 
         mRecentsType = (ListPreference) findPreference(RECENTS_TYPE);
         int type = Settings.System.getIntForUser(getActivity().getContentResolver(),
@@ -85,6 +94,15 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             updatePreference(val);
         } 
 		return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mOmniSwitch){
+            startActivity(INTENT_OMNISWITCH_SETTINGS);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
