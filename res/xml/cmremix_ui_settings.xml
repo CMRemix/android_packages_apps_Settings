@@ -40,11 +40,6 @@
                 android:title="@string/settings_blur_cat" 
                 android:icon="@drawable/cmremix_blur_icon"/>
 
-        <!--<PreferenceScreen
-                android:key="doze_fragment"
-                android:title="@string/doze_title"
-                android:icon="@drawable/cmremix_ambient_display_icon"
-                android:fragment="com.android.settings.cmremix.ambientdisplay.AmbientSettings" />-->
 
         <PreferenceScreen
                 android:key="dashboard"
