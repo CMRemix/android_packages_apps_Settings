@@ -140,7 +140,7 @@
         </activity>
 
         <activity android:name=".Settings$OwlsNestSettings"
-            android:label="@string/cmremix_title">
+            android:label="@string/cmremix_settings_title">
             <intent-filter android:priority="4">
                 <action android:name="com.android.settings.category.cmremix" />
                 <category android:name="android.intent.category.DEFAULT" />

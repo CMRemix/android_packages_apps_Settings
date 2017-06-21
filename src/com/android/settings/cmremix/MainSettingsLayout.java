@@ -70,7 +70,7 @@ import com.android.settings.cmremix.fab.FloatingActionsMenu;
 import com.android.settings.cmremix.fab.FloatingActionButton;
 
 
-import com.android.settings.rr.transforms.*;
+import com.android.settings.cmremix.animation.transforms.*;
 
 public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String TAG = "MainSettingsLayout";
@@ -477,7 +477,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             void observe() {
                 ContentResolver resolver = getActivity().getContentResolver();
                 resolver.registerContentObserver(Settings.System.getUriFor(
-                        Settings.System.RR_SETTINGS_TABS_EFFECT),
+                        Settings.System.CMR_SETTINGS_TABS_EFFECT),
                         false, this, UserHandle.USER_ALL);
                 update();
             }
@@ -501,7 +501,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             public void update() {
                 ContentResolver resolver = getActivity().getContentResolver();
                 int effect = Settings.System.getIntForUser(resolver,
-                    Settings.System.RR_SETTINGS_TABS_EFFECT, 0,
+                    Settings.System.CMR_SETTINGS_TABS_EFFECT, 0,
                     UserHandle.USER_CURRENT);
                 switch (effect) {
                     case 0:
