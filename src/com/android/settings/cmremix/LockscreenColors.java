@@ -418,7 +418,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements Pref
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.CMREMIX;
     }
     
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

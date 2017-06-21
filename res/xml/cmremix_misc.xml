@@ -34,6 +34,12 @@
             android:title="@string/selinux_title"
             android:defaultValue="false" />
 
+    <!-- System APP Remover -->
+    <PreferenceScreen
+            android:id="@+id/system_app_remover"
+            android:title="@string/system_app_remover"
+            android:fragment="com.android.settings.cmremix.fragments.SystemappRemover" />
+
     <!-- Weather providers -->
     <org.cyanogenmod.internal.cmparts.CMPartsPreference
         	android:key="weather_settings"
