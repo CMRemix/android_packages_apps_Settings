@@ -1972,14 +1972,14 @@
 
     <string name="heads_up_settings">Heads Up</string>
 
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">Lockscreen battery info</string>
+    <string name="lockscreen_battery_info_summary">Display negotiated charger max current-voltage and battery temperature on lockscreen while charging</string>
+
     <!-- Heads up switch -->
     <string name="heads_up_switch_title">Heads up</string>
     <string name="heads_up_switch_summary">Toogle Heads up globally, not per app.</string>
     <string name="heads_up_settings">Heads up</string>
-
-    <!-- Lockscreen battery info indicator  -->
-    <string name="lockscreen_battery_info_title">Lockscreen battery info</string>
-    <string name="lockscreen_battery_info_summary">Display negotiated charger max current-voltage and battery temperature on lockscreen while charging</string>
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
@@ -1990,6 +1990,8 @@
     <string name="heads_up_time_out_6sec">6 seconds</string>
     <string name="heads_up_time_out_8sec">8 seconds</string>
     <string name="heads_up_time_out_10sec">10 seconds</string>
+    <string name="always_headsup_dialer_title">Force heads up for dialer</string>
+    <string name="always_headsup_dialer_summary">Show heads up for dialer even if heads up is off to avoid fullscreen dialer on incoming calls</string>
 
     <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Snooze timer</string>
