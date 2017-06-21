@@ -41,6 +41,13 @@
 			android:icon="@drawable/cmremix_power_anim_icon"
             />
 
+        <ListPreference
+            	android:key="tabs_effect"
+            	android:title="@string/tabs_effect_title"
+            	android:entries="@array/tabs_effect_entries"
+            	android:entryValues="@array/tabs_effect_values"
+            	android:persistent="false" />
+
      <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
         android:key="disable_transition_animations"
         android:title="@string/disable_animations"
