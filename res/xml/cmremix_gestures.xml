@@ -52,5 +52,13 @@
             android:fragment="com.android.settings.cmremix.GesturesSettings"
             android:icon="@drawable/ic_settings_offscreen_gestures" />
 
+       <!-- Three-fingers-swipe to screenshot -->
+       <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="three_finger_gesture"
+            android:title="@string/three_finger_gesture"
+            android:summary="@string/three_finger_gesture_summary"
+            android:defaultValue="false"
+            android:icon="@drawable/cmremix_three_finger_gesture_icon" />
+
 </PreferenceScreen>
 
