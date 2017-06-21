@@ -28,6 +28,12 @@
          android:fragment="com.android.settings.cmremix.LockScreenUI"
 		 android:icon="@drawable/cmremix_ls_ui_icon" />
 
+        <PreferenceScreen
+       	 android:key="lockscreen_colors"
+       	 android:title="@string/lockscreen_colors"
+       	 android:fragment="com.android.settings.cmremix.LockscreenColors"
+         android:icon="@drawable/cmremix_ls_colors_icon" />
+
 
          <PreferenceScreen
             android:title="@string/lockscreen_targets_message"
