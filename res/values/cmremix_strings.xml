@@ -2138,4 +2138,9 @@
     <string name="lockscreen_hide_status_bar_title">Hide status bar</string>
     <string name="lockscreen_hide_status_bar_summary">Touch status bar to toggle visibility</string>
 
+    <string name="weather_title">Weather</string>
+    <string name="weather_config_title">Service settings</string>
+    <string name="weather_config_summary"></string>
+    <string name="weather_icon_pack_title">Condition icon pack</string>
+
 </resources>
