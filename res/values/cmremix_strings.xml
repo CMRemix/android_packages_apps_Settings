@@ -2134,4 +2134,8 @@
     <string name="sizer_message_noselect">Nothing selected.</string>
     <string name="system_app_remover">System App Remover</string>
 
+    <!-- Hide Statusbar on Lockscreen -->
+    <string name="lockscreen_hide_status_bar_title">Hide status bar</string>
+    <string name="lockscreen_hide_status_bar_summary">Touch status bar to toggle visibility</string>
+
 </resources>
