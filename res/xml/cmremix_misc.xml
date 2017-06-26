@@ -41,11 +41,6 @@
             android:icon="@drawable/cmremix_system_app_remover_icon"
             android:fragment="com.android.settings.cmremix.fragments.SystemappRemover" />
 
-    <!-- Weather providers -->
-    <org.cyanogenmod.internal.cmparts.CMPartsPreference
-        	android:key="weather_settings"
-		    android:icon="@drawable/cmremix_weather_main_icon" />
-
     <!-- Weather Settings -->
     <Preference
            android:id="@+id/weather_settings"
