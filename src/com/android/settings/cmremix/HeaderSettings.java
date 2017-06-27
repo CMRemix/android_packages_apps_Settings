@@ -13,19 +13,25 @@
 */
 package com.android.settings.cmremix;
 
-import android.os.Bundle;
-
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
+import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -44,6 +50,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.android.internal.util.cmremix.PackageUtils;
 
 public class HeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -79,13 +87,13 @@ public class HeaderSettings extends SettingsPreferenceFragment implements
                  settingHeaderPackage = DEFAULT_HEADER_PACKAGE;
              }
              mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
- 
+
              List<String> entries = new ArrayList<String>();
              List<String> values = new ArrayList<String>();
              getAvailableHeaderPacks(entries, values);
              mDaylightHeaderPack.setEntries(entries.toArray(new String[entries.size()]));
              mDaylightHeaderPack.setEntryValues(values.toArray(new String[values.size()]));
- 
+
              int valueIndex = mDaylightHeaderPack.findIndexOfValue(settingHeaderPackage);
              if (valueIndex == -1) {
                  // no longer found
@@ -174,7 +182,6 @@ public class HeaderSettings extends SettingsPreferenceFragment implements
               for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
                   String packageName = r.activityInfo.packageName;
                   values.add(packageName  + "/"  + r.activityInfo.name);
-  
                   String label = r.activityInfo.loadLabel(getActivity().getPackageManager()).toString();
                   if (label == null) {
                       label = packageName;
