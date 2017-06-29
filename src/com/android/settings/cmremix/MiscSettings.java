@@ -19,6 +19,7 @@ package com.android.settings.cmremix;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.hardware.fingerprint.FingerprintManager;
@@ -56,32 +57,31 @@ private static final String SELINUX = "selinux";
 private static final String CMREMIX_OTA = "cmremix_ota_fab";
 
 
-private SwitchPreference mConfig;
-private SwitchPreference mSelinux;
-private FingerprintManager mFingerprintManager;
-private SwitchPreference mFingerprintVib;
+    private SwitchPreference mConfig;
+    private SwitchPreference mSelinux;
+    private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.cmremix_misc);
-	  	final ContentResolver resolver = getActivity().getContentResolver();
+  	final ContentResolver resolver = getActivity().getContentResolver();
 
-  		//SELinux
+	//SELinux
         mSelinux = (SwitchPreference) findPreference(SELINUX);
         mSelinux.setOnPreferenceChangeListener(this);
 
- 	 		if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
+        if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
             mSelinux.setChecked(true);
             mSelinux.setSummary(R.string.selinux_enforcing_title);
-        	} else {
+        } else {
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
-         	}
+        }
 
-        mConfig =
-            (SwitchPreference) findPreference(CMREMIX_OTA);
+        mConfig = (SwitchPreference) findPreference(CMREMIX_OTA);
         mConfig.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.CMREMIX_OTA_FAB, 0) == 1));
         mConfig.setOnPreferenceChangeListener(this);
@@ -91,32 +91,39 @@ private SwitchPreference mFingerprintVib;
         if (!mFingerprintManager.isHardwareDetected()){
             getPreferenceScreen().removePreference(mFingerprintVib);
         }
-
-		}
+    }
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.CMREMIX;
     }
 
-	@Override
+    @Override
     public void onResume() {
         super.onResume();
     }
 
-	 @Override
-     public boolean onPreferenceChange(Preference preference, Object value) {
-     ContentResolver resolver = getActivity().getContentResolver();
-            if (preference == mSelinux) {
+    private void setSelinuxEnabled(String status) {
+        SharedPreferences.Editor editor = getContext().getSharedPreferences("selinux_pref", Context.MODE_PRIVATE).edit();
+        editor.putString("selinux", status);
+        editor.apply();
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mSelinux) {
             if (value.toString().equals("true")) {
                 CMDProcessor.runSuCommand("setenforce 1");
+                setSelinuxEnabled("true");
                 mSelinux.setSummary(R.string.selinux_enforcing_title);
             } else if (value.toString().equals("false")) {
                 CMDProcessor.runSuCommand("setenforce 0");
+                setSelinuxEnabled("false");
                 mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
-         } else if (preference == mConfig) {
+        } else if (preference == mConfig) {
             boolean newvalue = (Boolean) value;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.CMREMIX_OTA_FAB, newvalue ? 1 : 0);
@@ -127,6 +134,6 @@ private SwitchPreference mFingerprintVib;
             return true;
         }
         return false;
-     } 
+    }
 }
 
