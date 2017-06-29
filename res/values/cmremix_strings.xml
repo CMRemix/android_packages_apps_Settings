@@ -2268,4 +2268,10 @@
     <string name="wired_ringtone_focus_mode_dynamic">Wired headset if connected and playing music</string>
     <string name="wired_ringtone_focus_mode_stock">Speakerphone and headset (default)</string>
 
+    <!-- Notification guts kill app button -->
+    <string name="cmremix_notif_settings_title">Notifications</string>
+    <string name="cmremix_notif_settings_summary">Customize the look of your notifications in notification panel</string>
+    <string name="notification_guts_kill_app_button_title">Kill app button</string>
+    <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
+
 </resources>
