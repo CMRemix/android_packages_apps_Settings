@@ -65,7 +65,6 @@
                  android:targetClass="org.adaway.ui.BaseActivity" />
         </Preference>
 
-
         <!-- CMRemix Updater -->
         <PreferenceScreen
                 android:key="cmremix_updates"
@@ -76,34 +75,6 @@
                     android:targetPackage="com.cmremix.updater"
                     android:targetClass="com.cmremix.updater.UpdatesSettings" />
         </PreferenceScreen>
-
-    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-            android:key="fingerprint_success_vib"
-            android:title="@string/fprint_sucess_vib_title"
-            android:summary="@string/fprint_sucess_vib_summary"
-			android:icon="@drawable/cmremix_fingerprint_icon"
-            android:defaultValue="true" />
-
-
-    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-			android:icon="@drawable/cmremix_battery_saver_icon"
-            android:defaultValue="true" />
-
-    <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
-            android:key="cmremix_ota_fab"
-            android:title="@string/cmremix_ota_fab_title"
-            android:summary="@string/cmremix_ota_fab_summary"
-            android:defaultValue="true" />
-
-        <PreferenceScreen
-            android:key="cmremix_incall"
-            android:title="@string/cmremix_incall"
-            android:summary="@string/cmremix_incall_summary"
-            android:icon="@drawable/cmremix_call_icon"
-            android:fragment="com.android.settings.cmremix.InCallSettings" />
 
         <PreferenceScreen
             android:key="screenstate_category"

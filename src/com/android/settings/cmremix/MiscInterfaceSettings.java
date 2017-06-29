@@ -13,10 +13,8 @@
 */
 package com.android.settings.cmremix;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.ContentResolver;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
@@ -27,53 +25,46 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-import com.android.settings.cmremix.SeekBarPreference;
-
-import android.provider.Settings;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import android.hardware.fingerprint.FingerprintManager;
 import com.android.settings.Utils;
 
-
-public class LockScreenSecurity extends SettingsPreferenceFragment implements
+public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "LockScreenSecurity";
+    private static final String TAG = "MiscInterfaceSettings";
+    private static final String CMREMIX_OTA = "cmremix_ota_fab";
 
-
-	private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
-
-    private SeekBarPreference mMaxKeyguardNotifConfig;
-
+    private SwitchPreference mConfig;
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.CMREMIX;
-		}
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ContentResolver resolver = getActivity().getContentResolver();
 
-        addPreferencesFromResource(R.xml.cmremix_ls_security);
-
-        mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
-        int kgconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
-        mMaxKeyguardNotifConfig.setValue(kgconf);
-        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+        addPreferencesFromResource(R.xml.cmremix_interface_other_settings);
+        mConfig = (SwitchPreference) findPreference(CMREMIX_OTA);
+        mConfig.setChecked((Settings.System.getInt(getContentResolver(),
+                            Settings.System.CMREMIX_OTA_FAB, 0) == 1));
+        mConfig.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue){
-      ContentResolver resolver = getActivity().getContentResolver();
-      if (preference == mMaxKeyguardNotifConfig) {
-            int kgconf = (Integer) objValue;
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mConfig) {
+            boolean newvalue = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+                    Settings.System.CMREMIX_OTA_FAB, newvalue ? 1 : 0);
+            finish();
+            Intent fabIntent = new Intent();
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
+            startActivity(fabIntent);
             return true;
-      }
-	  return false;
+        }
+        return false;
     }
+
 }

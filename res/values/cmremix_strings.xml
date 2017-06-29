@@ -72,6 +72,10 @@
     <string name="cmremix_qs_panel_title">QS</string>
     <string name="cmremix_animation_title">ANIM</string>
     <string name="cmremix_np_title">DRAWER</string>
+    <string name="cmremix_fp_title">Fingerprint settings</string>
+    <string name="cmremix_fp_summary">Customize various options for the fingerpint sensor</string>
+    <string name="cmremix_sound_title">Headset</string>
+    <string name="cmremix_sound_summary">Customize your wired headset settings</string>
 
     <!-- Statusbar CMRemix logo -->
     <string name="status_bar_cmremix_logo_title">CMRemix logo</string>
@@ -316,6 +320,10 @@
    <!-- Force expanded notifications -->
    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
+
+    <!-- Disabling FC notifications -->
+    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
+    <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
 
    <!-- Disabling immersive mode messages -->
    <string name="disable_immersive_message_title">Disable Immersive Mode Messages</string>
@@ -1908,7 +1916,7 @@
     <string name="recent_app_sidebar_open_simultaneously_summary">Reduce recents opening lag by disabling this</string>
 
     <!-- Screen state service -->
-    <string name="screen_state_toggles_summary">@null</string>
+    <string name="screen_state_toggles_summary">Choose a set of actions when you turn your screen off.</string>
     <string name="screen_state_toggles_title">Suspend actions</string>
     <string name="screen_state_toggles_enable_title">Enable</string>
     <string name="screen_state_toggles_enable_summary">Actions will be executed on screen off. On screen on the previous state will be restored.</string>
@@ -2221,6 +2229,10 @@
     <!-- FP gesture -->
     <string name="quick_pulldown_fp_title">Fingerprint quick pulldown</string>
     <string name="quick_pulldown_fp_summary">Expand the quick settings panel with only one swipe of the fingerprint sensor</string>
+    <string name="fp_swipe_call_actions_title">Fingerprint call gestures</string>
+    <string name="fp_swipe_call_actions_disabled">Disabled</string>
+    <string name="fp_swipe_call_actions_updown_answer_call">Swipe up or down to respond to incoming calls</string>
+    <string name="fp_swipe_call_actions_up_answer_down_silence">Swipe up to respond to incoming calls, down to silence them</string>
 
     <!-- Optional screenshot type -->
     <string name="screenshot_type_title">Screenshot type</string>
@@ -2231,6 +2243,15 @@
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_delay_title">Screenshot delay</string>
     <string name="screenshot_delay_summary">Adjust the time for when a screenshot is captured</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
+    <!--Screenshot crop and share -->
+    <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
+    <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
+
+    <!-- Interface -->
+    <string name="interface_other_title">Misc</string>
+    <string name="interface_other_summary">Customize miscellaneous contents of the interface</string>
 
     <!-- Incall vibrate options -->
     <string name="cmremix_incall">Call</string>
