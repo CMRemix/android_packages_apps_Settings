@@ -99,6 +99,13 @@
             android:defaultValue="true" />
 
         <PreferenceScreen
+            android:key="cmremix_incall"
+            android:title="@string/cmremix_incall"
+            android:summary="@string/cmremix_incall_summary"
+            android:icon="@drawable/cmremix_call_icon"
+            android:fragment="com.android.settings.cmremix.InCallSettings" />
+
+        <PreferenceScreen
             android:key="screenstate_category"
             android:title="@string/screen_state_toggles_title"
             android:icon="@drawable/cmremix_suspend_icon"
