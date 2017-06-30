@@ -18,7 +18,7 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_sound_title">
+    android:title="@string/cmremix_sound_title">
 
 
         <ListPreference

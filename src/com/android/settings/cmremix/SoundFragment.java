@@ -45,6 +45,7 @@ public class SoundFragment extends SettingsPreferenceFragment implements
     private static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
 
     private ListPreference mWiredHeadsetRingtoneFocus;
+    private ListPreference mLaunchPlayerHeadsetConnection;
 
     @Override
     protected int getMetricsCategory() {
