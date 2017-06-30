@@ -50,6 +50,11 @@
             android:defaultValue="false" />
 
         <com.android.settings.cmremix.SeekBarPreference
+            android:key="slim_recents_corner_radius"
+            android:title="@string/slim_recents_corner_radius_title"
+            android:defaultValue="true" />
+
+        <com.android.settings.cmremix.SeekBarPreference
             android:key="recent_panel_scale"
             android:title="@string/recent_panel_scale_title"
             settings:minimum="60"

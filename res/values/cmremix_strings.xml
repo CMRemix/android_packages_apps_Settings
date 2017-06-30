@@ -1870,6 +1870,7 @@
     <string name="use_slim_recents_summary">Use slim recents instead of the default recents view</string>
     <string name="slim_recents_settings_title">Slim recents settings</string>
     <string name="slim_recents_settings_summary">View the settings for slim recents</string>
+    <string name="slim_recents_corner_radius_title">Use round corners for cards</string>
     <string name="recent_panel_category">Slim recent apps panel</string>
     <string name="show_running_tasks_title">Only show running apps</string>
     <string name="recents_max_apps_title">Max allowed apps</string>
