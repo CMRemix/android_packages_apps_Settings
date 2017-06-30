@@ -76,6 +76,8 @@
     <string name="cmremix_fp_summary">Customize various options for the fingerpint sensor</string>
     <string name="cmremix_sound_title">Headset</string>
     <string name="cmremix_sound_summary">Customize your wired headset settings</string>
+    <string name="cmremix_tuner">System UI tuner</string>
+    <string name="cmremix_tuner_summary">Part of stock customizations</string>
 
     <!-- Statusbar CMRemix logo -->
     <string name="status_bar_cmremix_logo_title">CMRemix logo</string>

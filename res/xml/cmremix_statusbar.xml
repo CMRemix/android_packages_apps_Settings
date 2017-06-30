@@ -80,6 +80,14 @@
 		android:icon="@drawable/cmremix_statusbar_gestures_icon"
         android:fragment="com.android.settings.cmremix.StatusBarGestures" />
 
+    <PreferenceScreen
+        android:key="tuner_settings"
+        android:icon="@drawable/cmremix_tuner_icon"
+        android:summary="@string/cmremix_tuner_summary"
+        android:title="@string/cmremix_tuner">
+          <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
+    </PreferenceScreen>
+
    	<PreferenceScreen
         android:key="cmremix_breathing_notif"
         android:title="@string/breathing_notifications_title"
