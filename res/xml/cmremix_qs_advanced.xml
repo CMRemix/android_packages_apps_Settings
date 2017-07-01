@@ -56,6 +56,12 @@
             android:summary="@string/block_on_secure_keyguard_summary"
             android:defaultValue="false"/>
 
+        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_warnings"
+            android:title="@string/qs_footer_warnings_title"
+            android:summary="@string/qs_footer_warnings_summary"
+            android:defaultValue="true" />
+
       <PreferenceCategory
         android:key="weather_category"
         android:title="@string/weather_title" >
