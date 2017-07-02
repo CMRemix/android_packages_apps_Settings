@@ -121,7 +121,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              @Override
              public void onClick(View v) {
              Intent fabIntent = new Intent();
-             fabIntent.setClassName("com.cmremix.updater", "com.cmremix.updater.UpdatesSettings");
+             fabIntent.setClassName("com.fusionjack.slimota", "com.fusionjack.slimota.MainActivity");
              startActivity(fabIntent);
              }
         });
