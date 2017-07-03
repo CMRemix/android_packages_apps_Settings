@@ -40,8 +40,8 @@
                 android:icon="@drawable/ic_settings_cmremixupdater"
                 android:summary="@string/cmremixupdate_settings_summary">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.fusionjack.slimota"
-                    android:targetClass="com.fusionjack.slimota.MainActivity" />
+                    android:targetPackage="com.cmremix.cmremixota"
+                    android:targetClass="com.cmremix.cmremixota.MainActivity" />
         </PreferenceScreen>
 
         <!-- CMRemix Change Log -->
