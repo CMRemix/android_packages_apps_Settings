@@ -2336,4 +2336,9 @@
     <string name="show_enter_key_title">Show enter key</string>
     <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
 
+    <string name="status_bar_pulse_charging_battery_title">Pulse battery icon when charging</string>
+    <string name="status_bar_pulse_charging_battery_summary_off">Only solid battery style will have pulsing icon</string>
+    <string name="status_bar_pulse_charging_battery_summary_on">All battery styles will show pulsing animation</string>
+
+
 </resources>
