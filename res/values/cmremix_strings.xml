@@ -1052,12 +1052,15 @@
     <string name="status_bar_am_pm_hidden">Hidden</string>
 
     <!-- Status bar - Battery -->
-    <string name="status_bar_battery_style_title">Battery status style</string>
+    <string name="status_bar_battery_style_title">Statusbar battery style</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
     <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
+
+    <string name="battery_tile_style_title">Battery tile style</string>
+    <string name="status_bar_battery_style_tile_summary">Allow to set the same icon style chosen for the statusbar battery</string>
 
     <!-- Status bar - Battery percentage -->
     <string name="status_bar_battery_percentage_title">Battery percentage</string>
@@ -2310,8 +2313,5 @@
     <!-- QS footer warnings -->
     <string name="qs_footer_warnings_title">QS footer warnings</string>
     <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
-
-    <string name="status_bar_battery_style_tile_title">Custom battery tile style</string>
-    <string name="status_bar_battery_style_tile_summary">Allow to set the same icon style chosen for the statusbar battery</string>
 
 </resources>
