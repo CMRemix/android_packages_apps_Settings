@@ -2302,9 +2302,11 @@
     <string name="nav_button_sounds_title">Touch sounds</string>
     <string name="nav_button_sounds_summary">Play click sound when tapping smartbar.Ringer/loud mode only</string>
 
-
     <!-- QS footer warnings -->
     <string name="qs_footer_warnings_title">QS footer warnings</string>
     <string name="qs_footer_warnings_summary">Display a warning at bottom of QS panel when network is monitored by external apps or vpn</string>
+
+    <string name="status_bar_battery_style_tile_title">Custom battery tile style</string>
+    <string name="status_bar_battery_style_tile_summary">Allow to set the same icon style chosen for the statusbar battery</string>
 
 </resources>

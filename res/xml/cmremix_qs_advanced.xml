@@ -62,6 +62,12 @@
             android:summary="@string/qs_footer_warnings_summary"
             android:defaultValue="true" />
 
+     	<com.android.settings.cmremix.Preferences.SecureSettingSwitchPreference
+            android:key="status_bar_battery_style_tile"
+            android:title="@string/status_bar_battery_style_tile_title"
+            android:summary="@string/status_bar_battery_style_tile_summary"
+            android:defaultValue="true" />
+
       <PreferenceCategory
         android:key="weather_category"
         android:title="@string/weather_title" >
