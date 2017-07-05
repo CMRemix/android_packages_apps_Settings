@@ -53,6 +53,12 @@
                 android:fragment="com.android.settings.cmremix.DashBoardSettings"/>
 
         <PreferenceScreen
+                android:key="keyboard_input_settings"
+                android:fragment="com.android.settings.cmremix.InputMethodsSettings"
+                android:title="@string/title_keyboard_input" 
+                android:icon="@drawable/cmremix_keyboard_icon"/>
+
+        <PreferenceScreen
                 android:key="doze_fragment"
                 android:title="@string/doze_title"
                 android:icon="@drawable/cmremix_ambient_display_icon"
