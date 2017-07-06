@@ -26,11 +26,11 @@
 		android:fragment="com.android.settings.cmremix.ClockSettings"
 		android:icon="@drawable/cmremix_clock_icon" />
 
-    <PreferenceScreen
+    <!--<PreferenceScreen
         android:key="cmremix_logo"
         android:title="@string/status_bar_logo_title"
 		android:fragment="com.android.settings.cmremix.LogoSettings"
-		android:icon="@drawable/cmremix_statusbar_logo_icon" />
+		android:icon="@drawable/cmremix_statusbar_logo_icon" />-->
 
     <PreferenceScreen
         android:key="custom_logo"
