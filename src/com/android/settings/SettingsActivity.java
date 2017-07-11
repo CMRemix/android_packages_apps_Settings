@@ -1129,6 +1129,10 @@ public class SettingsActivity extends SettingsDrawerActivity
                 pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH), isAdmin, pm);
 
         setTileEnabled(new ComponentName(packageName,
+                        Settings.GesturesSettingsActivity.class.getName()),
+                GesturesSettings.supportsGestures(this), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
                 Settings.DataUsageSummaryActivity.class.getName()),
                 Utils.isBandwidthControlEnabled(), isAdmin, pm);
 

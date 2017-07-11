@@ -169,17 +169,17 @@ public final class GesturePreference extends SwitchPreference {
         super.onDetached();
     }
 
-    public void setScrolling(boolean scrolling) {
+    void setScrolling(boolean scrolling) {
         mScrolling = scrolling;
     }
 
-    public void onViewVisible() {
+    void onViewVisible() {
         if (mVideoReady && mMediaPlayer != null && !mMediaPlayer.isPlaying()) {
             mMediaPlayer.seekTo(0);
         }
     }
 
-    public void onViewInvisible() {
+    void onViewInvisible() {
         if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
             mMediaPlayer.pause();
         }
