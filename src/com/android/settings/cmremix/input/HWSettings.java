@@ -366,7 +366,7 @@ public class HWSettings extends ActionFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.CMREMIX;
 	}
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {

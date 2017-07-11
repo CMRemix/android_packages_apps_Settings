@@ -346,20 +346,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     ? (ScreenType.isTablet(getActivity()) ? 2 : 1) : 0;
             CMSettings.System.putInt(getActivity().getContentResolver(),
                     CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
-        } else if (preference == mDisableNavigationKeys) {
-            mDisableNavigationKeys.setEnabled(false);
-            mNavigationPreferencesCat.setEnabled(false);
-            writeDisableNavkeysOption(getActivity(), mDisableNavigationKeys.isChecked());
-            updateDisableNavkeysOption();
-            updateDisableNavkeysCategories(true);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mDisableNavigationKeys.setEnabled(true);
-                    mNavigationPreferencesCat.setEnabled(mDisableNavigationKeys.isChecked());
-                    updateDisableNavkeysCategories(mDisableNavigationKeys.isChecked());
-                }
-            }, 1000);
         } else if (preference == mPowerEndCall) {
             handleTogglePowerButtonEndsCallPreferenceClick();
             return true;
@@ -400,6 +386,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.CMREMIX;
+        return MetricsEvent.RESURRECTED;
 	}
 }

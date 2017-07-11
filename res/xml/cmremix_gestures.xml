@@ -46,12 +46,6 @@
             android:fragment="com.android.settings.cmremix.pie.PieControl"
             android:icon="@drawable/cmremix_pie_icon" />
 
-       <PreferenceScreen
-            android:key="GesturesSettings"
-            android:title="@string/gestures_settings_title"
-            android:fragment="com.android.settings.cmremix.GesturesSettings"
-            android:icon="@drawable/ic_settings_offscreen_gestures" />
-
        <!-- Three-fingers-swipe to screenshot -->
        <com.android.settings.cmremix.Preferences.SystemSettingSwitchPreference
             android:key="three_finger_gesture"

@@ -1913,11 +1913,6 @@
     <string name="pa_pie_always_right_title">Pie always on the right</string>
     <string name="pa_pie_always_right_summary">Pie will be always shown on the right while in landscape</string>
 
-    <!-- Gestures Settings -->
-    <string name="gestures_settings_title">Gestures</string>
-    <string name="system_gestures_title">System gestures</string>
-    <string name="keywords_gestures">screen touchscreen draw swipe finger</string>
-
     <string name="gestures_double_tap">Double-tap</string>
     <string name="gestures_draw_v">Draw V</string>
     <string name="gestures_draw_inverse_v">Draw Inverse V</string>
