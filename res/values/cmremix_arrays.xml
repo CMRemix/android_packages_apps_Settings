@@ -1635,8 +1635,8 @@
     </string-array>
 
     <string-array name="systemui_navbar_settings_fragments" translatable="false">
-        <item>com.android.settings.rr.navbar.SmartbarSettings</item>
-        <item>com.android.settings.rr.navbar.FlingSettings</item>
+        <item>com.android.settings.cmremix.navbar.SmartbarSettings</item>
+        <item>com.android.settings.cmremix.navbar.FlingSettings</item>
     </string-array>
 
     <string-array name="systemui_navbar_mode_settings">
