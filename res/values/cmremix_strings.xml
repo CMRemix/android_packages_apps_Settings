@@ -2082,11 +2082,6 @@
     <string name="blur_cat_notice">Notice</string>
     <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
 
-
-	<!-- Ability to disable hardware keys via nav bar settings -->	
-	<string name="hw_keys_title">Hardware keys</string>
-	<string name="hw_keys_summary">Enable hardware keys</string>
-
     <string name="heads_up_settings">Heads Up</string>
 
     <!-- Lockscreen battery info indicator  -->

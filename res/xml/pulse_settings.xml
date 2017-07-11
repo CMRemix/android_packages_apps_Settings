@@ -113,6 +113,7 @@
                 android:title="@string/lavamp_solid_speed_title"
                 settings:max="30000"
                 settings:minimum="200"
+                settings:interval="200"
                 settings:units="ms"
                 android:dependency="eos_fling_show_pulse" />
 
@@ -160,6 +161,7 @@
             android:title="@string/lavamp_solid_speed_title"
             settings:max="30000"
             settings:minimum="200"
+            settings:interval="200"
             settings:units="ms"
             android:dependency="eos_fling_show_pulse" />
 	</PreferenceCategory>
