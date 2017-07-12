@@ -249,6 +249,8 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
+    private static final String THEMES_FRAGMENT = "com.android.settings.Themes";
+
     private String mFragmentClass;
     private String mActivityAction;
 
@@ -1080,6 +1082,12 @@ public class SettingsActivity extends SettingsDrawerActivity
             startActivity(kaIntent);
             finish();
             return null;
+        } else if (THEMES_FRAGMENT.equals(fragmentName)) {
+            Intent themesIntent = new Intent();
+            themesIntent.setClassName("projekt.substratum", "projekt.substratum.LaunchActivity");
+            startActivity(themesIntent);
+            finish();
+            return null;
         }
 
         Fragment f = Fragment.instantiate(this, fragmentName, args);
@@ -1179,6 +1187,15 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.KActivity.class.getName()),
                 kapresent, isAdmin, pm);
+
+        boolean themesSupported = false;
+        try {
+            themesSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.ThemesActivity.class.getName()),
+                themesSupported, isAdmin, pm);
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);

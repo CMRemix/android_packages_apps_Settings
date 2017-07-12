@@ -161,6 +161,19 @@
 	<string name="entries">Entries</string>
     <string name="restart_systemui">Restart UI</string>
 
+    <!--CMRemix Configurations-->
+    <string name="fab_updates">Updates</string>
+    <string name="fab_restartui">Restart UI</string>
+    <string name="fab_reset">Reset</string>
+    <string name="fab_about">About CMRemix</string>
+    <string name="fab_layout">Update layout</string>
+    <string name="fab_layout_update">Toggle marshmallow layout</string>
+    <string name="fab_layout_toggle">Toggle nougat layout</string>
+    <string name="cmremix_reset_message">Reset all configurations to default values?</string>
+    <string name="cmremix_reset_settings">Reset settings</string>
+    <string name="cmremix_reset_yes">Yes</string>
+    <string name="cmremix_reset_cencel">Cencel</string>
+
     <!--CMRemix Configurations Summaries-->
     <string name="clock_custom_summary">Customize various elements of the statusbar clock and date</string>
     <string name="status_bar_logo_summary">Enable or disable Resurrection logo in statusbar .Customize its elements and position</string>
@@ -2397,5 +2410,9 @@
     <string name="button_light_press_title">Light buttons on touch</string>
     <string name="button_light_press_summary_off">Buttons will light up anytime when screen input is detected.</string>
     <string name="button_light_press_summary_on">Buttons will light up only if hw keys are pressed.</string>
+
+    <!-- Themes -->
+    <string name="themes_title">Themes</string>
+    <string name="themes_dashboard_summary">Manage your themes</string>
 
 </resources>

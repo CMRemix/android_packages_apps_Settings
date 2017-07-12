@@ -322,7 +322,7 @@
 
     <array name="color_picker_darkkat_palette">
         <item>@color/black</item>
-        <item>@color/background_darkkat_blue_grey</item>
+        <item>@color/background_blue_grey</item>
         <item>@color/holo_blue_light</item>
         <item>@color/material_deep_teal_500</item>
         <item>@color/white</item>
