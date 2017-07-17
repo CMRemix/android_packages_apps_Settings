@@ -2415,4 +2415,7 @@
     <string name="themes_title">Themes</string>
     <string name="themes_dashboard_summary">Manage your themes</string>
 
+    <string name="lockscreen_alpha">Lockscreen alpha</string>
+    <string name="lockscreen_security_alpha">Lockscreen bouncer alpha</string>
+
 </resources>
